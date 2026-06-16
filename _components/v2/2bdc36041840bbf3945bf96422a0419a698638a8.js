@@ -2931,7 +2931,6 @@ function jn() {
           ] }),
           /* @__PURE__ */ e(D, { to: "/account", className: "text-gray-300 hover:text-white", children: /* @__PURE__ */ e(X, { className: "w-5 h-5" }) })
         ] }) : /* @__PURE__ */ o(P, { children: [
-          /* @__PURE__ */ e("button", { className: "text-gray-300 hover:text-white", children: /* @__PURE__ */ e(te, { className: "w-4 h-4" }) }),
           /* @__PURE__ */ o("div", { className: "relative", onMouseEnter: () => c(!0), onMouseLeave: () => c(!1), children: [
             /* @__PURE__ */ o("button", { className: "text-gray-300 hover:text-white flex items-center gap-1", children: [
               /* @__PURE__ */ e(cn, { className: "w-4 h-4" }),
