@@ -19,18 +19,15 @@
     }
   </script>
   <style>
-    @keyframes ticker {
-      0% { transform: translateX(100vw); }
-      100% { transform: translateX(-100%); }
-    }
-    .ticker-anim { animation: ticker 30s linear infinite; white-space: nowrap; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-ticker { animation: ticker 30s linear infinite; display:inline-flex; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .fade-in { animation: fadeIn 0.3s ease; }
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: #0f1419; }
     ::-webkit-scrollbar-thumb { background: #374151; border-radius: 2px; }
-    .scroll-hide::-webkit-scrollbar { display: none; }
-    .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     * { box-sizing: border-box; }
   </style>
 </head>
@@ -91,20 +88,41 @@ const hotGamesPage = Array.from({length:12}, (_, i) => ({
 }));
 
 const gameCategoryItems = [
-  { image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-200", label:"Mega Fortune" },
-  { image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-200", label:"Starburst" },
-  { image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-200", label:"Book of Dead" },
-  { image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-200", label:"Gonzo Quest" },
-  { image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-200", label:"Gates of Olympus" }
+  { image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-200", label:"Mega Fortune",   category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-200", label:"Starburst",      category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-200", label:"Limbo",          category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-200", label:"Mines",          category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-200", label:"Plinko",         category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-200", label:"Dice",           category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-200", label:"Tower",          category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-200", label:"Keno",           category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-200", label:"Hilo",           category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-200", label:"Wheel",          category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-200", label:"Crash",          category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-200", label:"Coin Flip",      category:"mini" },
+  { image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-200", label:"Book of Dead",   category:"slot" },
+  { image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-200", label:"Gonzo Quest",    category:"slot" },
+  { image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-200", label:"Wolf Gold",      category:"slot" },
+  { image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-200", label:"Sweet Bonanza",  category:"slot" },
+  { image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-200", label:"Gates of Olympus",category:"slot"},
+  { image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-200", label:"Big Bass Bonanza",category:"slot"},
+  { image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-200", label:"Live Roulette",  category:"live" },
+  { image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-200", label:"Live Blackjack", category:"live" },
+  { image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-200", label:"Live Baccarat",  category:"live" },
+  { image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-200", label:"Lightning Roulette",category:"live"},
+  { image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-200", label:"Mega Ball",      category:"live" },
+  { image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-200", label:"Crazy Time",     category:"live" }
 ];
 
 const sportsMatches = [
-  { team1:"Manchester United", team2:"Liverpool",    score1:"2", score2:"1",   time:"Live 67'", league:"Premier League" },
-  { team1:"Lakers",            team2:"Warriors",     score1:"98",score2:"105", time:"Live Q3",  league:"NBA" },
-  { team1:"Real Madrid",       team2:"Barcelona",    score1:"1", score2:"1",   time:"Live 82'", league:"La Liga" },
-  { team1:"Yankees",           team2:"Red Sox",      score1:"4", score2:"3",   time:"Live 7th", league:"MLB" },
-  { team1:"PSG",               team2:"Bayern Munich",score1:"3", score2:"2",   time:"Live 55'", league:"Champions League" },
-  { team1:"Celtics",           team2:"Heat",         score1:"102",score2:"99", time:"Live Q4",  league:"NBA" }
+  { team1:"Manchester United", team2:"Liverpool",    score1:"2",  score2:"1",   time:"Live 67'", league:"Premier League",   icon1:"MU",  icon2:"LIV" },
+  { team1:"Lakers",            team2:"Warriors",     score1:"98", score2:"105", time:"Live Q3",  league:"NBA",              icon1:"LAL", icon2:"GSW" },
+  { team1:"Real Madrid",       team2:"Barcelona",    score1:"1",  score2:"1",   time:"Live 82'", league:"La Liga",          icon1:"RMA", icon2:"FCB" },
+  { team1:"Yankees",           team2:"Red Sox",      score1:"4",  score2:"3",   time:"Live 7th", league:"MLB",              icon1:"NYY", icon2:"BOS" },
+  { team1:"PSG",               team2:"Bayern Munich",score1:"3",  score2:"2",   time:"Live 55'", league:"Champions League", icon1:"PSG", icon2:"FCB" },
+  { team1:"Celtics",           team2:"Heat",         score1:"102",score2:"99",  time:"Live Q4",  league:"NBA",              icon1:"BOS", icon2:"MIA" },
+  { team1:"Arsenal",           team2:"Chelsea",      score1:"1",  score2:"0",   time:"Live 78'", league:"Premier League",   icon1:"ARS", icon2:"CHE" },
+  { team1:"Juventus",          team2:"Inter Milan",  score1:"0",  score2:"0",   time:"Live 23'", league:"Serie A",          icon1:"JUV", icon2:"INT" }
 ];
 
 const promotionEvents = [
@@ -182,6 +200,7 @@ const state = {
   gameCatProgress: 0,
   miniCat: 'all',
   promoTab: 'event',
+  homePromoTab: 'event',
   depositAmount: '10000',
   depositCustom: '',
   depositPromo: '',
@@ -313,7 +332,7 @@ function renderSubHeader() {
 
 function renderSidebar() {
   return `
-  <aside class="hidden md:flex w-56 flex-shrink-0 bg-[#131b21] flex-col py-4 border-r border-gray-800">
+  <aside class="hidden md:flex w-56 flex-shrink-0 bg-[#1a2128] flex-col py-4 border-r border-gray-800">
     ${sidebarMenu.map(item => `
       <a href="#${item.path}"
          class="flex items-center gap-3 px-4 py-3 text-sm transition-colors ${state.page === item.path ? 'text-[#98E7D2] bg-[#98E7D2]/10 border-r-2 border-[#98E7D2]' : 'text-gray-400 hover:text-white hover:bg-white/5'}">
@@ -329,7 +348,7 @@ function renderSidebar() {
     ${state.mobileSidebarOpen ? `
     <div class="fixed inset-0 z-[200]">
       <div class="absolute inset-0 bg-black/60" onclick="toggleMobileSidebar()"></div>
-      <div class="absolute top-0 left-0 bottom-0 w-64 bg-[#131b21] flex flex-col shadow-2xl">
+      <div class="absolute top-0 left-0 bottom-0 w-64 bg-[#1a2128] flex flex-col shadow-2xl">
         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-800">
           <span class="text-white text-lg font-semibold">Menu</span>
           <button onclick="toggleMobileSidebar()" class="text-gray-400 hover:text-white">${icons.x}</button>
@@ -371,18 +390,20 @@ function renderBottomNav() {
 
 function renderFooter() {
   return `
-  <footer class="bg-[#131b21] border-t border-gray-800 py-8 md:py-12 pb-20 md:pb-12">
-    <div class="container mx-auto px-4 text-center">
-      <img src="${LOGO_SRC}" alt="Logo" class="h-10 mix-blend-lighten mx-auto mb-4" />
-      <p class="text-gray-500 text-xs md:text-sm mb-3 max-w-2xl mx-auto">
-        This website is operated by win10069 and is only intended for users above the age of 18.
-        Please gamble responsibly. Gambling can be addictive; if you need help, please contact support.
-      </p>
-      <p class="text-gray-600 text-xs mb-3">
-        By accessing, continuing to use or navigating throughout this site you accept that we will use
-        certain browser cookies to improve your customer experience with us.
-      </p>
-      <p class="text-gray-500 text-sm">win10069 © All rights reserved and protected by law</p>
+  <footer class="bg-[#1a2128] py-16 pb-24 md:pb-16">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center">
+        <div class="mb-8">
+          <div class="text-center">
+            <img src="${LOGO_SRC}" alt="WIN100% Logo" class="h-16 md:h-20 mix-blend-lighten" />
+          </div>
+        </div>
+        <div class="max-w-4xl mx-auto text-center mb-8">
+          <p class="text-gray-400 text-sm leading-relaxed mb-2">Gambling can be addictive, please play responsibly. For information on support measures, please visit our Responsible Gambling Help page.</p>
+          <p class="text-gray-400 text-sm leading-relaxed">By accessing, continuing to use or navigating throughout this site you accept that we will use certain browser cookies to improve your customer experience with us.</p>
+        </div>
+        <div class="text-gray-500 text-sm">win10069 © All rights reserved and protected by law</div>
+      </div>
     </div>
   </footer>`;
 }
@@ -408,87 +429,100 @@ function renderBanner() {
       </div>
     </div>
     <!-- Dots -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
       ${banners.map((_, i) => `
         <button onclick="setBannerIndex(${i})"
                 class="rounded-full transition-all cursor-pointer"
-                style="width:${i===state.bannerIndex?20:8}px;height:10px;background:${i===state.bannerIndex ? b.decorColor : 'rgba(255,255,255,0.3)'};padding:4px;box-sizing:content-box;">
+                style="width:${i===state.bannerIndex?28:14}px;height:14px;background:${i===state.bannerIndex ? b.decorColor : 'rgba(255,255,255,0.3)'};">
         </button>`).join('')}
     </div>
   </section>`;
 }
 
 function renderTicker() {
-  const text = tickerItems.map(t =>
-    `<span class="mx-8"><span style="color:#98E7D2;">${t.user}</span> won <span class="text-white font-semibold">${t.amount}</span> on ${t.game}</span>`
+  const items = [...tickerItems, ...tickerItems];
+  const text = items.map((t, i) =>
+    `<span class="text-xs text-gray-400 px-4 flex-shrink-0">Congratulations <span style="color:#98E7D2;">${t.user}</span> winning <span class="text-white">${t.amount}</span> in ${t.game}<span class="mx-3" style="color:#374151;">·</span></span>`
   ).join('');
   return `
-  <div class="bg-[#131b21] border-b border-gray-800 py-2 overflow-hidden">
-    <div class="ticker-anim text-gray-400 text-sm inline-block">
-      🏆 ${text} 🏆 ${text}
+  <div class="bg-[#131b21] border-y border-gray-800 py-2 overflow-hidden">
+    <div class="overflow-hidden">
+      <div class="animate-ticker whitespace-nowrap">${text}</div>
     </div>
   </div>`;
 }
 
 function renderHotGamesSection() {
   return `
-  <section class="py-8 bg-[#0f1419]">
+  <section class="py-6 bg-[#0f1419]">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-white text-xl font-semibold">🔥 Hot Games</h2>
-        <a href="#hot-games" class="text-[#98E7D2] text-sm hover:opacity-80">Show all</a>
-      </div>
-      <div class="relative">
-        <div id="hotGamesScroll" class="flex gap-3 overflow-x-auto scroll-hide pb-2">
-          ${hotGamesHome.map(g => `
-            <div class="flex-shrink-0 w-28 md:w-36 cursor-pointer group">
-              <div class="relative rounded-xl overflow-hidden aspect-[3/4] bg-[#1a2128]">
-                <img src="${g.image}" alt="${g.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-xs text-[#98E7D2] font-semibold">${g.badge}</div>
-              </div>
-              <p class="text-white text-xs mt-1 truncate">${g.title}</p>
-              <p class="text-gray-500 text-xs truncate">${g.provider}</p>
-            </div>`).join('')}
+        <h2 class="text-white flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-orange-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-5 5.5-5 10a5 5 0 0 0 10 0C17 7.5 12 2 12 2z"/></svg>
+          <span class="text-base md:text-lg">Hot Games</span>
+        </h2>
+        <div class="flex items-center gap-2">
+          <a href="#hot-games" class="text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors">Show all</a>
+          <button onclick="document.getElementById('hotGamesScroll').scrollBy({left:-300,behavior:'smooth'})" class="text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors">${icons.chevL}</button>
+          <button onclick="document.getElementById('hotGamesScroll').scrollBy({left:300,behavior:'smooth'})" class="text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors">${icons.chevR}</button>
         </div>
-        <button onclick="document.getElementById('hotGamesScroll').scrollBy({left:-200,behavior:'smooth'})"
-                class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-8 h-8 bg-[#1a2128] border border-gray-700 rounded-full items-center justify-center text-gray-400 hover:text-white">
-          ${icons.chevL}
-        </button>
-        <button onclick="document.getElementById('hotGamesScroll').scrollBy({left:200,behavior:'smooth'})"
-                class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-8 h-8 bg-[#1a2128] border border-gray-700 rounded-full items-center justify-center text-gray-400 hover:text-white">
-          ${icons.chevR}
-        </button>
+      </div>
+      <div id="hotGamesScroll" class="flex overflow-x-auto gap-3 snap-x snap-mandatory scrollbar-hide pb-2">
+        ${hotGamesHome.map((g, i) => `
+          <div class="flex-shrink-0 w-[130px] md:w-[150px] snap-start cursor-pointer group">
+            <div class="relative rounded-xl overflow-hidden bg-[#1a2128]" style="height:170px;">
+              <img src="${g.image}" alt="${g.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div class="absolute top-2 left-2 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded">${g.badge}</div>
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 text-xs px-3 py-1.5 rounded-lg">Play Now</button>
+              </div>
+            </div>
+            <div class="mt-1.5">
+              <p class="text-white text-xs truncate">${g.title}</p>
+              <p class="text-gray-500 text-[10px] truncate">${g.provider}</p>
+            </div>
+          </div>`).join('')}
       </div>
     </div>
   </section>`;
 }
 
 function renderGameCategories() {
-  const cats = ['Mini', 'Slot', 'Live'];
+  const cats = ['mini','slot','live'];
+  const labels = {'mini':'Mini Game','slot':'Slot Game','live':'Live Game'};
   const cur = cats[state.gameCatIndex];
+  const items = gameCategoryItems.filter(g => g.category === cur);
   return `
-  <section class="py-8 bg-[#0f1419]">
+  <section class="py-12 bg-[#1a2128]">
     <div class="container mx-auto px-4">
-      <div class="flex items-center gap-4 mb-6">
-        ${cats.map((c, i) => `
-          <button onclick="setGameCat(${i})"
-                  class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${i===state.gameCatIndex ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'text-gray-400 hover:text-white'}">
-            ${c} Games
-          </button>`).join('')}
-      </div>
-      <div class="mb-3">
-        <div class="w-full bg-gray-800 rounded-full h-1">
-          <div class="h-1 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] transition-all duration-300" style="width:${state.gameCatProgress}%"></div>
+      <div class="mb-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div class="grid grid-cols-3 md:flex md:items-center md:gap-8">
+            ${cats.map((c, i) => `
+              <button onclick="setGameCat(${i})"
+                      class="pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${cur===c ? 'text-white' : 'text-gray-500 hover:text-gray-300'}">
+                <span class="text-base">${c==='mini'?'🎮':c==='slot'?'🎰':'📺'}</span>
+                <span class="text-xs md:text-base">${labels[c]}</span>
+                ${cur===c ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-700"><div class="h-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] transition-all duration-100" style="width:${state.gameCatProgress}%"></div></div>` : ''}
+              </button>`).join('')}
+          </div>
+          <div class="flex items-center justify-end gap-3">
+            <button class="text-gray-400 hover:text-white text-sm px-4 py-2 border border-gray-700 rounded-lg transition-colors">Show all</button>
+            <button onclick="document.getElementById('gameCatScroll').scrollBy({left:-400,behavior:'smooth'})" class="text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors">${icons.chevL}</button>
+            <button onclick="document.getElementById('gameCatScroll').scrollBy({left:400,behavior:'smooth'})" class="text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors">${icons.chevR}</button>
+          </div>
         </div>
       </div>
-      <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
-        ${gameCategoryItems.map(item => `
-          <div class="cursor-pointer group">
-            <div class="rounded-xl overflow-hidden aspect-square bg-[#1a2128]">
-              <img src="${item.image}" alt="${item.label}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <p class="text-white text-xs mt-1 text-center truncate">${item.label}</p>
-          </div>`).join('')}
+      <div class="overflow-hidden">
+        <div id="gameCatScroll" class="flex overflow-x-auto gap-3 snap-x snap-mandatory scrollbar-hide pb-4">
+          ${items.map((item, i) => `
+            <div class="flex-shrink-0 w-28 md:w-32 snap-start cursor-pointer group">
+              <div class="w-28 h-28 md:w-32 md:h-32 rounded-lg overflow-hidden border-2 border-gray-700 group-hover:border-[#98E7D2] transition-colors">
+                <img src="${item.image}" alt="${item.label}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 class="text-white text-xs md:text-sm text-center mt-2 truncate">${item.label}</h3>
+            </div>`).join('')}
+        </div>
       </div>
     </div>
   </section>`;
@@ -496,32 +530,86 @@ function renderGameCategories() {
 
 function renderSportsSection() {
   return `
-  <section class="py-8 bg-[#0f1419]">
+  <section class="py-6 bg-[#0f1419]">
     <div class="container mx-auto px-4">
-      <div class="bg-gradient-to-r from-blue-900 via-green-900 to-yellow-900 rounded-2xl p-6 mb-6">
-        <div class="flex items-center gap-4">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-white flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" style="color:#98E7D2;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          <span class="text-base md:text-lg">Live Sport</span>
+        </h2>
+        <div class="flex items-center gap-2">
+          <button class="text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" style="color:#98E7D2;" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            View All Live
+          </button>
+          <button onclick="document.getElementById('sportsScroll').scrollBy({left:-280,behavior:'smooth'})" class="text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors">${icons.chevL}</button>
+          <button onclick="document.getElementById('sportsScroll').scrollBy({left:280,behavior:'smooth'})" class="text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors">${icons.chevR}</button>
+        </div>
+      </div>
+      <!-- FIFA Banner -->
+      <div class="relative rounded-xl overflow-hidden mb-4" style="background:linear-gradient(135deg,#0a2010 0%,#143520 30%,#1a4a28 60%,#0f2a18 100%);min-height:160px;">
+        <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle,rgba(185,222,90,0.4) 1px,transparent 1px);background-size:20px 20px;"></div>
+        <div class="absolute top-4 left-4 flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          </div>
           <div>
-            <p class="text-yellow-400 text-xs tracking-widest mb-1">⚽ LIVE SPORTS</p>
-            <h2 class="text-white text-2xl md:text-4xl font-black">SPORTS BETTING</h2>
-            <p class="text-gray-300 text-sm mt-1">Live matches, real-time odds</p>
+            <p class="text-[#98E7D2] text-xs font-semibold">UEFA</p>
+            <p class="text-gray-400 text-[10px]">World Cup</p>
+          </div>
+        </div>
+        <div class="relative flex flex-col md:flex-row items-center justify-center md:justify-between px-6 py-10 gap-4">
+          <div class="text-center md:text-left">
+            <p class="text-gray-400 text-xs tracking-widest uppercase mb-1">The World's Biggest Event</p>
+            <h3 class="text-white text-2xl md:text-4xl mb-1" style="font-weight:900;">FIFA WORLD CUP</h3>
+            <p class="text-[#98E7D2] text-xl md:text-2xl mb-3" style="font-weight:700;">2026</p>
+            <div class="inline-block bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-1.5 rounded">
+              <span class="text-xs font-semibold">Prize Pool: </span>
+              <span class="text-sm font-bold">RM 4,700,000</span>
+            </div>
+          </div>
+          <div class="hidden md:block opacity-40">
+            <svg width="100" height="120" viewBox="0 0 120 140" fill="none">
+              <path d="M30 10 h60 v50 a30 30 0 0 1 -60 0 Z" fill="none" stroke="#B9DE5A" stroke-width="3"/>
+              <rect x="45" y="90" width="30" height="25" fill="#B9DE5A" opacity="0.6"/>
+              <rect x="30" y="115" width="60" height="8" rx="4" fill="#B9DE5A" opacity="0.8"/>
+              <path d="M10 10 h20 v30 a20 20 0 0 1 -20 0 Z" fill="none" stroke="#B9DE5A" stroke-width="2"/>
+              <path d="M90 10 h20 v30 a20 20 0 0 1 -20 0 Z" fill="none" stroke="#B9DE5A" stroke-width="2"/>
+            </svg>
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <!-- Match Cards -->
+      <div id="sportsScroll" class="flex overflow-x-auto gap-3 snap-x snap-mandatory scrollbar-hide pb-2">
         ${sportsMatches.map(m => `
-          <div class="bg-[#1a2128] border border-gray-800 rounded-xl p-4 hover:border-[#98E7D2]/30 transition-colors cursor-pointer">
-            <div class="flex justify-between items-center mb-3">
-              <span class="text-[#98E7D2] text-xs font-semibold">${m.league}</span>
-              <span class="text-red-400 text-xs animate-pulse">${m.time}</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-white text-sm font-medium">${m.team1}</span>
-              <div class="flex items-center gap-2">
-                <span class="text-white font-bold text-lg">${m.score1}</span>
-                <span class="text-gray-500">-</span>
-                <span class="text-white font-bold text-lg">${m.score2}</span>
+          <div class="flex-shrink-0 snap-start cursor-pointer bg-[#1a2128] border border-gray-800 rounded-xl hover:border-[#98E7D2] transition-colors" style="min-width:220px;">
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-gray-500 text-[10px] truncate max-w-[120px]">${m.league}</span>
+                <span class="flex items-center gap-1 text-[10px] bg-red-600/20 text-red-400 border border-red-600/30 px-1.5 py-0.5 rounded">
+                  <svg class="w-2.5 h-2.5 animate-pulse" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+                  LIVE
+                </span>
               </div>
-              <span class="text-white text-sm font-medium text-right">${m.team2}</span>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <div class="flex flex-col items-center gap-1.5 flex-1">
+                  <div class="w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center">
+                    <span class="text-[9px] text-gray-300 font-semibold">${m.icon1}</span>
+                  </div>
+                  <span class="text-white text-[10px] text-center leading-tight">${m.team1}</span>
+                </div>
+                <div class="text-center flex-shrink-0">
+                  <div class="text-[#98E7D2] text-xl font-bold leading-none">${m.score1} - ${m.score2}</div>
+                  <div class="text-gray-500 text-[10px] mt-0.5">${m.time}</div>
+                </div>
+                <div class="flex flex-col items-center gap-1.5 flex-1">
+                  <div class="w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center">
+                    <span class="text-[9px] text-gray-300 font-semibold">${m.icon2}</span>
+                  </div>
+                  <span class="text-white text-[10px] text-center leading-tight">${m.team2}</span>
+                </div>
+              </div>
+              <button class="w-full py-1.5 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]">Place Bet</button>
             </div>
           </div>`).join('')}
       </div>
@@ -529,21 +617,70 @@ function renderSportsSection() {
   </section>`;
 }
 
-function renderPromotionSection() {
+const promoData = [
+  { id:1, name:"RioBet Casino",   icon:"🎰", safetyIndex:"VERY HIGH", safetyStars:5, tab:"event" },
+  { id:2, name:"BitStarz Casino", icon:"⭐", safetyIndex:"VERY HIGH", safetyStars:5, tab:"event" },
+  { id:3, name:"IceCasino",       icon:"❄️", safetyIndex:"VERY HIGH", safetyStars:5, tab:"event" },
+  { id:4, name:"Gamdom Casino",   icon:"🎯", safetyIndex:"HIGH",      safetyStars:4, tab:"event" },
+  { id:5, name:"Lucky Casino",    icon:"🍀", safetyIndex:"HIGH",      safetyStars:4, tab:"cash" },
+  { id:6, name:"Mega Casino",     icon:"💎", safetyIndex:"VERY HIGH", safetyStars:5, tab:"cash" },
+  { id:7, name:"Star Casino",     icon:"🌟", safetyIndex:"HIGH",      safetyStars:4, tab:"cash" },
+  { id:8, name:"Royal Casino",    icon:"👑", safetyIndex:"VERY HIGH", safetyStars:5, tab:"cash" }
+];
+
+function renderPromoCard(p) {
+  const stars = Array.from({length:5}, (_,i) =>
+    `<svg class="w-3 h-3" viewBox="0 0 24 24" fill="${i < p.safetyStars ? '#98E7D2' : 'transparent'}" stroke="${i < p.safetyStars ? '#98E7D2' : '#374151'}" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+  ).join('');
   return `
-  <section class="py-8 bg-[#0f1419]">
+  <div class="bg-[#0f1419] border border-gray-800 rounded-xl overflow-hidden hover:border-[#98E7D2] transition-colors cursor-pointer group">
+    <div class="bg-[#131b21] h-28 flex items-center justify-center text-5xl border-b border-gray-800">${p.icon}</div>
+    <div class="p-4">
+      <h3 class="text-white text-sm mb-3 text-center">${p.name}</h3>
+      <div class="mb-4">
+        <p class="text-gray-500 text-[10px] text-center mb-1 uppercase tracking-wider">Safety Index:</p>
+        <div class="flex items-center justify-center gap-1 mb-1">${stars}</div>
+        <p class="text-center text-xs" style="color:#98E7D2;">${p.safetyIndex}</p>
+      </div>
+      <div class="space-y-2">
+        <button class="w-full border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 px-3 py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
+          <span>🎓</span> Expert review
+        </button>
+        <button class="w-full px-3 py-2 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]">
+          Visit Casino
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderPromotionSection() {
+  const items = promoData.filter(p => p.tab === state.homePromoTab);
+  return `
+  <section class="py-6 bg-[#1a2128]">
     <div class="container mx-auto px-4">
-      <h2 class="text-white text-xl font-semibold mb-4">🎁 Promotions</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        ${promotionEvents.slice(0,2).map(p => `
-          <div class="rounded-xl overflow-hidden relative cursor-pointer group" style="min-height:120px;">
-            <div class="absolute inset-0 bg-gradient-to-r ${p.color} opacity-80"></div>
-            <img src="${p.image}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
-            <div class="relative p-5 flex flex-col justify-end h-full" style="min-height:120px;">
-              <span class="text-xs text-white/70 font-semibold tracking-widest mb-1">${p.tag}</span>
-              <h3 class="text-white font-bold text-base">${p.title}</h3>
-            </div>
-          </div>`).join('')}
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2 md:gap-4">
+          <h2 class="text-white flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" style="color:#98E7D2;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            <span class="text-sm md:text-lg">Promotion</span>
+          </h2>
+          <div class="flex items-center gap-0.5 border border-gray-700 rounded overflow-hidden">
+            <button onclick="setHomePromoTab('event')" class="px-2 py-0.5 md:px-3 md:py-1 text-xs transition-colors ${state.homePromoTab==='event' ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'text-gray-400 hover:text-white'}">Event</button>
+            <button onclick="setHomePromoTab('cash')" class="px-2 py-0.5 md:px-3 md:py-1 text-xs transition-colors ${state.homePromoTab==='cash' ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'text-gray-400 hover:text-white'}">Cash</button>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 md:gap-2">
+          <button class="text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors hidden md:block">Show all</button>
+          <button onclick="document.getElementById('promoScroll').scrollBy({left:-300,behavior:'smooth'})" class="text-gray-400 hover:text-white p-1 md:p-1.5 border border-gray-700 rounded transition-colors">${icons.chevL}</button>
+          <button onclick="document.getElementById('promoScroll').scrollBy({left:300,behavior:'smooth'})" class="text-gray-400 hover:text-white p-1 md:p-1.5 border border-gray-700 rounded transition-colors">${icons.chevR}</button>
+        </div>
+      </div>
+      <div class="hidden md:grid md:grid-cols-4 gap-3">
+        ${items.map(p => renderPromoCard(p)).join('')}
+      </div>
+      <div id="promoScroll" class="flex md:hidden overflow-x-auto gap-3 snap-x snap-mandatory scrollbar-hide pb-2">
+        ${items.map(p => `<div class="flex-shrink-0 snap-start" style="width:220px;">${renderPromoCard(p)}</div>`).join('')}
       </div>
     </div>
   </section>`;
@@ -631,7 +768,7 @@ function pageMiniGames() {
           Favorites
         </button>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         ${games.map(g => `
           <div class="cursor-pointer group">
             <div class="rounded-xl overflow-hidden aspect-[3/4] bg-[#1a2128]">
@@ -859,7 +996,7 @@ function pageAccount() {
       <!-- User Card -->
       <div class="bg-[#1a2128] border border-gray-800 rounded-xl p-5 md:p-6 mb-6">
         <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-          <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0">
             ${icons.user}
           </div>
           <div class="flex-1">
@@ -990,6 +1127,11 @@ function setMiniCat(cat) {
 
 function setPromoTab(tab) {
   state.promoTab = tab;
+  render();
+}
+
+function setHomePromoTab(tab) {
+  state.homePromoTab = tab;
   render();
 }
 
