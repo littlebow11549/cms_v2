@@ -634,7 +634,7 @@ function pageMiniGames() {
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         ${games.map(g => `
           <div class="cursor-pointer group">
-            <div class="rounded-xl overflow-hidden aspect-video bg-[#1a2128]">
+            <div class="rounded-xl overflow-hidden aspect-[3/4] bg-[#1a2128]">
               <img src="${g.image}" alt="${g.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
             <p class="text-white text-sm mt-2 truncate">${g.name}</p>
