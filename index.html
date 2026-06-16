@@ -41,7 +41,7 @@
 // ============================================================
 // DATA
 // ============================================================
-const LOGO_SRC = '/cms_v2/_components/v2/2bdc36041840bbf3945bf96422a0419a698638a8/logo.1176bffd.png';
+const LOGO_SRC = '/cms_v2/assets/logo.png';
 
 const banners = [
   { badge:"WEEKLY RELOAD", title:"Bonus", highlight:"50%", sub:"EVERY MONDAY & FRIDAY", cta:"Claim Now", accent:"#98E7D2", decorColor:"#98E7D2", bgFrom:"#0a1f18", bgVia:"#0f2a1e" },
@@ -60,27 +60,27 @@ const tickerItems = [
 ];
 
 const hotGamesHome = [
-  { title:"Mega Fortune",    provider:"Pocket Play", badge:"BONUS 1.2", image:"/cms_v2/_external/images.unsplash.com/photo-1606167668584-78701c57f13d__w-300_h-400_fit-crop" },
-  { title:"Starburst",       provider:"NetEnt",       badge:"BONUS 1.5", image:"/cms_v2/_external/images.unsplash.com/photo-1596838132731-3301c3fd4317__w-300_h-400_fit-crop" },
-  { title:"Book of Dead",    provider:"Play'n GO",    badge:"BONUS 2.0", image:"/cms_v2/_external/images.unsplash.com/photo-1511512578047-dfb367046420__w-300_h-400_fit-crop" },
-  { title:"Gonzo Quest",     provider:"NetEnt",       badge:"BONUS 1.8", image:"/cms_v2/_external/images.unsplash.com/photo-1553481187-be93c21490a9__w-300_h-400_fit-crop" },
-  { title:"Gates of Olympus",provider:"Pragmatic",    badge:"BONUS 1.3", image:"/cms_v2/_external/images.unsplash.com/photo-1478720568477-152d9b164e26__w-300_h-400_fit-crop" },
-  { title:"Dead or Alive",   provider:"NetEnt",       badge:"BONUS 1.6", image:"/cms_v2/_external/images.unsplash.com/photo-1518895312237-a9e23508077d__w-300_h-400_fit-crop" },
-  { title:"Limbo",           provider:"Pocket Play",  badge:"BONUS 1.4", image:"/cms_v2/_external/images.unsplash.com/photo-1534620780923-1ce0db377c3f__w-300_h-400_fit-crop" },
-  { title:"Aladdin",         provider:"Pocket Play",  badge:"BONUS 1.9", image:"/cms_v2/_external/images.unsplash.com/photo-1524985069026-dd778a71c7b4__w-300_h-400_fit-crop" },
-  { title:"Wolf Gold",       provider:"Pragmatic",    badge:"BONUS 1.5", image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-300_h-400_fit-crop" },
-  { title:"Crazy Time",      provider:"Evolution",    badge:"BONUS 1.7", image:"/cms_v2/_external/images.unsplash.com/photo-1590336225155-d7e19a3a954f__w-300_h-400_fit-crop" }
+  { title:"Mega Fortune",    provider:"Pocket Play", badge:"BONUS 1.2", image:"/cms_v2/assets/images/photo-1606167668584-78701c57f13d__w-300_h-400_fit-crop" },
+  { title:"Starburst",       provider:"NetEnt",       badge:"BONUS 1.5", image:"/cms_v2/assets/images/photo-1596838132731-3301c3fd4317__w-300_h-400_fit-crop" },
+  { title:"Book of Dead",    provider:"Play'n GO",    badge:"BONUS 2.0", image:"/cms_v2/assets/images/photo-1511512578047-dfb367046420__w-300_h-400_fit-crop" },
+  { title:"Gonzo Quest",     provider:"NetEnt",       badge:"BONUS 1.8", image:"/cms_v2/assets/images/photo-1553481187-be93c21490a9__w-300_h-400_fit-crop" },
+  { title:"Gates of Olympus",provider:"Pragmatic",    badge:"BONUS 1.3", image:"/cms_v2/assets/images/photo-1478720568477-152d9b164e26__w-300_h-400_fit-crop" },
+  { title:"Dead or Alive",   provider:"NetEnt",       badge:"BONUS 1.6", image:"/cms_v2/assets/images/photo-1518895312237-a9e23508077d__w-300_h-400_fit-crop" },
+  { title:"Limbo",           provider:"Pocket Play",  badge:"BONUS 1.4", image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-300_h-400_fit-crop" },
+  { title:"Aladdin",         provider:"Pocket Play",  badge:"BONUS 1.9", image:"/cms_v2/assets/images/photo-1524985069026-dd778a71c7b4__w-300_h-400_fit-crop" },
+  { title:"Wolf Gold",       provider:"Pragmatic",    badge:"BONUS 1.5", image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-300_h-400_fit-crop" },
+  { title:"Crazy Time",      provider:"Evolution",    badge:"BONUS 1.7", image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-300_h-400_fit-crop" }
 ];
 
 const miniGames = [
-  { id:1, name:"Mega Fortune",    provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1534620780923-1ce0db377c3f__w-400", category:"all" },
-  { id:2, name:"Starburst",       provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-400", category:"favorites" },
-  { id:3, name:"Book of Dead",    provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1604028296525-8304e1a4969f__w-400", category:"all" },
-  { id:4, name:"Gonzo Quest",     provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1771775606196-70dccc0d9bde__w-400", category:"favorites" },
-  { id:5, name:"Gates of Olympus",provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1525018667593-176858caed6a__w-400", category:"all" },
-  { id:6, name:"Wolf Gold",       provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1590336225155-d7e19a3a954f__w-400", category:"all" },
-  { id:7, name:"Crazy Time",      provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1534620780923-1ce0db377c3f__w-400", category:"favorites" },
-  { id:8, name:"Dead or Alive",   provider:"Game Provider", image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-400", category:"all" }
+  { id:1, name:"Mega Fortune",    provider:"Game Provider", image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-400", category:"all" },
+  { id:2, name:"Starburst",       provider:"Game Provider", image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-400", category:"favorites" },
+  { id:3, name:"Book of Dead",    provider:"Game Provider", image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-400", category:"all" },
+  { id:4, name:"Gonzo Quest",     provider:"Game Provider", image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-400", category:"favorites" },
+  { id:5, name:"Gates of Olympus",provider:"Game Provider", image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-400", category:"all" },
+  { id:6, name:"Wolf Gold",       provider:"Game Provider", image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-400", category:"all" },
+  { id:7, name:"Crazy Time",      provider:"Game Provider", image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-400", category:"favorites" },
+  { id:8, name:"Dead or Alive",   provider:"Game Provider", image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-400", category:"all" }
 ];
 
 const hotGamesPage = Array.from({length:12}, (_, i) => ({
@@ -91,11 +91,11 @@ const hotGamesPage = Array.from({length:12}, (_, i) => ({
 }));
 
 const gameCategoryItems = [
-  { image:"/cms_v2/_external/images.unsplash.com/photo-1534620780923-1ce0db377c3f__w-200", label:"Mega Fortune" },
-  { image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-200", label:"Starburst" },
-  { image:"/cms_v2/_external/images.unsplash.com/photo-1604028296525-8304e1a4969f__w-200", label:"Book of Dead" },
-  { image:"/cms_v2/_external/images.unsplash.com/photo-1771775606196-70dccc0d9bde__w-200", label:"Gonzo Quest" },
-  { image:"/cms_v2/_external/images.unsplash.com/photo-1525018667593-176858caed6a__w-200", label:"Gates of Olympus" }
+  { image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-200", label:"Mega Fortune" },
+  { image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-200", label:"Starburst" },
+  { image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-200", label:"Book of Dead" },
+  { image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-200", label:"Gonzo Quest" },
+  { image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-200", label:"Gates of Olympus" }
 ];
 
 const sportsMatches = [
@@ -108,17 +108,17 @@ const sportsMatches = [
 ];
 
 const promotionEvents = [
-  { title:"New Sign-up First Deposit 50%", tag:"EVENT", color:"from-orange-600 to-pink-600", image:"/cms_v2/_external/images.unsplash.com/photo-1604028296525-8304e1a4969f__w-300" },
-  { title:"Weekly Reload Bonus 30%",       tag:"EVENT", color:"from-purple-600 to-blue-600",  image:"/cms_v2/_external/images.unsplash.com/photo-1771775606196-70dccc0d9bde__w-300" },
-  { title:"Cashback Monday 10%",           tag:"EVENT", color:"from-green-600 to-teal-600",   image:"/cms_v2/_external/images.unsplash.com/photo-1534620780923-1ce0db377c3f__w-300" },
-  { title:"VIP Exclusive Bonus 100%",      tag:"EVENT", color:"from-yellow-600 to-orange-600",image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-300" }
+  { title:"New Sign-up First Deposit 50%", tag:"EVENT", color:"from-orange-600 to-pink-600", image:"/cms_v2/assets/images/photo-1604028296525-8304e1a4969f__w-300" },
+  { title:"Weekly Reload Bonus 30%",       tag:"EVENT", color:"from-purple-600 to-blue-600",  image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-300" },
+  { title:"Cashback Monday 10%",           tag:"EVENT", color:"from-green-600 to-teal-600",   image:"/cms_v2/assets/images/photo-1534620780923-1ce0db377c3f__w-300" },
+  { title:"VIP Exclusive Bonus 100%",      tag:"EVENT", color:"from-yellow-600 to-orange-600",image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-300" }
 ];
 
 const promotionNews = [
-  { title:"Platform Maintenance Notice",    tag:"NEWS", color:"from-gray-600 to-gray-800",    image:"/cms_v2/_external/images.unsplash.com/photo-1590336225155-d7e19a3a954f__w-300" },
-  { title:"New Games Added This Month",     tag:"NEWS", color:"from-blue-600 to-indigo-600",  image:"/cms_v2/_external/images.unsplash.com/photo-1525018667593-176858caed6a__w-300" },
-  { title:"Holiday Season Special Offers",  tag:"NEWS", color:"from-red-600 to-pink-600",     image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-300" },
-  { title:"Responsible Gaming Guidelines",  tag:"NEWS", color:"from-teal-600 to-cyan-600",    image:"/cms_v2/_external/images.unsplash.com/photo-1771775606196-70dccc0d9bde__w-300" }
+  { title:"Platform Maintenance Notice",    tag:"NEWS", color:"from-gray-600 to-gray-800",    image:"/cms_v2/assets/images/photo-1590336225155-d7e19a3a954f__w-300" },
+  { title:"New Games Added This Month",     tag:"NEWS", color:"from-blue-600 to-indigo-600",  image:"/cms_v2/assets/images/photo-1525018667593-176858caed6a__w-300" },
+  { title:"Holiday Season Special Offers",  tag:"NEWS", color:"from-red-600 to-pink-600",     image:"/cms_v2/assets/images/photo-1604028297236-42130c7dcc3a__w-300" },
+  { title:"Responsible Gaming Guidelines",  tag:"NEWS", color:"from-teal-600 to-cyan-600",    image:"/cms_v2/assets/images/photo-1771775606196-70dccc0d9bde__w-300" }
 ];
 
 const depositAmounts = ["10000","50000","100000","500000","1000000"];
