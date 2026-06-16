@@ -128,17 +128,17 @@ const sportsMatches = [
 ];
 
 const promotionEvents = [
-  { title:"New Sign-up First Deposit 50%", tag:"EVENT", color:"from-orange-600 to-pink-600", image:"/cms_v2/_external/images.unsplash.com/photo-1604028296525-8304e1a4969f__w-300" },
-  { title:"Weekly Reload Bonus 30%",       tag:"EVENT", color:"from-purple-600 to-blue-600",  image:"/cms_v2/_external/images.unsplash.com/photo-1771775606196-70dccc0d9bde__w-300" },
-  { title:"Cashback Monday 10%",           tag:"EVENT", color:"from-green-600 to-teal-600",   image:"/cms_v2/_external/images.unsplash.com/photo-1534620780923-1ce0db377c3f__w-300" },
-  { title:"VIP Exclusive Bonus 100%",      tag:"EVENT", color:"from-yellow-600 to-orange-600",image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-300" }
+  { name:"RioBet Casino",   logo:"🎰", safetyIndex:"VERY HIGH" },
+  { name:"BitStarz Casino", logo:"⭐", safetyIndex:"VERY HIGH" },
+  { name:"IceCasino",       logo:"❄️", safetyIndex:"VERY HIGH" },
+  { name:"Gamdom Casino",   logo:"🎯", safetyIndex:"VERY HIGH" }
 ];
 
 const promotionNews = [
-  { title:"Platform Maintenance Notice",    tag:"NEWS", color:"from-gray-600 to-gray-800",    image:"/cms_v2/_external/images.unsplash.com/photo-1590336225155-d7e19a3a954f__w-300" },
-  { title:"New Games Added This Month",     tag:"NEWS", color:"from-blue-600 to-indigo-600",  image:"/cms_v2/_external/images.unsplash.com/photo-1525018667593-176858caed6a__w-300" },
-  { title:"Holiday Season Special Offers",  tag:"NEWS", color:"from-red-600 to-pink-600",     image:"/cms_v2/_external/images.unsplash.com/photo-1604028297236-42130c7dcc3a__w-300" },
-  { title:"Responsible Gaming Guidelines",  tag:"NEWS", color:"from-teal-600 to-cyan-600",    image:"/cms_v2/_external/images.unsplash.com/photo-1771775606196-70dccc0d9bde__w-300" }
+  { name:"22bet Casino",    logo:"🎲", safetyIndex:"VERY HIGH" },
+  { name:"BetFury Casino",  logo:"🔥", safetyIndex:"VERY HIGH" },
+  { name:"Lucky Casino",    logo:"🍀", safetyIndex:"HIGH" },
+  { name:"Mega Casino",     logo:"💎", safetyIndex:"VERY HIGH" }
 ];
 
 const depositAmounts = ["10000","50000","100000","500000","1000000"];
@@ -757,35 +757,57 @@ function pageMiniGames() {
   ${renderMainHeader()}
   <div class="bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 py-16 md:py-20">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-7xl text-white font-black">100% MINI GAMES</h1>
+      <h1 class="text-4xl md:text-7xl text-white mb-4">100% <span class="block md:inline">MINI GAMES</span></h1>
     </div>
   </div>
   <section class="py-8 bg-[#0f1419] min-h-screen">
     <div class="container mx-auto px-4">
-      <div class="flex items-center gap-3 mb-8">
-        <button onclick="setMiniCat('all')"
-                class="px-5 py-2 rounded-lg text-sm font-semibold transition-colors ${state.miniCat==='all' ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'bg-[#1a2128] text-gray-300 border border-gray-700 hover:border-gray-500'}">
-          All Games
-        </button>
-        <button onclick="setMiniCat('favorites')"
-                class="px-5 py-2 rounded-lg text-sm font-semibold transition-colors ${state.miniCat==='favorites' ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'bg-[#1a2128] text-gray-300 border border-gray-700 hover:border-gray-500'}">
-          Favorites
-        </button>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        ${games.map(g => `
-          <div class="cursor-pointer group">
-            <div class="rounded-xl overflow-hidden aspect-[3/4] bg-[#1a2128]">
-              <img src="${g.image}" alt="${g.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="flex flex-col gap-6">
+        <!-- Tabs -->
+        <div class="flex items-center gap-6 border-b border-gray-800">
+          <button onclick="setMiniCat('all')"
+                  class="pb-4 px-2 transition-colors relative ${state.miniCat==='all' ? 'text-[#98E7D2]' : 'text-gray-400 hover:text-gray-300'}">
+            All Games
+            ${state.miniCat==='all' ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]"></div>` : ''}
+          </button>
+          <button onclick="setMiniCat('favorites')"
+                  class="pb-4 px-2 transition-colors relative ${state.miniCat==='favorites' ? 'text-[#98E7D2]' : 'text-gray-400 hover:text-gray-300'}">
+            Favorites
+            ${state.miniCat==='favorites' ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]"></div>` : ''}
+          </button>
+        </div>
+        <!-- Search row -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <h2 class="text-white text-xl">Search Result</h2>
+          <div class="flex items-center gap-3">
+            <div class="relative flex-1 md:w-64">
+              <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <input type="text" placeholder="Search Game"
+                     class="w-full bg-[#1a2128] border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-[#98E7D2]" />
             </div>
-            <p class="text-white text-sm mt-2 truncate">${g.name}</p>
-            <p class="text-gray-500 text-xs truncate">${g.provider}</p>
-          </div>`).join('')}
-      </div>
-      <div class="text-center mt-8">
-        <button class="bg-[#1a2128] border border-gray-700 text-gray-300 px-8 py-3 rounded-lg hover:border-[#98E7D2] transition-colors">
-          Load more
-        </button>
+            <button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2">
+              ${icons.filter} <span class="hidden md:inline">Filter</span>
+            </button>
+          </div>
+        </div>
+        <!-- Game grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          ${games.map(g => `
+            <div class="bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden hover:border-[#98E7D2] transition-colors cursor-pointer group">
+              <div class="aspect-[4/3] relative overflow-hidden">
+                <img src="${g.image}" alt="${g.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div class="p-4">
+                <h3 class="text-white mb-1 truncate">${g.name}</h3>
+                <p class="text-gray-400 text-sm mb-3 truncate">${g.provider}</p>
+                <button class="w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm">Play Now</button>
+              </div>
+            </div>`).join('')}
+        </div>
+        <!-- Load more -->
+        <div class="flex justify-center mt-4">
+          <button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">Load more</button>
+        </div>
       </div>
     </div>
   </section>
@@ -818,32 +840,48 @@ function pagePromotion() {
   ${renderMainHeader()}
   <div class="bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 py-16 md:py-20">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-7xl text-white font-black">PROMOTIONS</h1>
+      <h1 class="text-4xl md:text-7xl text-white mb-4">PROMOTIONS</h1>
     </div>
   </div>
-  <section class="py-8 bg-[#0f1419] min-h-screen">
+  <section class="py-8 bg-[#0f1419] min-h-[600px]">
     <div class="container mx-auto px-4">
-      <div class="flex items-center gap-3 mb-8">
-        <button onclick="setPromoTab('event')"
-                class="px-5 py-2 rounded-lg text-sm font-semibold transition-colors ${state.promoTab==='event' ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'bg-[#1a2128] text-gray-300 border border-gray-700 hover:border-gray-500'}">
-          Event
-        </button>
-        <button onclick="setPromoTab('news')"
-                class="px-5 py-2 rounded-lg text-sm font-semibold transition-colors ${state.promoTab==='news' ? 'bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900' : 'bg-[#1a2128] text-gray-300 border border-gray-700 hover:border-gray-500'}">
-          News
-        </button>
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-8">
+          <button onclick="setPromoTab('event')"
+                  class="pb-4 px-2 transition-colors relative ${state.promoTab==='event' ? 'text-[#98E7D2]' : 'text-gray-400 hover:text-gray-300'}">
+            Event
+            ${state.promoTab==='event' ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]"></div>` : ''}
+          </button>
+          <button onclick="setPromoTab('news')"
+                  class="pb-4 px-2 transition-colors relative ${state.promoTab==='news' ? 'text-[#98E7D2]' : 'text-gray-400 hover:text-gray-300'}">
+            News
+            ${state.promoTab==='news' ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]"></div>` : ''}
+          </button>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="text-gray-400 hover:text-white px-4 py-2 border border-gray-700 rounded-lg transition-colors text-sm">Show all</button>
+          <button onclick="document.getElementById('promoPageScroll') && document.getElementById('promoPageScroll').scrollBy({left:-300,behavior:'smooth'})" class="text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors">${icons.chevL}</button>
+          <button onclick="document.getElementById('promoPageScroll') && document.getElementById('promoPageScroll').scrollBy({left:300,behavior:'smooth'})" class="text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors">${icons.chevR}</button>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        ${items.map(p => `
-          <div class="rounded-xl overflow-hidden cursor-pointer group relative" style="min-height:200px;">
-            <div class="absolute inset-0 bg-gradient-to-r ${p.color}"></div>
-            <img src="${p.image}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay group-hover:scale-105 transition-transform duration-500" />
-            <div class="relative p-6 flex flex-col justify-end" style="min-height:200px;">
-              <span class="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-2 w-fit">${p.tag}</span>
-              <h3 class="text-white font-bold text-lg leading-snug">${p.title}</h3>
-              <button class="mt-3 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-5 py-2 rounded-lg text-sm font-semibold w-fit hover:opacity-90">
-                View Details
-              </button>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        ${items.map((p, i) => `
+          <div class="bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden hover:border-[#98E7D2] transition-colors">
+            <div class="bg-black h-32 flex items-center justify-center text-5xl">${p.logo}</div>
+            <div class="p-6">
+              <h3 class="text-white text-xl mb-4 text-center">${p.name}</h3>
+              <div class="mb-6">
+                <div class="text-gray-400 text-sm text-center mb-1">SAFETY INDEX:</div>
+                <div class="text-center font-semibold" style="color:#A0E187;">${p.safetyIndex}</div>
+              </div>
+              <div class="space-y-3">
+                <button class="w-full bg-transparent border border-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                  <span class="text-lg">🎓</span> Expert review
+                </button>
+                <button class="w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 font-semibold">
+                  ${icons.globe} Visit Casino
+                </button>
+              </div>
             </div>
           </div>`).join('')}
       </div>
