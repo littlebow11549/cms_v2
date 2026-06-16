@@ -4403,7 +4403,7 @@ function uo() {
         /* @__PURE__ */ e("h1", { className: "inline-block bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg text-2xl md:text-3xl mb-6 md:mb-8 font-semibold", children: "Deposit" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
-            /* @__PURE__ */ e("div", { className: "flex justify-end mb-4", children: /* @__PURE__ */ e("button", { className: "bg-[#0f1419] border border-gray-700 text-white px-4 md:px-6 py-2 rounded-lg text-xs md:text-sm font-semibold", children: "Deposit Amount" }) }),
+            /* @__PURE__ */ e("div", { className: "flex justify-end mb-4", children: /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm md:text-base font-semibold", children: "Deposit Amount" }) }),
             /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-6", children: s.map((m) => /* @__PURE__ */ e(
               "button",
               {
