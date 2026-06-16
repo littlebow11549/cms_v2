@@ -3271,12 +3271,12 @@ function Un() {
           "button",
           {
             onClick: () => a(l),
-            className: "rounded-full transition-all cursor-pointer p-2",
+            className: "rounded-full transition-all cursor-pointer",
             style: {
-              width: l === t ? 28 : 14,
-              height: 14,
+              width: l === t ? 20 : 6,
+              height: 6,
               background: l === t ? r.decorColor : "rgba(255,255,255,0.3)",
-              padding: "8px",
+              padding: "4px",
               boxSizing: "content-box"
             }
           },
