@@ -3345,7 +3345,7 @@ function Yn() {
         /* @__PURE__ */ e("span", { className: "text-base md:text-lg", children: "Hot Games" })
       ] }),
       /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
-        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
+        /* @__PURE__ */ e(D, { to: "/hot-games", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
         /* @__PURE__ */ e("button", { onClick: () => a("left"), className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-4 h-4" }) }),
         /* @__PURE__ */ e("button", { onClick: () => a("right"), className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-4 h-4" }) })
       ] })
@@ -3438,9 +3438,9 @@ function Kn() {
     /* @__PURE__ */ e("div", { className: "mb-8", children: /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4", children: [
       /* @__PURE__ */ o("div", { className: "grid grid-cols-3 md:flex md:items-center md:gap-8", children: [
         /* @__PURE__ */ o(
-          "button",
+          D,
           {
-            onClick: () => a("mini"),
+            to: "/mini-games",
             className: `pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${t === "mini" ? "text-white" : "text-gray-500 hover:text-gray-300"}`,
             children: [
               /* @__PURE__ */ e(He, { className: "w-5 h-5 md:w-4 md:h-4" }),
@@ -3456,9 +3456,9 @@ function Kn() {
           }
         ),
         /* @__PURE__ */ o(
-          "button",
+          D,
           {
-            onClick: () => a("slot"),
+            to: "/slot",
             className: `pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${t === "slot" ? "text-white" : "text-gray-500 hover:text-gray-300"}`,
             children: [
               /* @__PURE__ */ e(Ge, { className: "w-5 h-5 md:w-4 md:h-4" }),
@@ -3474,9 +3474,9 @@ function Kn() {
           }
         ),
         /* @__PURE__ */ o(
-          "button",
+          D,
           {
-            onClick: () => a("live"),
+            to: "/live",
             className: `pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${t === "live" ? "text-white" : "text-gray-500 hover:text-gray-300"}`,
             children: [
               /* @__PURE__ */ e(Fe, { className: "w-5 h-5 md:w-4 md:h-4" }),
@@ -4188,7 +4188,7 @@ function j() {
   return /* @__PURE__ */ o(P, { children: [
     a && /* @__PURE__ */ o("div", { className: "md:hidden fixed inset-0 z-50", children: [
       /* @__PURE__ */ e("div", { className: "absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm", onClick: () => r(!1) }),
-      /* @__PURE__ */ o("aside", { className: "absolute left-0 top-0 bottom-0 w-64 bg-[#1a2128] shadow-xl", children: [
+      /* @__PURE__ */ o("aside", { className: "absolute left-0 top-0 bottom-0 w-64 bg-[#1a2128] shadow-xl animate-menu-in", children: [
         /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800", children: [
           /* @__PURE__ */ e("h2", { className: "text-white font-semibold", children: "Menu" }),
           /* @__PURE__ */ e("button", { onClick: () => r(!1), className: "text-gray-400 hover:text-white", children: /* @__PURE__ */ e(se, { className: "w-6 h-6" }) })
