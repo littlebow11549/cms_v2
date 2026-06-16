@@ -22,6 +22,8 @@
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-ticker { animation: ticker 30s linear infinite; display:inline-flex; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes tabProgress { 0% { width: 0%; } 100% { width: 100%; } }
+    .tab-progress { animation: tabProgress 10s linear forwards; }
     .fade-in { animation: fadeIn 0.3s ease; }
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: #0f1419; }
@@ -197,7 +199,6 @@ const state = {
   page: '',
   bannerIndex: 0,
   gameCatIndex: 0,
-  gameCatProgress: 0,
   miniCat: 'all',
   promoTab: 'event',
   homePromoTab: 'event',
@@ -503,7 +504,7 @@ function renderGameCategories() {
                       class="pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${cur===c ? 'text-white' : 'text-gray-500 hover:text-gray-300'}">
                 <span class="text-base">${c==='mini'?'🎮':c==='slot'?'🎰':'📺'}</span>
                 <span class="text-xs md:text-base">${labels[c]}</span>
-                ${cur===c ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-700"><div class="h-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] transition-all duration-100" style="width:${state.gameCatProgress}%"></div></div>` : ''}
+                ${cur===c ? `<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-700"><div class="h-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] tab-progress" onanimationend="advanceGameCat()"></div></div>` : ''}
               </button>`).join('')}
           </div>
           <div class="flex items-center justify-end gap-3">
@@ -1183,8 +1184,12 @@ function toggleMobileSidebar() {
 
 function setGameCat(i) {
   state.gameCatIndex = i;
-  state.gameCatProgress = 0;
   render();
+}
+
+function advanceGameCat() {
+  state.gameCatIndex = (state.gameCatIndex + 1) % 3;
+  if (state.page === '') render();
 }
 
 function setMiniCat(cat) {
@@ -1235,16 +1240,6 @@ setInterval(() => {
   }
 }, 5000);
 
-setInterval(() => {
-  state.gameCatProgress = state.gameCatProgress >= 100 ? 0 : state.gameCatProgress + 1;
-}, 100);
-
-setInterval(() => {
-  if (state.gameCatProgress === 0) {
-    state.gameCatIndex = (state.gameCatIndex + 1) % 3;
-    if (state.page === '') render();
-  }
-}, 10000);
 
 // ============================================================
 // INIT
