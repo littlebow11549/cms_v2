@@ -4263,7 +4263,7 @@ function j() {
   ];
   const csModal = cs && /* @__PURE__ */ o("div", { className: "fixed inset-0 z-[300] flex items-center justify-center", children: [
     /* @__PURE__ */ e("div", { className: "absolute inset-0 bg-black/70", onClick: () => setCs(!1) }),
-    /* @__PURE__ */ o("div", { className: "relative bg-[#131b24] border border-gray-700 rounded-2xl w-[90vw] max-w-md shadow-2xl overflow-hidden", children: [
+    /* @__PURE__ */ o("div", { className: "relative border border-gray-700 rounded-2xl w-[90vw] max-w-md shadow-2xl overflow-hidden", style: { background: "#131b24" }, children: [
       /* @__PURE__ */ o("div", { className: "flex items-center gap-3 px-5 py-4 border-b border-gray-800", children: [
         /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-lg flex items-center justify-center", style: { background: "linear-gradient(135deg,#CBE8E4,#98E7D2)" }, children: /* @__PURE__ */ e(Ft, { className: "w-5 h-5 text-gray-900" }) }),
         /* @__PURE__ */ e("span", { className: "text-white text-lg font-bold flex-1", children: "Customer Service" }),
