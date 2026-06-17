@@ -3786,7 +3786,6 @@ function pt({ promo: t }) {
         /* @__PURE__ */ e("div", { style: { width: 16, height: 16, borderRadius: "50%", background: "linear-gradient(135deg,#98E7D2,#6dd5bd)", opacity: 0.6, marginRight: 10 } }),
         /* @__PURE__ */ e("div", { style: { width: 20, height: 20, borderRadius: "50%", background: "linear-gradient(135deg,#CBE8E4,#98E7D2)", opacity: 0.45, marginRight: 2 } })
       ] }),
-      /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0", style: { height: 2, background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" } }),
       /* @__PURE__ */ o("div", { className: "absolute inset-0 flex flex-col justify-center px-4", children: [
         /* @__PURE__ */ e("p", { className: "text-xs mb-1.5", style: { color: "#98E7D2", letterSpacing: "0.2em" }, children: "SPECIAL OFFER" }),
         /* @__PURE__ */ e("p", { className: "text-2xl font-black", style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.06em" }, children: "PROMOTION" })
@@ -3809,10 +3808,7 @@ function pt({ promo: t }) {
       ] }),
       /* @__PURE__ */ o("div", { className: "space-y-2", children: [
         /* @__PURE__ */ e("button", { className: "w-full border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 px-3 py-2 rounded-lg text-xs transition-colors flex items-center justify-center", children: "Expert review" }),
-        /* @__PURE__ */ o("button", { className: "w-full px-3 py-2 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]", children: [
-          /* @__PURE__ */ e(Tt, { className: "w-3 h-3" }),
-          "Visit Casino"
-        ] })
+        /* @__PURE__ */ e("button", { className: "w-full px-3 py-2 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 flex items-center justify-center bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]", children: "Detail" })
       ] })
     ] })
   ] });
@@ -4241,8 +4237,7 @@ function mo() {
                 /* @__PURE__ */ e("div", { style: { width: 16, height: 16, borderRadius: "50%", background: "linear-gradient(135deg,#98E7D2,#6dd5bd)", opacity: 0.6, marginRight: 10 } }),
                 /* @__PURE__ */ e("div", { style: { width: 20, height: 20, borderRadius: "50%", background: "linear-gradient(135deg,#CBE8E4,#98E7D2)", opacity: 0.45, marginRight: 2 } })
               ] }),
-              /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0", style: { height: 2, background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" } }),
-              /* @__PURE__ */ o("div", { className: "absolute inset-0 flex flex-col justify-center px-4", children: [
+                      /* @__PURE__ */ o("div", { className: "absolute inset-0 flex flex-col justify-center px-4", children: [
                 /* @__PURE__ */ e("p", { className: "text-xs mb-1.5", style: { color: "#98E7D2", letterSpacing: "0.2em" }, children: "SPECIAL OFFER" }),
                 /* @__PURE__ */ e("p", { className: "text-2xl font-black", style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.06em" }, children: "PROMOTION" })
               ] })
@@ -4255,10 +4250,7 @@ function mo() {
               ] }),
               /* @__PURE__ */ o("div", { className: "space-y-3", children: [
                 /* @__PURE__ */ e("button", { className: "w-full bg-transparent border border-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center", children: "Expert review" }),
-                /* @__PURE__ */ o("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 font-semibold", children: [
-                  /* @__PURE__ */ e(Tt, { className: "w-4 h-4" }),
-                  "Visit Casino"
-                ] })
+                /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center font-semibold", children: "Detail" })
               ] })
             ] })
           ]
