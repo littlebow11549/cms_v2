@@ -3282,7 +3282,11 @@ function Un() {
             }
           },
           l
-        )) })
+        )) }),
+        /* @__PURE__ */ o("div", { style: { position: "absolute", bottom: 12, right: 16, display: "flex", gap: 8, zIndex: 20 }, children: [
+          /* @__PURE__ */ e("button", { onClick: () => a((p) => (p - 1 + Ae.length) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "‹" }),
+          /* @__PURE__ */ e("button", { onClick: () => a((p) => (p + 1) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "›" })
+        ] })
       ]
     }
   ) });
