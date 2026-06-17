@@ -3808,10 +3808,7 @@ function pt({ promo: t }) {
         /* @__PURE__ */ e("p", { className: "text-center text-xs", style: { color: t.accent }, children: t.safetyIndex })
       ] }),
       /* @__PURE__ */ o("div", { className: "space-y-2", children: [
-        /* @__PURE__ */ o("button", { className: "w-full border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 px-3 py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-2", children: [
-          /* @__PURE__ */ e("span", { children: "🎓" }),
-          "Expert review"
-        ] }),
+        /* @__PURE__ */ e("button", { className: "w-full border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 px-3 py-2 rounded-lg text-xs transition-colors flex items-center justify-center", children: "Expert review" }),
         /* @__PURE__ */ o("button", { className: "w-full px-3 py-2 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]", children: [
           /* @__PURE__ */ e(Tt, { className: "w-3 h-3" }),
           "Visit Casino"
@@ -4257,10 +4254,7 @@ function mo() {
                 /* @__PURE__ */ e("div", { className: "text-[#A0E187] text-center font-semibold", children: n.safetyIndex })
               ] }),
               /* @__PURE__ */ o("div", { className: "space-y-3", children: [
-                /* @__PURE__ */ o("button", { className: "w-full bg-transparent border border-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2", children: [
-                  /* @__PURE__ */ e("span", { className: "text-lg", children: "🎓" }),
-                  "Expert review"
-                ] }),
+                /* @__PURE__ */ e("button", { className: "w-full bg-transparent border border-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center", children: "Expert review" }),
                 /* @__PURE__ */ o("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 font-semibold", children: [
                   /* @__PURE__ */ e(Tt, { className: "w-4 h-4" }),
                   "Visit Casino"
