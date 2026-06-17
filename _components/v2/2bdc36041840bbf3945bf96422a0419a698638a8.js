@@ -4430,7 +4430,7 @@ function uo() {
             /* @__PURE__ */ e("p", { className: "text-red-400 text-sm mt-2", children: "* Minimum Amount: ₩ 10,000;  Maximum Amount: ₩ 9,000,000 *" })
           ] }),
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
-            /* @__PURE__ */ e("button", { className: "w-full md:w-auto bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity mb-6 text-sm md:text-base font-semibold", children: "Choose promotion" }),
+            /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity mb-6 text-sm md:text-base font-semibold", children: "Choose promotion" }),
             /* @__PURE__ */ e("div", { className: "space-y-4", children: c.map((m) => /* @__PURE__ */ e(
               "div",
               {
