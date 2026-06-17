@@ -4536,7 +4536,7 @@ function po() {
             /* @__PURE__ */ o("div", { className: "bg-[#0f1419] border border-gray-800 rounded-lg p-6 md:p-12 text-center", children: [
               /* @__PURE__ */ e("div", { className: "flex justify-center mb-4", children: /* @__PURE__ */ e("div", { className: "w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#1a2128] border-2 border-dashed border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e(Ot, { className: "w-10 h-10 md:w-12 md:h-12 text-gray-600" }) }) }),
               /* @__PURE__ */ e("h3", { className: "text-white text-base md:text-lg font-semibold mb-4", children: "Empty Bank Account" }),
-              /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#f4e185] to-[#f4d85a] text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity font-semibold text-sm md:text-base", children: "Add Account" })
+              /* @__PURE__ */ e("button", { className: "px-6 py-2 rounded-lg hover:opacity-90 transition-opacity font-semibold text-sm md:text-base", style: { background: "#313E40", color: "#AAE5D3" }, children: "Add Account" })
             ] }),
             /* @__PURE__ */ o("button", { className: "flex items-center gap-2 text-gray-400 hover:text-white mt-4 transition-colors", children: [
               /* @__PURE__ */ e(kn, { className: "w-4 h-4" }),
@@ -4706,7 +4706,7 @@ function fo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Deposit Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex flex-col gap-2", children: [
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex md:hidden flex-col gap-2", children: [
           /* @__PURE__ */ o("div", { style: { display: "flex", flexWrap: "nowrap", gap: "8px", alignItems: "center", width: "100%" }, children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", style: { flexShrink: 0 }, children: "Status: All" }),
             /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm", style: { flex: 1, minWidth: 0 } }),
@@ -4719,6 +4719,19 @@ function fo() {
               /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
               /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
             ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 hidden md:flex flex-wrap gap-2 items-center justify-between", children: [
+          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
+            /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
+            /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
+            /* @__PURE__ */ e("input", { type: "date", value: _t, onChange: function(t) { $t(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
+          ] }),
+          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
+            /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
+            /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
           ] })
         ] }),
         /* @__PURE__ */ e("div", { className: "w-full rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
@@ -4798,7 +4811,7 @@ function fo() {
       ] })
     ] }),
     /* @__PURE__ */ e(M, {}),
-    /* @__PURE__ */ o("div", { style: { position: "fixed", bottom: "64px", left: 0, right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
+    /* @__PURE__ */ o("div", { className: "total-bar", style: { position: "fixed", right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
       /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "Total Deposit Amount" }),
       /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "350,000" })
     ] })
@@ -4893,7 +4906,7 @@ function xo() {
       ] })
     ] }),
     /* @__PURE__ */ e(M, {}),
-    /* @__PURE__ */ o("div", { style: { position: "fixed", bottom: "64px", left: 0, right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
+    /* @__PURE__ */ o("div", { className: "total-bar", style: { position: "fixed", right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
       /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "Total P&L" }),
       /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "0.00" })
     ] })
@@ -4983,7 +4996,7 @@ function yo() {
       ] })
     ] }),
     /* @__PURE__ */ e(M, {}),
-    /* @__PURE__ */ o("div", { style: { position: "fixed", bottom: "64px", left: 0, right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
+    /* @__PURE__ */ o("div", { className: "total-bar", style: { position: "fixed", right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
       /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "Total Withdrawal Amount" }),
       /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "270,000" })
     ] })

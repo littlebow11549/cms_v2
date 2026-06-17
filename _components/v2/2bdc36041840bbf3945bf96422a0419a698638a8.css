@@ -2,3 +2,6 @@
 
 @keyframes menuSlideIn{0%{transform:translateX(-100%)}70%{transform:translateX(6px)}85%{transform:translateX(-3px)}100%{transform:translateX(0)}}
 .animate-menu-in{animation:menuSlideIn 0.35s cubic-bezier(0.34,1.56,0.64,1) both}
+
+.total-bar{left:0;bottom:64px}
+@media(min-width:768px){.total-bar{left:256px;bottom:0}}
