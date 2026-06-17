@@ -3768,7 +3768,7 @@ function eo() {
         ] })
       ] }),
       /* @__PURE__ */ o("div", { className: "flex items-center gap-1 md:gap-2", children: [
-        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors hidden md:block", children: "Show all" }),
+        /* @__PURE__ */ e(D, { to: "/promotions", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors hidden md:block", children: "Show all" }),
         /* @__PURE__ */ e("button", { onClick: () => n("left"), className: "text-gray-400 hover:text-white p-1 md:p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-3 h-3 md:w-4 md:h-4" }) }),
         /* @__PURE__ */ e("button", { onClick: () => n("right"), className: "text-gray-400 hover:text-white p-1 md:p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-3 h-3 md:w-4 md:h-4" }) })
       ] })
