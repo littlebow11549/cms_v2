@@ -3570,7 +3570,7 @@ function Xn() {
         /* @__PURE__ */ e("span", { className: "text-base md:text-lg", children: "Live Sport" })
       ] }),
       /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
-        /* @__PURE__ */ o(D, { to: "/live", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors flex items-center gap-1.5", children: [
+        /* @__PURE__ */ o(D, { to: "/sport", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors flex items-center gap-1.5", children: [
           /* @__PURE__ */ e(ht, { className: "w-3 h-3 text-[#98E7D2]" }),
           "View All Live"
         ] }),
@@ -4009,7 +4009,37 @@ function oo() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "Coming Soon" }) })
+      /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", children: Jn.map((n, l) => /* @__PURE__ */ e(
+        "div",
+        {
+          className: "cursor-pointer bg-[#1a2128] border border-gray-800 rounded-xl hover:border-[#98E7D2] transition-colors",
+          children: /* @__PURE__ */ o("div", { className: "p-4", children: [
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between mb-3", children: [
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-[10px] truncate max-w-[120px]", children: n.league }),
+              /* @__PURE__ */ o("span", { className: "flex items-center gap-1 text-[10px] bg-red-600/20 text-red-400 border border-red-600/30 px-1.5 py-0.5 rounded", children: [
+                /* @__PURE__ */ e(ht, { className: "w-2.5 h-2.5 animate-pulse" }),
+                "LIVE"
+              ] })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between gap-2 mb-4", children: [
+              /* @__PURE__ */ o("div", { className: "flex flex-col items-center gap-1.5 flex-1", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "text-[9px] text-gray-300 font-semibold", children: n.icon1 }) }),
+                /* @__PURE__ */ e("span", { className: "text-white text-[10px] text-center leading-tight", children: n.team1 })
+              ] }),
+              /* @__PURE__ */ o("div", { className: "text-center flex-shrink-0", children: [
+                /* @__PURE__ */ o("div", { className: "text-[#98E7D2] text-xl font-bold leading-none", children: [n.score1, " - ", n.score2] }),
+                /* @__PURE__ */ e("div", { className: "text-gray-500 text-[10px] mt-0.5", children: n.time })
+              ] }),
+              /* @__PURE__ */ o("div", { className: "flex flex-col items-center gap-1.5 flex-1", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "text-[9px] text-gray-300 font-semibold", children: n.icon2 }) }),
+                /* @__PURE__ */ e("span", { className: "text-white text-[10px] text-center leading-tight", children: n.team2 })
+              ] })
+            ] }),
+            /* @__PURE__ */ e("button", { className: "w-full py-1.5 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]", children: "Place Bet" })
+          ] })
+        },
+        l
+      )) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
   ] });
