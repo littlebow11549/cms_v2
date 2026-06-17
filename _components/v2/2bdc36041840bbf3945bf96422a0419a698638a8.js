@@ -4736,7 +4736,7 @@ function fo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Deposit Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
           /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
             /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
