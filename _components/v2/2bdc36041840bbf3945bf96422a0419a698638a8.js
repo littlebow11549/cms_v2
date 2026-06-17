@@ -4503,7 +4503,7 @@ function po() {
                 ] })
               ] })
             ] }),
-            /* @__PURE__ */ e("button", { className: "w-full md:w-auto mx-auto block bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity mb-6 text-sm md:text-base font-semibold", children: "Withdrawal Amount & Password" }),
+            /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity mb-6 text-sm md:text-base font-semibold", children: "Withdrawal Amount & Password" }),
             /* @__PURE__ */ e("div", { className: "mb-4", children: /* @__PURE__ */ e(
               "input",
               {
