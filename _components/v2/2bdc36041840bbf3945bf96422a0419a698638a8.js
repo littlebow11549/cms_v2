@@ -3570,7 +3570,7 @@ function Xn() {
         /* @__PURE__ */ e("span", { className: "text-base md:text-lg", children: "Live Sport" })
       ] }),
       /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
-        /* @__PURE__ */ o("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors flex items-center gap-1.5", children: [
+        /* @__PURE__ */ o(D, { to: "/live", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors flex items-center gap-1.5", children: [
           /* @__PURE__ */ e(ht, { className: "w-3 h-3 text-[#98E7D2]" }),
           "View All Live"
         ] }),
