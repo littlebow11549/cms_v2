@@ -4064,7 +4064,9 @@ function Lvo() {
   ] });
 }
 function lo() {
-  const [t, a] = w("vendor");
+  const [t, a] = w("vendor"), [favIds, setFavIds] = w([]);
+  const toggleFav = (id) => setFavIds((p) => p.includes(id) ? p.filter((i) => i !== id) : [...p, id]);
+  const r = t === "vendor" ? gt : gt.filter((n) => favIds.includes(n.id));
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "FISHING GAMES" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
@@ -4077,14 +4079,7 @@ function lo() {
         /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
           /* @__PURE__ */ o("div", { className: "relative flex-1 md:w-64", children: [
             /* @__PURE__ */ e(te, { className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" }),
-            /* @__PURE__ */ e(
-              "input",
-              {
-                type: "text",
-                placeholder: "Search Game",
-                className: "w-full bg-[#1a2128] border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-[#98E7D2]"
-              }
-            )
+            /* @__PURE__ */ e("input", { type: "text", placeholder: "Search Game", className: "w-full bg-[#1a2128] border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-[#98E7D2]" })
           ] }),
           /* @__PURE__ */ o("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2", children: [
             /* @__PURE__ */ e(fe, { className: "w-4 h-4" }),
@@ -4092,13 +4087,15 @@ function lo() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "Coming Soon" }) })
+      t === "favorites" && r.length === 0 ? /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "No favorites yet. Click ★ on a game to add it here." }) }) : /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: r.map((n) => /* @__PURE__ */ e(GameCard, { game: n, isFav: favIds.includes(n.id), onToggle: () => toggleFav(n.id) }, n.id)) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
   ] });
 }
 function io() {
-  const [t, a] = w("vendor");
+  const [t, a] = w("vendor"), [favIds, setFavIds] = w([]);
+  const toggleFav = (id) => setFavIds((p) => p.includes(id) ? p.filter((i) => i !== id) : [...p, id]);
+  const r = t === "vendor" ? gt : gt.filter((n) => favIds.includes(n.id));
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-red-600 via-pink-500 to-purple-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SLOT MACHINES" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
@@ -4126,7 +4123,7 @@ function io() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "Coming Soon" }) })
+      t === "favorites" && r.length === 0 ? /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "No favorites yet. Click ★ on a game to add it here." }) }) : /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: r.map((n) => /* @__PURE__ */ e(GameCard, { game: n, isFav: favIds.includes(n.id), onToggle: () => toggleFav(n.id) }, n.id)) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
   ] });
@@ -4493,8 +4490,8 @@ function uo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Deposit" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Deposit" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
             /* @__PURE__ */ e("div", { className: "mb-4", children: /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm md:text-base font-semibold", children: "Deposit Amount" }) }),
@@ -4559,8 +4556,8 @@ function po() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Withdrawl" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Withdrawl" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
             /* @__PURE__ */ e("h2", { className: "text-white text-lg md:text-xl font-semibold mb-4", children: "My Bank Accounts" }),
@@ -4661,8 +4658,8 @@ function go() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl font-bold mb-8 w-full max-w-4xl", children: "Betting Record" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl font-bold mb-8 w-full", children: "Betting Record" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-6 flex flex-wrap gap-3 items-center", children: [
           /* @__PURE__ */ e("input", { type: "date", value: Vt, onChange: function(t) { Qt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-4 py-2.5 text-gray-300 text-sm focus:outline-none focus:border-[#98E7D2] transition-colors" }),
           /* @__PURE__ */ e("span", { className: "text-gray-500 font-light", children: "—" }),
@@ -4733,8 +4730,8 @@ function fo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Deposit Record" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Deposit Record" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
           /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
@@ -4837,8 +4834,8 @@ function xo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Profit And Loss" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Profit And Loss" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
           /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
             /* @__PURE__ */ e("input", { type: "date", value: ct, onChange: function(t) { dt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
@@ -4926,8 +4923,8 @@ function yo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Withdrawal Record" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Withdrawal Record" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
           /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
@@ -5010,8 +5007,8 @@ function bo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Account Record" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Account Record" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center", children: [
           /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
           /* @__PURE__ */ e("input", { type: "date", value: ot, onChange: function(t) { pt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
@@ -5073,8 +5070,8 @@ function vo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Personal Info" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Personal Info" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-xl p-6 w-full max-w-md", children: [
           /* @__PURE__ */ e("h2", { className: "text-white text-center font-semibold text-lg mb-5", children: "Username : PLAYER" }),
           /* @__PURE__ */ o("div", { className: "flex flex-col gap-3 mb-4", children: [
@@ -5120,8 +5117,8 @@ function No() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Security Center" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Security Center" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl", children: [
           /* @__PURE__ */ e("h2", { className: "text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2", children: "Last login" }),
           /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 mb-6", children: [
@@ -5199,9 +5196,9 @@ function wo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Customer Service" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Customer Service" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
