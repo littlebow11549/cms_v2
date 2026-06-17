@@ -4003,7 +4003,7 @@ function oo() {
     /* @__PURE__ */ e(M, {})
   ] });
 }
-function Co() {
+function Lvo() {
   const [t, a] = w("vendor");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-violet-700 via-purple-600 to-pink-600 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "LIVE CASINO GAMES" }) }) }),
@@ -4709,7 +4709,7 @@ function Eo() {
       /* @__PURE__ */ e(B, { path: "/hot-games", element: /* @__PURE__ */ e(ro, {}) }),
       /* @__PURE__ */ e(B, { path: "/mini-games", element: /* @__PURE__ */ e(no, {}) }),
       /* @__PURE__ */ e(B, { path: "/sport", element: /* @__PURE__ */ e(oo, {}) }),
-      /* @__PURE__ */ e(B, { path: "/live", element: /* @__PURE__ */ e(Co, {}) }),
+      /* @__PURE__ */ e(B, { path: "/live", element: /* @__PURE__ */ e(Lvo, {}) }),
       /* @__PURE__ */ e(B, { path: "/fish", element: /* @__PURE__ */ e(lo, {}) }),
       /* @__PURE__ */ e(B, { path: "/slot", element: /* @__PURE__ */ e(io, {}) }),
       /* @__PURE__ */ e(B, { path: "/promotion", element: /* @__PURE__ */ e(mo, {}) }),
