@@ -4996,12 +4996,14 @@ function bo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Account Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center", children: [
-          /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
-          /* @__PURE__ */ e("input", { type: "date", value: ot, onChange: function(t) { pt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-          /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
-          /* @__PURE__ */ e("input", { type: "date", value: qt, onChange: function(t) { rt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-          /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex flex-col gap-2", children: [
+          /* @__PURE__ */ o("div", { className: "w-full flex gap-2 items-center", children: [
+            /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", style: { flexShrink: 0 }, children: "Status: All" }),
+            /* @__PURE__ */ e("input", { type: "date", value: ot, onChange: function(t) { pt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm", style: { flex: 1, minWidth: 0 } }),
+            /* @__PURE__ */ e("span", { className: "text-gray-400", style: { flexShrink: 0 }, children: "~" }),
+            /* @__PURE__ */ e("input", { type: "date", value: qt, onChange: function(t) { rt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm", style: { flex: 1, minWidth: 0 } })
+          ] }),
+          /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", style: { alignSelf: "flex-start" }, children: "Confirm" })
         ] }),
         /* @__PURE__ */ e("div", { className: "w-full rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
             /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" }, children: [
