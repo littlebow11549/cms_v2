@@ -3754,7 +3754,7 @@ function eo() {
             {
               onClick: () => a("cash"),
               className: `px-2 py-0.5 md:px-3 md:py-1 text-xs transition-colors ${t === "cash" ? "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900" : "text-gray-400 hover:text-white"}`,
-              children: "Cash"
+              children: "News"
             }
           )
         ] })
