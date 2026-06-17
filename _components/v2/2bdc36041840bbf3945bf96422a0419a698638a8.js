@@ -4357,7 +4357,7 @@ function ho() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Account Overview" }),
-        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8", children: [
+        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 w-full max-w-4xl", children: [
           /* @__PURE__ */ e("div", { className: "lg:col-span-2 bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
             /* @__PURE__ */ e("div", { className: "w-20 h-20 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ e(X, { className: "w-10 h-10 text-gray-900" }) }),
             /* @__PURE__ */ o("div", { className: "flex-1 text-center md:text-left w-full", children: [
@@ -4391,7 +4391,7 @@ function ho() {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8", children: [
+        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 w-full max-w-4xl", children: [
           /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: [
             /* @__PURE__ */ e("h3", { className: "text-white text-lg font-semibold mb-4", children: "Personal Info" }),
             /* @__PURE__ */ o("div", { className: "space-y-3", children: [
@@ -4428,7 +4428,7 @@ function ho() {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: [
+        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6 w-full max-w-4xl", children: [
           /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6", children: [
             /* @__PURE__ */ e("h3", { className: "text-white text-lg font-semibold", children: "Recent Transactions" }),
             /* @__PURE__ */ e("button", { className: "text-[#98E7D2] hover:text-[#CBE8E4] text-sm transition-colors text-left md:text-right", children: "View More Records →" })
@@ -4661,65 +4661,423 @@ function po() {
   ] });
 }
 function go() {
+  const [Vt, Qt] = w(""), [Wt, Xt] = w("");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Betting Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center", children: [
+          /* @__PURE__ */ e("input", { type: "date", value: Vt, onChange: function(t) { Qt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+          /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
+          /* @__PURE__ */ e("input", { type: "date", value: Wt, onChange: function(t) { Xt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+          /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+        ] }),
+        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
+          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Order No" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Game" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Settlement Time" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Bet Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Valid Bet" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Winnings" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Bet P&L" })
+            ] }) }),
+            /* @__PURE__ */ o("tbody", { children: [
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "202508120001" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:48" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "92,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+42,500" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "202508120002" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Slots" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 14:30" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "20,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "20,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-20,000" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "202508110007" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Live Casino" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 18:20" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "35,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "35,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "78,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+43,000" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "202508110003" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 12:15" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "10,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "10,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "8,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-1,500" })
+              ] })
+            ] })
+          ] })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
   ] });
 }
 function fo() {
+  const [Yt, Zt] = w(""), [_t, $t] = w(""), [at, bt] = w(17);
+  le(function() {
+    var t = setInterval(function() { bt(function(n) { return n <= 1 ? 17 : n - 1; }); }, 1e3);
+    return function() { clearInterval(t); };
+  }, []);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Deposit Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
+          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
+            /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
+            /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
+            /* @__PURE__ */ e("input", { type: "date", value: _t, onChange: function(t) { $t(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+          ] }),
+          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
+            /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
+            /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
+          ] })
+        ] }),
+        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
+          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction No." }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Date Time" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Deposit Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Status" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Request Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Bonus" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Method" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Bank Reference" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Deposit Time" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Bank Charge" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Promotion" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Remark" })
+            ] }) }),
+            /* @__PURE__ */ o("tbody", { children: [
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:14" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "100,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "100,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "10,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "KB-8841" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:18" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "100% Bonus" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081105" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 21:02" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "SH-2210" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 21:05" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081008" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-10 13:48" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "200,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-yellow-900 text-yellow-400 text-xs px-2 py-1 rounded-full", children: "Pending" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "200,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "20,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Crypto" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "USDT-4f1" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "VIP Reload" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25080902" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-09 18:33" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "30,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-red-900 text-red-400 text-xs px-2 py-1 rounded-full", children: "Rejected" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "30,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WR-0093" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Name mis" })
+              ] })
+            ] })
+          ] })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
   ] });
 }
 function xo() {
+  const [ct, dt] = w(""), [et, ft] = w(""), [gt, ht] = w(11);
+  le(function() {
+    var t = setInterval(function() { ht(function(n) { return n <= 1 ? 11 : n - 1; }); }, 1e3);
+    return function() { clearInterval(t); };
+  }, []);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Profit And Loss" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
+          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
+            /* @__PURE__ */ e("input", { type: "date", value: ct, onChange: function(t) { dt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
+            /* @__PURE__ */ e("input", { type: "date", value: et, onChange: function(t) { ft(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+          ] }),
+          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
+            /* @__PURE__ */ e("span", { children: "Auto refresh in " + gt + " s" }),
+            /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { ht(11); }, children: "↺" })
+          ] })
+        ] }),
+        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
+          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Game Type" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Total P&L" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Betting" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Valid Bet" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Win Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Rebate" })
+            ] }) }),
+            /* @__PURE__ */ o("tbody", { children: [
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+128,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "420,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "420,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "548,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "4,200" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Slots" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-65,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "310,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "310,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "245,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "3,100" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Live Casino" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+92,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "180,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "180,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "272,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,800" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Mini Games" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-12,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "60,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "60,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "48,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "600" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Originals" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+33,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "95,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "95,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "128,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "950" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Fish" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" })
+              ] })
+            ] })
+          ] })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
   ] });
 }
 function yo() {
+  const [it, jt] = w(""), [kt, lt] = w(""), [mt, nt] = w(5);
+  le(function() {
+    var t = setInterval(function() { nt(function(n) { return n <= 1 ? 5 : n - 1; }); }, 1e3);
+    return function() { clearInterval(t); };
+  }, []);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Withdrawal Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
+          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
+            /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
+            /* @__PURE__ */ e("input", { type: "date", value: it, onChange: function(t) { jt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
+            /* @__PURE__ */ e("input", { type: "date", value: kt, onChange: function(t) { lt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+            /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+          ] }),
+          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
+            /* @__PURE__ */ e("span", { children: "Auto refresh in " + mt + " s" }),
+            /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { nt(5); }, children: "↺" })
+          ] })
+        ] }),
+        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
+          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction No." }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Request Time" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Paid Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Status" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Request Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Bank Name" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Paid Date" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Remark" })
+            ] }) }),
+            /* @__PURE__ */ o("tbody", { children: [
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:20" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "80,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "80,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "KB Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:45" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081104" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 16:50" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "150,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "150,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Shinhan" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 17:10" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081006" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-10 11:05" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "40,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-yellow-900 text-yellow-400 text-xs px-2 py-1 rounded-full", children: "Pending" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "40,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Woori" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25080903" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-09 22:14" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "25,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-red-900 text-red-400 text-xs px-2 py-1 rounded-full", children: "Rejected" }) }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "25,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "KB Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Rollover left" })
+              ] }),
+              /* @__PURE__ */ o("tr", { style: { backgroundColor: "#1a2128" }, children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-3 text-white font-semibold whitespace-nowrap", colSpan: 7, children: "Total Withdrawal Amount" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-3 text-right font-bold whitespace-nowrap", style: { color: "#f4d85a" }, children: "270,000" })
+              ] })
+            ] })
+          ] })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
   ] });
 }
 function bo() {
+  const [ot, pt] = w(""), [qt, rt] = w(""), [st, tt] = w("all");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Account Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center", children: [
+          /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
+          /* @__PURE__ */ e("input", { type: "date", value: ot, onChange: function(t) { pt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+          /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
+          /* @__PURE__ */ e("input", { type: "date", value: qt, onChange: function(t) { rt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
+          /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+        ] }),
+        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
+          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction Type" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Time" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Transaction Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Current Balance" }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction No." }),
+              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Content" })
+            ] }) }),
+            /* @__PURE__ */ o("tbody", { children: [
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Deposit" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:18" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+100,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,284,320" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank deposit approved" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bet" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:48" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,234,320" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "BT25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports — Champions League" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Win" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:52" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+92,500" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,326,820" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WN25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports settlement" })
+              ] }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Withdrawal" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:45" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-80,000" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,246,820" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank withdrawal paid" })
+              ] })
+            ] })
+          ] })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4732,7 +5090,41 @@ function vo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Personal Info" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-xl p-6 w-full max-w-md", children: [
+          /* @__PURE__ */ e("h2", { className: "text-white text-center font-semibold text-lg mb-5", children: "Username : PLAYER" }),
+          /* @__PURE__ */ o("div", { className: "flex flex-col gap-3 mb-4", children: [
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-2 bg-[#0f1419] border border-gray-700 rounded-lg px-4 py-3", children: [
+              /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-4 h-4 text-gray-500 flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" }) }),
+              /* @__PURE__ */ e("input", { type: "text", placeholder: "Please enter your nickname", className: "bg-transparent text-gray-300 flex-1 outline-none text-sm placeholder-gray-600" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-2 bg-[#0f1419] border border-gray-700 rounded-lg px-4 py-3", children: [
+              /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-4 h-4 text-gray-500 flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("rect", { x: "3", y: "4", width: "18", height: "18", rx: "2", ry: "2" }) }),
+              /* @__PURE__ */ e("span", { className: "text-gray-300 text-sm", children: "2008/03/03" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-2 bg-[#0f1419] border border-gray-700 rounded-lg px-4 py-3", children: [
+              /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-4 h-4 text-gray-500 flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6" }) }),
+              /* @__PURE__ */ e("span", { className: "text-gray-300 text-sm", children: "xxxxxxx" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-2 bg-[#0f1419] border border-gray-700 rounded-lg px-4 py-3", children: [
+              /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-4 h-4 text-gray-500 flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("rect", { x: "2", y: "5", width: "20", height: "14", rx: "2" }) }),
+              /* @__PURE__ */ e("span", { className: "text-gray-300 text-sm", children: "s**" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-2 bg-[#0f1419] border border-gray-700 rounded-lg px-4 py-3 w-24 flex-shrink-0", children: [
+                /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-4 h-4 text-gray-500 flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("circle", { cx: "12", cy: "12", r: "10" }) }),
+                /* @__PURE__ */ e("span", { className: "text-gray-300 text-sm", children: "+82" })
+              ] }),
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-2 bg-[#0f1419] border border-gray-700 rounded-lg px-4 py-3 flex-1", children: [
+                /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-4 h-4 text-gray-500 flex-shrink-0", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" }) }),
+                /* @__PURE__ */ e("span", { className: "text-gray-300 text-sm", children: "123••••••••" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ e("div", { className: "flex justify-center mb-3", children: /* @__PURE__ */ e("span", { className: "bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full", children: "We care about your privacy" }) }),
+          /* @__PURE__ */ e("p", { className: "text-gray-500 text-xs text-center mb-4 leading-relaxed", children: "All the user data are encrypted to ensure your personal privacy is protected. For updates to your personal info, please contact support." }),
+          /* @__PURE__ */ e("button", { className: "w-full text-white py-3 rounded-lg font-semibold mb-2", style: { backgroundColor: "#3b82f6" }, children: "Submit" }),
+          /* @__PURE__ */ e("button", { className: "w-full bg-[#1a2128] border border-gray-700 text-white py-3 rounded-lg font-semibold", children: "Back" })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
