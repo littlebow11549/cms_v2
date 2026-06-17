@@ -4715,7 +4715,7 @@ function fo() {
             /* @__PURE__ */ e("input", { type: "date", value: _t, onChange: function(t) { $t(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
           ] }),
-          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
+          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", style: { flexShrink: 0, whiteSpace: "nowrap" }, children: [
             /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
             /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
           ] })
@@ -4916,7 +4916,7 @@ function yo() {
             /* @__PURE__ */ e("input", { type: "date", value: kt, onChange: function(t) { lt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
           ] }),
-          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
+          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", style: { flexShrink: 0, whiteSpace: "nowrap" }, children: [
             /* @__PURE__ */ e("span", { children: "Auto refresh in " + mt + " s" }),
             /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { nt(5); }, children: "↺" })
           ] })
