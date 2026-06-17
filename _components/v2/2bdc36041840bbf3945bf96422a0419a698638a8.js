@@ -4355,8 +4355,8 @@ function ho() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8", children: "Account Overview" }),
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Account Overview" }),
         /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8", children: [
           /* @__PURE__ */ e("div", { className: "lg:col-span-2 bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
             /* @__PURE__ */ e("div", { className: "w-20 h-20 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ e(X, { className: "w-10 h-10 text-gray-900" }) }),
@@ -4498,9 +4498,9 @@ function uo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8", children: "Deposit" }),
-        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl", children: [
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Deposit" }),
+        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
             /* @__PURE__ */ e("div", { className: "mb-4", children: /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm md:text-base font-semibold", children: "Deposit Amount" }) }),
             /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-6", children: s.map((m) => /* @__PURE__ */ e(
@@ -4564,9 +4564,9 @@ function po() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8", children: "Withdrawl" }),
-        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl", children: [
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Withdrawl" }),
+        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
             /* @__PURE__ */ e("h2", { className: "text-white text-lg md:text-xl font-semibold mb-4", children: "My Bank Accounts" }),
             /* @__PURE__ */ o("div", { className: "bg-[#0f1419] border border-gray-800 rounded-lg p-6 md:p-12 text-center", children: [
@@ -4665,9 +4665,9 @@ function go() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Betting Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Betting Record" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4678,9 +4678,9 @@ function fo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Deposit Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Deposit Record" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4691,9 +4691,9 @@ function xo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Profit And Loss" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Profit And Loss" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4704,9 +4704,9 @@ function yo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Withdrawal Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Withdrawal Record" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4717,9 +4717,9 @@ function bo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Account Record" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Account Record" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4730,9 +4730,9 @@ function vo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Personal Info" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Personal Info" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4743,9 +4743,9 @@ function No() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Security Center" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Security Center" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4756,9 +4756,9 @@ function wo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8", children: "Customer Service" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Customer Service" }),
+        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
