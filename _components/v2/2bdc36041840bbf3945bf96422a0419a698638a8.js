@@ -2961,8 +2961,8 @@ function jn() {
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
             r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden", style: { minWidth: "220px" }, children: [
-              /* @__PURE__ */ e(D, { to: "/sport#bti", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", style: { padding: "20px 24px", whiteSpace: "nowrap" }, children: "BTI" }),
-              /* @__PURE__ */ e(D, { to: "/sport#saba", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", style: { padding: "20px 24px", whiteSpace: "nowrap" }, children: "SABA" })
+              /* @__PURE__ */ e(D, { to: "/sport#bti", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", style: { padding: "12px 20px", whiteSpace: "nowrap" }, children: "BTI" }),
+              /* @__PURE__ */ e(D, { to: "/sport#saba", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", style: { padding: "12px 20px", whiteSpace: "nowrap" }, children: "SABA" })
             ] })
           ] }),
           /* @__PURE__ */ o("div", { className: "relative pb-2", onMouseEnter: () => i(!0), onMouseLeave: () => i(!1), children: [
@@ -2972,9 +2972,9 @@ function jn() {
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
             l && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden", style: { minWidth: "220px" }, children: [
-              /* @__PURE__ */ e(D, { to: "/live#sexy", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", style: { padding: "20px 24px", whiteSpace: "nowrap" }, children: "Sexy" }),
-              /* @__PURE__ */ e(D, { to: "/live#pragmatic", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", style: { padding: "20px 24px", whiteSpace: "nowrap" }, children: "Pragmatic Play" }),
-              /* @__PURE__ */ e(D, { to: "/live#yeebet", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", style: { padding: "20px 24px", whiteSpace: "nowrap" }, children: "Yeebet" })
+              /* @__PURE__ */ e(D, { to: "/live#sexy", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", style: { padding: "12px 20px", whiteSpace: "nowrap" }, children: "Sexy" }),
+              /* @__PURE__ */ e(D, { to: "/live#pragmatic", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", style: { padding: "12px 20px", whiteSpace: "nowrap" }, children: "Pragmatic Play" }),
+              /* @__PURE__ */ e(D, { to: "/live#yeebet", className: "block w-full text-left text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", style: { padding: "12px 20px", whiteSpace: "nowrap" }, children: "Yeebet" })
             ] })
           ] }),
           [
