@@ -3814,6 +3814,9 @@ function pt({ promo: t }) {
   ] });
 }
 function M() {
+  const _loc = A();
+  const _acctPaths = ["/account","/deposit","/withdrawal","/betting-record","/deposit-record","/profit-loss","/withdrawal-record","/account-record","/personal-info","/security","/support"];
+  if (_acctPaths.includes(_loc.pathname)) return null;
   return /* @__PURE__ */ e("footer", { className: "bg-[#1a2128] py-16 pb-24 md:pb-16", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ o("div", { className: "flex flex-col items-center", children: [
     /* @__PURE__ */ e("div", { className: "mb-8", children: /* @__PURE__ */ e("div", { className: "text-center", children: /* @__PURE__ */ e("img", { src: oe, alt: "WIN100% Logo", className: "h-16 md:h-20 mix-blend-lighten" }) }) }),
     /* @__PURE__ */ o("div", { className: "max-w-4xl mx-auto text-center mb-8", children: [
@@ -4329,8 +4332,8 @@ function j() {
         /* @__PURE__ */ e("div", { className: "p-4 border-t border-gray-800", children: /* @__PURE__ */ o("button", { onClick: () => { r(!1); setCs(!0); }, className: "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 font-semibold", children: [/* @__PURE__ */ e(Ft, { className: "w-5 h-5" }), /* @__PURE__ */ e("span", { className: "text-sm", children: "Customer Service" })] }) })
       ] })
     ] }),
-    /* @__PURE__ */ o("aside", { className: "hidden md:flex md:flex-col w-64 flex-shrink-0 bg-[#1a2128] border-r border-gray-800 sticky top-0 h-screen overflow-y-auto", children: [
-      /* @__PURE__ */ e("nav", { className: "p-4 space-y-2 flex-1", children: n.map((l) => {
+    /* @__PURE__ */ o("aside", { className: "hidden md:block w-64 flex-shrink-0 bg-[#1a2128] border-r border-gray-800 sticky top-0 h-screen overflow-y-auto", children: [
+      /* @__PURE__ */ e("nav", { className: "p-4 space-y-2", children: n.map((l) => {
         const i = l.icon, s = t.pathname === l.path;
         return /* @__PURE__ */ o(D, { to: l.path, className: `flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${s ? "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 font-semibold" : "text-gray-300 hover:bg-[#0f1419] hover:text-white"}`, children: [/* @__PURE__ */ e(i, { className: "w-5 h-5" }), /* @__PURE__ */ e("span", { className: "text-sm", children: l.label })] }, l.path);
       }) }),
@@ -4755,89 +4758,87 @@ function fo() {
             /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
             /* @__PURE__ */ e("input", { type: "date", value: _t, onChange: function(t) { $t(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-            /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
           ] }),
           /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
             /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
             /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
-          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction No." }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Date Time" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Deposit Amount" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Status" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Request Amount" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Bonus" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Method" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Bank Reference" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Deposit Time" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Bank Charge" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Promotion" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Remark" })
+        /* @__PURE__ */ e("div", { className: "w-full max-w-4xl rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Transaction No." }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Date Time" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Deposit Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Status" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Request Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Bonus" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Method" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Bank Reference" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Deposit Time" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Bank Charge" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Promotion" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Remark" })
             ] }) }),
             /* @__PURE__ */ o("tbody", { children: [
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081201" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:14" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "100,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "100,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "10,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "KB-8841" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:18" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "100% Bonus" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "DP25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:14" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "100,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "100,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "10,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "KB-8841" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:18" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "100% Bonus" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081105" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 21:02" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "SH-2210" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 21:05" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "DP25081105" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-11 21:02" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "50,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "SH-2210" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-11 21:05" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081008" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-10 13:48" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "200,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-yellow-900 text-yellow-400 text-xs px-2 py-1 rounded-full", children: "Pending" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "200,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "20,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Crypto" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "USDT-4f1" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "VIP Reload" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "DP25081008" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-10 13:48" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "200,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-yellow-900 text-yellow-400 text-xs px-2 py-1 rounded-full", children: "Pending" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "200,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "20,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Crypto" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "USDT-4f1" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "VIP Reload" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25080902" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-09 18:33" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "30,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-red-900 text-red-400 text-xs px-2 py-1 rounded-full", children: "Rejected" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "30,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WR-0093" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Name mis" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "DP25080902" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-09 18:33" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "30,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-red-900 text-red-400 text-xs px-2 py-1 rounded-full", children: "Rejected" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "30,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WR-0093" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Name mis" })
               ] })
             ] })
-          ] })
-        ] })
+          ] }) }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4860,75 +4861,73 @@ function xo() {
             /* @__PURE__ */ e("input", { type: "date", value: ct, onChange: function(t) { dt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
             /* @__PURE__ */ e("input", { type: "date", value: et, onChange: function(t) { ft(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-            /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
           ] }),
           /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
             /* @__PURE__ */ e("span", { children: "Auto refresh in " + gt + " s" }),
             /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { ht(11); }, children: "↺" })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
-          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Game Type" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Total P&L" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Betting" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Valid Bet" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Win Amount" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Rebate" })
+        /* @__PURE__ */ e("div", { className: "w-full max-w-4xl rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Game Type" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Total P&L" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Betting" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Valid Bet" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Win Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Rebate" })
             ] }) }),
             /* @__PURE__ */ o("tbody", { children: [
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Sports" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+128,500" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "420,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "420,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "548,500" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "4,200" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "420,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "420,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "548,500" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "4,200" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Slots" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Slots" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-65,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "310,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "310,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "245,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "3,100" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "310,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "310,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "245,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "3,100" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Live Casino" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Live Casino" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+92,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "180,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "180,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "272,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,800" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "180,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "180,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "272,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "1,800" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Mini Games" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Mini Games" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-12,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "60,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "60,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "48,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "600" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "60,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "60,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "48,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "600" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Originals" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Originals" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+33,500" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "95,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "95,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "128,500" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "950" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "95,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "95,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "128,500" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "950" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Fish" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "0" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Fish" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" })
               ] })
             ] })
-          ] })
-        ] })
+          ] }) }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -4952,73 +4951,71 @@ function yo() {
             /* @__PURE__ */ e("input", { type: "date", value: it, onChange: function(t) { jt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
             /* @__PURE__ */ e("input", { type: "date", value: kt, onChange: function(t) { lt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-            /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
           ] }),
           /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", children: [
             /* @__PURE__ */ e("span", { children: "Auto refresh in " + mt + " s" }),
             /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { nt(5); }, children: "↺" })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
-          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction No." }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Request Time" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Paid Amount" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Status" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Request Amount" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Bank Name" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Paid Date" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Remark" })
+        /* @__PURE__ */ e("div", { className: "w-full max-w-4xl rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Transaction No." }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Request Time" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Paid Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Status" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Request Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Bank Name" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Paid Date" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Remark" })
             ] }) }),
             /* @__PURE__ */ o("tbody", { children: [
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081201" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:20" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "80,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "80,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "KB Bank" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:45" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WD25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:20" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "80,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "80,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "KB Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:45" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081104" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 16:50" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "150,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "150,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Shinhan" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-11 17:10" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WD25081104" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-11 16:50" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "150,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-green-900 text-green-400 text-xs px-2 py-1 rounded-full", children: "Approved" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "150,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Shinhan" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-11 17:10" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081006" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-10 11:05" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "40,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-yellow-900 text-yellow-400 text-xs px-2 py-1 rounded-full", children: "Pending" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "40,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Woori" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WD25081006" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-10 11:05" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "40,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-yellow-900 text-yellow-400 text-xs px-2 py-1 rounded-full", children: "Pending" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "40,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Woori" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25080903" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-09 22:14" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "25,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-red-900 text-red-400 text-xs px-2 py-1 rounded-full", children: "Rejected" }) }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "25,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "KB Bank" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "-" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Rollover left" })
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WD25080903" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-09 22:14" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "25,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 whitespace-nowrap", children: /* @__PURE__ */ e("span", { className: "bg-red-900 text-red-400 text-xs px-2 py-1 rounded-full", children: "Rejected" }) }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "25,000" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "KB Bank" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Rollover left" })
               ] }),
               /* @__PURE__ */ o("tr", { style: { backgroundColor: "#1a2128" }, children: [
                 /* @__PURE__ */ e("td", { className: "px-3 py-3 text-white font-semibold whitespace-nowrap", colSpan: 7, children: "Total Withdrawal Amount" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-3 text-right font-bold whitespace-nowrap", style: { color: "#f4d85a" }, children: "270,000" })
               ] })
             ] })
-          ] })
-        ] })
+          ] }) }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
@@ -5037,54 +5034,52 @@ function bo() {
           /* @__PURE__ */ e("input", { type: "date", value: ot, onChange: function(t) { pt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
           /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
           /* @__PURE__ */ e("input", { type: "date", value: qt, onChange: function(t) { rt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-          /* @__PURE__ */ e("button", { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm", children: "Confirm" })
+          /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
         ] }),
-        /* @__PURE__ */ o("div", { className: "overflow-x-auto w-full max-w-4xl", children: [
-          /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { backgroundColor: "#f4d85a" }, children: [
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction Type" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Time" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Transaction Amount" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-right text-gray-900 font-semibold whitespace-nowrap", children: "Current Balance" }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Transaction No." }),
-              /* @__PURE__ */ e("th", { className: "px-3 py-2 text-left text-gray-900 font-semibold whitespace-nowrap", children: "Content" })
+        /* @__PURE__ */ e("div", { className: "w-full max-w-4xl rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
+            /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ o("tr", { style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" }, children: [
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Transaction Type" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Time" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Transaction Amount" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-right text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Current Balance" }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Transaction No." }),
+              /* @__PURE__ */ e("th", { className: "px-5 py-3.5 text-left text-gray-900 font-bold whitespace-nowrap tracking-wide", children: "Content" })
             ] }) }),
             /* @__PURE__ */ o("tbody", { children: [
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Deposit" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:18" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Deposit" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 09:18" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+100,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,284,320" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "DP25081201" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank deposit approved" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "1,284,320" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "DP25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Bank deposit approved" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bet" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:48" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Bet" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:48" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-50,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,234,320" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "BT25081201" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports — Champions League" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "1,234,320" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "BT25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Sports — Champions League" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Win" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:52" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Win" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 15:52" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#22c55e" }, children: "+92,500" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,326,820" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WN25081201" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Sports settlement" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "1,326,820" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WN25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Sports settlement" })
               ] }),
-              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800 hover:bg-[#1a2128]", children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Withdrawal" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:45" }),
+              /* @__PURE__ */ o("tr", { className: "border-b border-gray-800/60 bg-[#1a2128] hover:bg-[#1e2730] transition-colors", children: [
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Withdrawal" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "2025-08-12 10:45" }),
                 /* @__PURE__ */ e("td", { className: "px-3 py-2 text-right whitespace-nowrap font-semibold", style: { color: "#ef4444" }, children: "-80,000" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 text-right whitespace-nowrap", children: "1,246,820" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "WD25081201" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-2 text-gray-300 whitespace-nowrap", children: "Bank withdrawal paid" })
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 text-right whitespace-nowrap", children: "1,246,820" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "WD25081201" }),
+                /* @__PURE__ */ e("td", { className: "px-5 py-4 text-gray-300 whitespace-nowrap", children: "Bank withdrawal paid" })
               ] })
             ] })
-          ] })
-        ] })
+          ] }) }) })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
