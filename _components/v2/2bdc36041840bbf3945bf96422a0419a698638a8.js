@@ -3199,6 +3199,17 @@ const Ae = [
     accent: "#B9DE5A",
     bg: "from-[#0a1f14] via-[#0f2a1a] to-[#0f1419]",
     decorColor: "#B9DE5A"
+  },
+  {
+    id: 3,
+    badge: "VIP EXCLUSIVE",
+    title: "Unlock",
+    highlight: "VIP",
+    sub: "CASHBACK · REBATE · PRIORITY SUPPORT",
+    cta: "Join VIP",
+    accent: "#F59E0B",
+    bg: "from-[#1a1000] via-[#221800] to-[#0f1419]",
+    decorColor: "#F59E0B"
   }
 ];
 function Un() {
