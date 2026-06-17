@@ -4175,11 +4175,6 @@ function mo() {
         /* @__PURE__ */ o("button", { onClick: () => a("event"), className: `pb-4 px-2 transition-colors relative ${t === "event" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Event", t === "event" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
         /* @__PURE__ */ o("button", { onClick: () => a("news"), className: `pb-4 px-2 transition-colors relative ${t === "news" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["News", t === "news" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
       ] }),
-      /* @__PURE__ */ o("div", { className: "flex items-center justify-end gap-2", children: [
-        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
-        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-4 h-4" }) }),
-        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-4 h-4" }) })
-      ] }),
       /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6", children: (t === "event" ? so : co).map((n, l) => /* @__PURE__ */ o(
         "div",
         {
@@ -4210,7 +4205,8 @@ function mo() {
           ]
         },
         l
-      )) })
+      )) }),
+      /* @__PURE__ */ e("div", { className: "flex justify-center pt-4", children: /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-10 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity", children: "Load more" }) })
     ] }) }) }),
     /* @__PURE__ */ e(M, {})
   ] });
