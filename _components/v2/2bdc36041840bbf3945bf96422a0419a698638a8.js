@@ -2959,9 +2959,9 @@ function jn() {
               /* @__PURE__ */ e("span", { children: "Sports" }),
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
-            r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-1 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg py-2 min-w-[120px] z-50", children: [
-              /* @__PURE__ */ e("button", { className: "w-full text-left px-4 py-2 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all", children: "BTI" }),
-              /* @__PURE__ */ e("button", { className: "w-full text-left px-4 py-2 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all", children: "SABA" })
+            r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-1 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg py-1 min-w-[160px] z-50", children: [
+              /* @__PURE__ */ e(D, { to: "/sport", state: { tab: "bti" }, className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "BTI" }),
+              /* @__PURE__ */ e(D, { to: "/sport", state: { tab: "saba" }, className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "SABA" })
             ] })
           ] }),
           /* @__PURE__ */ o("div", { className: "relative", onMouseEnter: () => i(!0), onMouseLeave: () => i(!1), children: [
@@ -4019,7 +4019,8 @@ function SportMatchCard({ match: n }) {
   ] }) });
 }
 function oo() {
-  const [t, a] = w("bti");
+  const loc = A(), [t, a] = w((loc.state && loc.state.tab) || "bti");
+  le(function() { if (loc.state && loc.state.tab) a(loc.state.tab); }, [loc.state]);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SPORTS BETTING" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
