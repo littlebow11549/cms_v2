@@ -3851,6 +3851,22 @@ const ao = [
   { id: 11, name: "Game Name", provider: "Game Provider", image: "/cms_v2/_external/images.unsplash.com/photo-1525018667593-176858caed6a__w-300" },
   { id: 12, name: "Game Name", provider: "Game Provider", image: "/cms_v2/_external/images.unsplash.com/photo-1590336225155-d7e19a3a954f__w-300" }
 ];
+function GameCard({ game: t, isFav: _fav, onToggle: _toggle }) {
+  const [lf, slf] = w(false);
+  const s = _fav !== void 0 ? _fav : lf;
+  const c = _toggle || function() { slf(function(p) { return !p; }); };
+  return /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden hover:border-[#98E7D2] transition-colors cursor-pointer group", children: [
+    /* @__PURE__ */ o("div", { className: "aspect-[4/3] relative overflow-hidden", children: [
+      /* @__PURE__ */ e(Pe, { src: t.image, alt: t.name, className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" }),
+      /* @__PURE__ */ e("button", { onClick: function(ev) { ev.stopPropagation(); c(); }, className: "absolute top-2 right-2 z-10 focus:outline-none bg-black/50 rounded-full p-1.5 transition-colors", children: /* @__PURE__ */ e(Dn, { className: "w-3.5 h-3.5", style: { color: s ? "#f59e0b" : "#ffffff" }, fill: s ? "#f59e0b" : "none" }) })
+    ] }),
+    /* @__PURE__ */ o("div", { className: "p-4", children: [
+      /* @__PURE__ */ e("h3", { className: "text-white mb-1 truncate", children: t.name }),
+      /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-3 truncate", children: t.provider }),
+      /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm", children: "Play Now" })
+    ] })
+  ] });
+}
 function ro() {
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-orange-600 via-pink-500 to-purple-600 py-16 md:py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-4xl md:text-7xl text-white mb-4", children: "HOT GAMES" }) }) }),
@@ -3875,28 +3891,7 @@ function ro() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: ao.map((t) => /* @__PURE__ */ o(
-        "div",
-        {
-          className: "bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden hover:border-[#98E7D2] transition-colors cursor-pointer group",
-          children: [
-            /* @__PURE__ */ e("div", { className: "aspect-[4/3] relative overflow-hidden", children: /* @__PURE__ */ e(
-              Pe,
-              {
-                src: t.image,
-                alt: t.name,
-                className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              }
-            ) }),
-            /* @__PURE__ */ o("div", { className: "p-4", children: [
-              /* @__PURE__ */ e("h3", { className: "text-white mb-1 truncate", children: t.name }),
-              /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-3 truncate", children: t.provider }),
-              /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm", children: "Play Now" })
-            ] })
-          ]
-        },
-        t.id
-      )) }),
+      /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: ao.map((t) => /* @__PURE__ */ e(GameCard, { game: t }, t.id)) }),
       /* @__PURE__ */ e("div", { className: "flex justify-center mt-8", children: /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-8 py-3 rounded-lg hover:opacity-90 transition-opacity", children: "Load more" }) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
@@ -3913,7 +3908,9 @@ const gt = [
   { id: 8, name: "Game Name", provider: "Game Provider", image: "/cms_v2/_external/images.unsplash.com/photo-1604028296525-8304e1a4969f__w-400", category: "all" }
 ];
 function no() {
-  const [t, a] = w("vendor"), r = t === "vendor" ? gt : gt.filter((n) => n.category === "favorites");
+  const [t, a] = w("vendor"), [favIds, setFavIds] = w([]);
+  const toggleFav = (id) => setFavIds((p) => p.includes(id) ? p.filter((i) => i !== id) : [...p, id]);
+  const r = t === "vendor" ? gt : gt.filter((n) => favIds.includes(n.id));
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 py-16 md:py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ o("h1", { className: "text-4xl md:text-7xl text-white mb-4", children: [
       "100% ",
@@ -3964,28 +3961,7 @@ function no() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: r.map((n) => /* @__PURE__ */ o(
-        "div",
-        {
-          className: "bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden hover:border-[#98E7D2] transition-colors cursor-pointer group",
-          children: [
-            /* @__PURE__ */ e("div", { className: "aspect-[4/3] relative overflow-hidden", children: /* @__PURE__ */ e(
-              Pe,
-              {
-                src: n.image,
-                alt: n.name,
-                className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              }
-            ) }),
-            /* @__PURE__ */ o("div", { className: "p-4", children: [
-              /* @__PURE__ */ e("h3", { className: "text-white mb-1 truncate", children: n.name }),
-              /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-3 truncate", children: n.provider }),
-              /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm", children: "Play Now" })
-            ] })
-          ]
-        },
-        n.id
-      )) }),
+      t === "favorites" && r.length === 0 ? /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "No favorites yet. Click ★ on a game to add it here." }) }) : /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: r.map((n) => /* @__PURE__ */ e(GameCard, { game: n, isFav: favIds.includes(n.id), onToggle: () => toggleFav(n.id) }, n.id)) }),
       /* @__PURE__ */ e("div", { className: "flex justify-center mt-4", children: /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-8 py-3 rounded-lg hover:opacity-90 transition-opacity", children: "Load more" }) })
     ] }) }) }),
     /* @__PURE__ */ e(M, {})
