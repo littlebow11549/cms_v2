@@ -4206,7 +4206,7 @@ function mo() {
         },
         l
       )) }),
-      /* @__PURE__ */ e("div", { className: "flex justify-center pt-4", children: /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-10 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity", children: "Load more" }) })
+      /* @__PURE__ */ e("div", { className: "flex justify-center pt-6 pb-2", children: /* @__PURE__ */ e("button", { className: "text-gray-300 hover:text-white hover:border-gray-400 transition-colors", style: { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "8px", padding: "12px 60px", fontSize: "15px", fontWeight: 500 }, children: "Load more" }) })
     ] }) }) }),
     /* @__PURE__ */ e(M, {})
   ] });
