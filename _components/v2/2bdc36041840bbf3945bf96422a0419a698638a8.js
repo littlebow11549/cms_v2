@@ -3760,7 +3760,7 @@ function eo() {
         ] })
       ] }),
       /* @__PURE__ */ o("div", { className: "flex items-center gap-1 md:gap-2", children: [
-        /* @__PURE__ */ e(D, { to: "/promotion", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
+        /* @__PURE__ */ e(D, { to: "/promotion?tab=" + t, className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
         /* @__PURE__ */ e("button", { onClick: () => n("left"), className: "text-gray-400 hover:text-white p-1 md:p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-3 h-3 md:w-4 md:h-4" }) }),
         /* @__PURE__ */ e("button", { onClick: () => n("right"), className: "text-gray-400 hover:text-white p-1 md:p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-3 h-3 md:w-4 md:h-4" }) })
       ] })
@@ -4163,7 +4163,11 @@ const so = [
   }
 ];
 function mo() {
-  const [t, a] = w("event");
+  const [t, a] = w("event"), Lo = A();
+  le(function() {
+    const p = new URLSearchParams(Lo.search), q = p.get("tab");
+    if (q === "event" || q === "news") a(q);
+  }, [Lo.search]);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 py-16 md:py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-4xl md:text-7xl text-white mb-4", children: "PROMOTIONS" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[600px]", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ o("div", { className: "flex flex-col gap-6", children: [
@@ -4469,7 +4473,8 @@ function uo() {
               "button",
               {
                 onClick: () => d(m),
-                className: `py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all ${t === m && !r ? "bg-gradient-to-r from-[#f4e185] to-[#f4d85a] text-gray-900" : "bg-[#0f1419] border border-gray-700 text-white hover:border-gray-600"}`,
+                className: `py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all ${t === m && !r ? "text-gray-900" : "bg-[#0f1419] border border-gray-700 text-white hover:border-gray-600"}`,
+                style: t === m && !r ? { background: "linear-gradient(to right, #b5e048, #a3e635)" } : {},
                 children: parseInt(m).toLocaleString()
               },
               m
@@ -4702,8 +4707,8 @@ function fo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Deposit Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
-          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex gap-2 items-center justify-between", style: { flexWrap: "nowrap", overflowX: "auto" }, children: [
+          /* @__PURE__ */ o("div", { className: "flex gap-2 items-center", style: { flexShrink: 0, flexWrap: "nowrap" }, children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
             /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
@@ -4788,11 +4793,14 @@ function fo() {
                 /* @__PURE__ */ e("td", { className: "px-4 py-4 text-gray-300 whitespace-nowrap", children: "Name mis" })
               ] })
             ] }),
-            /* @__PURE__ */ e("tfoot", { children: /* @__PURE__ */ e("tr", { style: { background: "#0d1b2a" }, children: /* @__PURE__ */ o("td", { colSpan: 12, className: "px-4 py-4", children: /* @__PURE__ */ o("div", { className: "flex justify-between items-center", children: [/* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "Total Deposit Amount" }), /* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "350,000" })] }) }) }) })
           ] }) }) })
       ] })
     ] }),
-    /* @__PURE__ */ e(M, {})
+    /* @__PURE__ */ e(M, {}),
+    /* @__PURE__ */ o("div", { style: { position: "fixed", bottom: "64px", left: 0, right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
+      /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "Total Deposit Amount" }),
+      /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "350,000" })
+    ] })
   ] });
 }
 function xo() {
@@ -4878,11 +4886,14 @@ function xo() {
                 /* @__PURE__ */ e("td", { className: "px-4 py-4 text-gray-300 text-right whitespace-nowrap", children: "0" })
               ] })
             ] }),
-            /* @__PURE__ */ e("tfoot", { children: /* @__PURE__ */ e("tr", { style: { background: "#0d1b2a" }, children: /* @__PURE__ */ o("td", { colSpan: 6, className: "px-4 py-4", children: /* @__PURE__ */ o("div", { className: "flex justify-between items-center", children: [/* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "Total P&L" }), /* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "0.00" })] }) }) }) })
           ] }) }) })
       ] })
     ] }),
-    /* @__PURE__ */ e(M, {})
+    /* @__PURE__ */ e(M, {}),
+    /* @__PURE__ */ o("div", { style: { position: "fixed", bottom: "64px", left: 0, right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
+      /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "Total P&L" }),
+      /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "0.00" })
+    ] })
   ] });
 }
 function yo() {
@@ -4897,8 +4908,8 @@ function yo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Withdrawal Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl mb-4 flex flex-wrap gap-2 items-center justify-between", children: [
-          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex gap-2 items-center justify-between", style: { flexWrap: "nowrap", overflowX: "auto" }, children: [
+          /* @__PURE__ */ o("div", { className: "flex gap-2 items-center", style: { flexShrink: 0, flexWrap: "nowrap" }, children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
             /* @__PURE__ */ e("input", { type: "date", value: it, onChange: function(t) { jt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
@@ -4962,15 +4973,15 @@ function yo() {
                 /* @__PURE__ */ e("td", { className: "px-4 py-4 text-gray-300 whitespace-nowrap", children: "-" }),
                 /* @__PURE__ */ e("td", { className: "px-4 py-4 text-gray-300 whitespace-nowrap", children: "Rollover left" })
               ] }),
-              /* @__PURE__ */ o("tr", { style: { backgroundColor: "#1a2128" }, children: [
-                /* @__PURE__ */ e("td", { className: "px-3 py-3 text-white font-semibold whitespace-nowrap", colSpan: 7, children: "Total Withdrawal Amount" }),
-                /* @__PURE__ */ e("td", { className: "px-3 py-3 text-right font-bold whitespace-nowrap", style: { color: "#f4d85a" }, children: "270,000" })
-              ] })
             ] })
           ] }) }) })
       ] })
     ] }),
-    /* @__PURE__ */ e(M, {})
+    /* @__PURE__ */ e(M, {}),
+    /* @__PURE__ */ o("div", { style: { position: "fixed", bottom: "64px", left: 0, right: 0, zIndex: 100, background: "#0d1b2a", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(245,158,11,0.3)" }, children: [
+      /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "Total Withdrawal Amount" }),
+      /* @__PURE__ */ e("span", { style: { color: "#f59e0b", fontWeight: 600 }, children: "270,000" })
+    ] })
   ] });
 }
 function bo() {
