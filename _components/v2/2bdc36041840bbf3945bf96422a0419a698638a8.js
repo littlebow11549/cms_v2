@@ -2959,9 +2959,9 @@ function jn() {
               /* @__PURE__ */ e("span", { children: "Sports" }),
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
-            r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg py-1 min-w-[160px] z-50", children: [
-              /* @__PURE__ */ e(D, { to: "/sport#bti", className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "BTI" }),
-              /* @__PURE__ */ e(D, { to: "/sport#saba", className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "SABA" })
+            r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg min-w-[180px] z-50 overflow-hidden", children: [
+              /* @__PURE__ */ e(D, { to: "/sport#bti", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", children: "BTI" }),
+              /* @__PURE__ */ e(D, { to: "/sport#saba", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "SABA" })
             ] })
           ] }),
           /* @__PURE__ */ o("div", { className: "relative pb-2", onMouseEnter: () => i(!0), onMouseLeave: () => i(!1), children: [
@@ -2970,10 +2970,10 @@ function jn() {
               /* @__PURE__ */ e("span", { children: "Live" }),
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
-            l && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg py-1 min-w-[180px] z-50", children: [
-              /* @__PURE__ */ e(D, { to: "/live#sexy", className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "Sexy" }),
-              /* @__PURE__ */ e(D, { to: "/live#pragmatic", className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "Pragmatic Play" }),
-              /* @__PURE__ */ e(D, { to: "/live#yeebet", className: "block w-full text-left px-5 py-3.5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "Yeebet" })
+            l && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg min-w-[180px] z-50 overflow-hidden", children: [
+              /* @__PURE__ */ e(D, { to: "/live#sexy", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", children: "Sexy" }),
+              /* @__PURE__ */ e(D, { to: "/live#pragmatic", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium border-b border-gray-700/50", children: "Pragmatic Play" }),
+              /* @__PURE__ */ e(D, { to: "/live#yeebet", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium", children: "Yeebet" })
             ] })
           ] }),
           [
