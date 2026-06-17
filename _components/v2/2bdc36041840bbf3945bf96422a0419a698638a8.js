@@ -2994,7 +2994,7 @@ function jn() {
     ] }),
     t && /* @__PURE__ */ o("div", { className: "md:hidden fixed inset-x-0 top-0 bottom-16 z-40", children: [
       /* @__PURE__ */ e("div", { className: "absolute inset-0 bg-black/60", onClick: () => a(!1) }),
-      /* @__PURE__ */ o("nav", { className: "absolute inset-0 bg-[#1a2128] shadow-2xl flex flex-col overflow-hidden", children: [
+      /* @__PURE__ */ o("nav", { className: "absolute inset-0 bg-[#1a2128] shadow-2xl flex flex-col overflow-hidden animate-menu-in", children: [
         /* @__PURE__ */ o("div", { className: "flex-shrink-0 flex items-center justify-between h-14 px-4 border-b border-gray-800", children: [
           /* @__PURE__ */ e("img", { src: oe, alt: "Casino Logo", className: "h-10 mix-blend-lighten" }),
           /* @__PURE__ */ e("button", { className: "text-gray-300 hover:text-white", onClick: () => a(!1), children: /* @__PURE__ */ e(se, { className: "w-5 h-5" }) })
@@ -3159,7 +3159,7 @@ function Wn() {
     ] }) }),
     r && /* @__PURE__ */ o("div", { className: "md:hidden fixed inset-0", style: { zIndex: 200 }, children: [
       /* @__PURE__ */ e("div", { className: "absolute inset-0 bg-black/60", onClick: () => n(!1) }),
-      /* @__PURE__ */ o("div", { className: "absolute top-0 left-0 bottom-0 w-72 bg-[#131b21] flex flex-col shadow-2xl", children: [
+      /* @__PURE__ */ o("div", { className: "absolute top-0 left-0 bottom-0 w-72 bg-[#131b21] flex flex-col shadow-2xl animate-menu-in", children: [
         /* @__PURE__ */ o("div", { className: "flex items-center justify-between px-5 py-4 border-b border-gray-800", children: [
           /* @__PURE__ */ e("span", { className: "text-white text-lg font-semibold", children: "Menu" }),
           /* @__PURE__ */ e("button", { onClick: () => n(!1), className: "text-gray-400 hover:text-white", children: /* @__PURE__ */ e(se, { className: "w-5 h-5" }) })
