@@ -4707,17 +4707,19 @@ function fo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Deposit Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex gap-2 items-center justify-between", style: { flexWrap: "nowrap", overflowX: "auto" }, children: [
-          /* @__PURE__ */ o("div", { className: "flex gap-2 items-center", style: { flexShrink: 0, flexWrap: "nowrap" }, children: [
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex flex-col gap-2", children: [
+          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
             /* @__PURE__ */ e("input", { type: "date", value: Yt, onChange: function(t) { Zt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
-            /* @__PURE__ */ e("input", { type: "date", value: _t, onChange: function(t) { $t(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
+            /* @__PURE__ */ e("input", { type: "date", value: _t, onChange: function(t) { $t(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" })
           ] }),
-          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", style: { flexShrink: 0, whiteSpace: "nowrap" }, children: [
-            /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
-            /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
+          /* @__PURE__ */ o("div", { className: "flex items-center justify-between", children: [
+            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" }),
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", style: { whiteSpace: "nowrap" }, children: [
+              /* @__PURE__ */ e("span", { children: "Auto refresh in " + at + " s" }),
+              /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { bt(17); }, children: "↺" })
+            ] })
           ] })
         ] }),
         /* @__PURE__ */ e("div", { className: "w-full rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
@@ -4908,17 +4910,19 @@ function yo() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Withdrawal Record" }),
-        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex gap-2 items-center justify-between", style: { flexWrap: "nowrap", overflowX: "auto" }, children: [
-          /* @__PURE__ */ o("div", { className: "flex gap-2 items-center", style: { flexShrink: 0, flexWrap: "nowrap" }, children: [
+        /* @__PURE__ */ o("div", { className: "w-full mb-4 flex flex-col gap-2", children: [
+          /* @__PURE__ */ o("div", { className: "flex flex-wrap gap-2 items-center", children: [
             /* @__PURE__ */ e("button", { className: "bg-[#1a2128] border border-gray-700 text-gray-300 px-3 py-2 rounded-lg text-sm", children: "Status: All" }),
             /* @__PURE__ */ e("input", { type: "date", value: it, onChange: function(t) { jt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
             /* @__PURE__ */ e("span", { className: "text-gray-400", children: "~" }),
-            /* @__PURE__ */ e("input", { type: "date", value: kt, onChange: function(t) { lt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" }),
-            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" })
+            /* @__PURE__ */ e("input", { type: "date", value: kt, onChange: function(t) { lt(t.target.value); }, className: "bg-[#1a2128] border border-gray-700 rounded-lg px-3 py-2 text-gray-300 text-sm" })
           ] }),
-          /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", style: { flexShrink: 0, whiteSpace: "nowrap" }, children: [
-            /* @__PURE__ */ e("span", { children: "Auto refresh in " + mt + " s" }),
-            /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { nt(5); }, children: "↺" })
+          /* @__PURE__ */ o("div", { className: "flex items-center justify-between", children: [
+            /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity", children: "Confirm" }),
+            /* @__PURE__ */ o("div", { className: "flex items-center gap-1 text-gray-400 text-sm", style: { whiteSpace: "nowrap" }, children: [
+              /* @__PURE__ */ e("span", { children: "Auto refresh in " + mt + " s" }),
+              /* @__PURE__ */ e("span", { className: "cursor-pointer text-blue-400 ml-1", onClick: function() { nt(5); }, children: "↺" })
+            ] })
           ] })
         ] }),
         /* @__PURE__ */ e("div", { className: "w-full rounded-xl border border-gray-800 overflow-hidden", children: /* @__PURE__ */ e("div", { className: "overflow-x-auto", children: /* @__PURE__ */ o("table", { className: "w-full text-sm", children: [
