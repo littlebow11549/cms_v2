@@ -3988,16 +3988,45 @@ function no() {
     /* @__PURE__ */ e(M, {})
   ] });
 }
+function SportMatchCard({ match: n }) {
+  const [s, c] = w(false);
+  return /* @__PURE__ */ e("div", { className: "cursor-pointer bg-[#1a2128] border border-gray-800 rounded-xl hover:border-[#98E7D2] transition-colors", children: /* @__PURE__ */ o("div", { className: "p-4", children: [
+    /* @__PURE__ */ o("div", { className: "flex items-center justify-between mb-3", children: [
+      /* @__PURE__ */ e("span", { className: "text-gray-500 text-[10px] truncate max-w-[120px]", children: n.league }),
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ e("button", { onClick: (ev) => { ev.stopPropagation(); c(!s); }, className: "focus:outline-none transition-colors", children: /* @__PURE__ */ e(Dn, { className: "w-3.5 h-3.5", style: { color: s ? "#f59e0b" : "#4b5563" }, fill: s ? "#f59e0b" : "none" }) }),
+        /* @__PURE__ */ o("span", { className: "flex items-center gap-1 text-[10px] bg-red-600/20 text-red-400 border border-red-600/30 px-1.5 py-0.5 rounded", children: [
+          /* @__PURE__ */ e(ht, { className: "w-2.5 h-2.5 animate-pulse" }),
+          "LIVE"
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ o("div", { className: "flex items-center justify-between gap-2 mb-4", children: [
+      /* @__PURE__ */ o("div", { className: "flex flex-col items-center gap-1.5 flex-1", children: [
+        /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "text-[9px] text-gray-300 font-semibold", children: n.icon1 }) }),
+        /* @__PURE__ */ e("span", { className: "text-white text-[10px] text-center leading-tight", children: n.team1 })
+      ] }),
+      /* @__PURE__ */ o("div", { className: "text-center flex-shrink-0", children: [
+        /* @__PURE__ */ o("div", { className: "text-[#98E7D2] text-xl font-bold leading-none", children: [n.score1, " - ", n.score2] }),
+        /* @__PURE__ */ e("div", { className: "text-gray-500 text-[10px] mt-0.5", children: n.time })
+      ] }),
+      /* @__PURE__ */ o("div", { className: "flex flex-col items-center gap-1.5 flex-1", children: [
+        /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "text-[9px] text-gray-300 font-semibold", children: n.icon2 }) }),
+        /* @__PURE__ */ e("span", { className: "text-white text-[10px] text-center leading-tight", children: n.team2 })
+      ] })
+    ] }),
+    /* @__PURE__ */ e("button", { className: "w-full py-1.5 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]", children: "Place Bet" })
+  ] }) });
+}
 function oo() {
-  const [t, a] = w("vendor");
+  const [t, a] = w("bti");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SPORTS BETTING" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
       /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [
-        /* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
-        /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
         /* @__PURE__ */ o("button", { onClick: () => a("bti"), className: `pb-4 px-2 transition-colors relative ${t === "bti" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["BTI", t === "bti" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
-        /* @__PURE__ */ o("button", { onClick: () => a("saba"), className: `pb-4 px-2 transition-colors relative ${t === "saba" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["SABA", t === "saba" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
+        /* @__PURE__ */ o("button", { onClick: () => a("saba"), className: `pb-4 px-2 transition-colors relative ${t === "saba" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["SABA", t === "saba" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
       ] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Live Matches" }),
@@ -4019,37 +4048,7 @@ function oo() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", children: Jn.map((n, l) => /* @__PURE__ */ e(
-        "div",
-        {
-          className: "cursor-pointer bg-[#1a2128] border border-gray-800 rounded-xl hover:border-[#98E7D2] transition-colors",
-          children: /* @__PURE__ */ o("div", { className: "p-4", children: [
-            /* @__PURE__ */ o("div", { className: "flex items-center justify-between mb-3", children: [
-              /* @__PURE__ */ e("span", { className: "text-gray-500 text-[10px] truncate max-w-[120px]", children: n.league }),
-              /* @__PURE__ */ o("span", { className: "flex items-center gap-1 text-[10px] bg-red-600/20 text-red-400 border border-red-600/30 px-1.5 py-0.5 rounded", children: [
-                /* @__PURE__ */ e(ht, { className: "w-2.5 h-2.5 animate-pulse" }),
-                "LIVE"
-              ] })
-            ] }),
-            /* @__PURE__ */ o("div", { className: "flex items-center justify-between gap-2 mb-4", children: [
-              /* @__PURE__ */ o("div", { className: "flex flex-col items-center gap-1.5 flex-1", children: [
-                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "text-[9px] text-gray-300 font-semibold", children: n.icon1 }) }),
-                /* @__PURE__ */ e("span", { className: "text-white text-[10px] text-center leading-tight", children: n.team1 })
-              ] }),
-              /* @__PURE__ */ o("div", { className: "text-center flex-shrink-0", children: [
-                /* @__PURE__ */ o("div", { className: "text-[#98E7D2] text-xl font-bold leading-none", children: [n.score1, " - ", n.score2] }),
-                /* @__PURE__ */ e("div", { className: "text-gray-500 text-[10px] mt-0.5", children: n.time })
-              ] }),
-              /* @__PURE__ */ o("div", { className: "flex flex-col items-center gap-1.5 flex-1", children: [
-                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full bg-[#0f1419] border border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "text-[9px] text-gray-300 font-semibold", children: n.icon2 }) }),
-                /* @__PURE__ */ e("span", { className: "text-white text-[10px] text-center leading-tight", children: n.team2 })
-              ] })
-            ] }),
-            /* @__PURE__ */ e("button", { className: "w-full py-1.5 rounded-lg text-xs text-gray-900 transition-opacity hover:opacity-90 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]", children: "Place Bet" })
-          ] })
-        },
-        l
-      )) })
+      /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", children: Jn.map((n, l) => /* @__PURE__ */ e(SportMatchCard, { match: n }, l)) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
   ] });
@@ -4319,13 +4318,10 @@ function j() {
   ] });
 }
 function F() {
-  return /* @__PURE__ */ e("header", { className: "bg-[#1a2128] border-b border-gray-800 sticky top-0 z-50", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ o("div", { className: "flex items-center justify-between h-16", children: [
-    /* @__PURE__ */ o(D, { to: "/", className: "flex items-center gap-3 text-gray-300 hover:text-white transition-colors", children: [
-      /* @__PURE__ */ e(Tr, { className: "w-5 h-5" }),
-      /* @__PURE__ */ e("img", { src: oe, alt: "Casino Logo", className: "h-10 mix-blend-lighten" })
-    ] }),
-    /* @__PURE__ */ e("div", { className: "flex items-center gap-4 text-sm", children: /* @__PURE__ */ e(D, { to: "/", className: "text-gray-300 hover:text-white transition-colors", children: "Back to Home" }) })
-  ] }) }) });
+  return /* @__PURE__ */ e("header", { className: "bg-[#1a2128] border-b border-gray-800 sticky top-0 z-50", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ e("div", { className: "flex items-center h-16", children: /* @__PURE__ */ o(D, { to: "/", className: "flex items-center gap-3 text-gray-300 hover:text-white transition-colors", children: [
+    /* @__PURE__ */ e(Tr, { className: "w-5 h-5" }),
+    /* @__PURE__ */ e("img", { src: oe, alt: "Casino Logo", className: "h-10 mix-blend-lighten" })
+  ] }) }) }) });
 }
 function ho() {
   const t = {
@@ -4347,9 +4343,9 @@ function ho() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
-        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full max-w-4xl", children: "Account Overview" }),
-        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 w-full max-w-4xl", children: [
+      /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col", children: [
+        /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Account Overview" }),
+        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 w-full", children: [
           /* @__PURE__ */ e("div", { className: "lg:col-span-2 bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
             /* @__PURE__ */ e("div", { className: "w-20 h-20 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ e(X, { className: "w-10 h-10 text-gray-900" }) }),
             /* @__PURE__ */ o("div", { className: "flex-1 text-center md:text-left w-full", children: [
@@ -4383,7 +4379,7 @@ function ho() {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 w-full max-w-4xl", children: [
+        /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 w-full", children: [
           /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: [
             /* @__PURE__ */ e("h3", { className: "text-white text-lg font-semibold mb-4", children: "Personal Info" }),
             /* @__PURE__ */ o("div", { className: "space-y-3", children: [
@@ -4420,7 +4416,7 @@ function ho() {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6 w-full max-w-4xl", children: [
+        /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6 w-full", children: [
           /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6", children: [
             /* @__PURE__ */ e("h3", { className: "text-white text-lg font-semibold", children: "Recent Transactions" }),
             /* @__PURE__ */ e("button", { className: "text-[#98E7D2] hover:text-[#CBE8E4] text-sm transition-colors text-left md:text-right", children: "View More Records →" })
