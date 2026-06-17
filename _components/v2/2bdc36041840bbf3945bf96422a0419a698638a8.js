@@ -5137,7 +5137,73 @@ function No() {
       /* @__PURE__ */ e(j, {}),
       /* @__PURE__ */ o("main", { className: "flex-1 p-4 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full max-w-4xl", children: "Security Center" }),
-        /* @__PURE__ */ e("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-8 text-center w-full max-w-4xl", children: /* @__PURE__ */ e("p", { className: "text-gray-400", children: "Coming Soon" }) })
+        /* @__PURE__ */ o("div", { className: "w-full max-w-4xl", children: [
+          /* @__PURE__ */ e("h2", { className: "text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2", children: "Last login" }),
+          /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 mb-6", children: [
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between py-2", children: [
+              /* @__PURE__ */ e("span", { className: "text-white text-sm", children: "Time" }),
+              /* @__PURE__ */ e("span", { className: "text-gray-400 text-sm", children: "2026/04/21 13:29:25" })
+            ] }),
+            /* @__PURE__ */ e("div", { className: "border-t border-gray-700 my-1" }),
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between py-2", children: [
+              /* @__PURE__ */ e("span", { className: "text-white text-sm", children: "IP Address" }),
+              /* @__PURE__ */ e("span", { className: "text-gray-400 text-sm", children: "125.227.44.193" })
+            ] })
+          ] }),
+          /* @__PURE__ */ e("h2", { className: "text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2", children: "Security Setting" }),
+          /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden", children: [
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0", style: { backgroundColor: "#1e3a5f" }, children: /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-5 h-5 text-blue-400", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" }) }) }),
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("div", { className: "text-white text-sm font-semibold", children: "Personal Info" }),
+                  /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Complete your personal profile" })
+                ] })
+              ] }),
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0", style: { backgroundColor: "#1e3a5f" }, children: /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-5 h-5 text-blue-400", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("rect", { x: "3", y: "11", width: "18", height: "11", rx: "2", ry: "2" }) }) }),
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("div", { className: "text-white text-sm font-semibold", children: "Change Login Password" }),
+                  /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Recommended letter and number combination" })
+                ] })
+              ] }),
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0", style: { backgroundColor: "#1e3a5f" }, children: /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-5 h-5 text-blue-400", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" }) }) }),
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("div", { className: "text-white text-sm font-semibold", children: "Change Transaction Password" }),
+                  /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Set a password to improve the security of fund operations" })
+                ] })
+              ] }),
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0", style: { backgroundColor: "#1e3a5f" }, children: /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-5 h-5 text-blue-400", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" }) }) }),
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("div", { className: "text-white text-sm font-semibold", children: "Banking Details" }),
+                  /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Recommended letter and number combination" })
+                ] })
+              ] }),
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+            ] }),
+            /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 hover:bg-[#0f1419] cursor-pointer", children: [
+              /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ e("div", { className: "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0", style: { backgroundColor: "#1e3a5f" }, children: /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-5 h-5 text-blue-400", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" }) }) }),
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("div", { className: "text-white text-sm font-semibold", children: "Logout" }),
+                  /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Logout safely" })
+                ] })
+              ] }),
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+            ] })
+          ] })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ e(M, {})
