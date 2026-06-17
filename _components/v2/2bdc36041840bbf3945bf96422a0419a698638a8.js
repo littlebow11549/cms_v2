@@ -2994,7 +2994,7 @@ function jn() {
     ] }),
     t && /* @__PURE__ */ o("div", { className: "md:hidden fixed inset-x-0 top-0 bottom-16 z-40", children: [
       /* @__PURE__ */ e("div", { className: "absolute inset-0 bg-black/60", onClick: () => a(!1) }),
-      /* @__PURE__ */ o("nav", { className: "absolute inset-0 bg-[#1a2128] shadow-2xl flex flex-col overflow-hidden animate-menu-in", children: [
+      /* @__PURE__ */ o("nav", { className: "absolute inset-0 bg-[#1a2128] shadow-2xl flex flex-col overflow-hidden animate-slideIn", children: [
         /* @__PURE__ */ o("div", { className: "flex-shrink-0 flex items-center justify-between h-14 px-4 border-b border-gray-800", children: [
           /* @__PURE__ */ e("img", { src: oe, alt: "Casino Logo", className: "h-10 mix-blend-lighten" }),
           /* @__PURE__ */ e("button", { className: "text-gray-300 hover:text-white", onClick: () => a(!1), children: /* @__PURE__ */ e(se, { className: "w-5 h-5" }) })
@@ -4166,37 +4166,15 @@ function mo() {
   const [t, a] = w("event");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 py-16 md:py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-4xl md:text-7xl text-white mb-4", children: "PROMOTIONS" }) }) }),
-    /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[600px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
-      /* @__PURE__ */ o("div", { className: "flex items-center justify-between mb-8", children: [
-        /* @__PURE__ */ o("div", { className: "flex items-center gap-8", children: [
-          /* @__PURE__ */ o(
-            "button",
-            {
-              onClick: () => a("event"),
-              className: `pb-4 px-2 transition-colors relative ${t === "event" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`,
-              children: [
-                "Event",
-                t === "event" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })
-              ]
-            }
-          ),
-          /* @__PURE__ */ o(
-            "button",
-            {
-              onClick: () => a("news"),
-              className: `pb-4 px-2 transition-colors relative ${t === "news" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`,
-              children: [
-                "News",
-                t === "news" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })
-              ]
-            }
-          )
-        ] }),
-        /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
-          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-4 h-4" }) }),
-          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-4 h-4" }) })
-        ] })
+    /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[600px]", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ o("div", { className: "flex flex-col gap-6", children: [
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-6 border-b border-gray-800", children: [
+        /* @__PURE__ */ o("button", { onClick: () => a("event"), className: `pb-4 px-2 transition-colors relative ${t === "event" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Event", t === "event" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("news"), className: `pb-4 px-2 transition-colors relative ${t === "news" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["News", t === "news" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
+      ] }),
+      /* @__PURE__ */ o("div", { className: "flex items-center justify-end gap-2", children: [
+        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
+        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-4 h-4" }) }),
+        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-4 h-4" }) })
       ] }),
       /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6", children: (t === "event" ? so : co).map((n, l) => /* @__PURE__ */ o(
         "div",
@@ -4229,7 +4207,7 @@ function mo() {
         },
         l
       )) })
-    ] }) }),
+    ] }) }) }),
     /* @__PURE__ */ e(M, {})
   ] });
 }
