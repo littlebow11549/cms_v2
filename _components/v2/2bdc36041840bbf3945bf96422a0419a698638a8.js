@@ -3779,7 +3779,19 @@ function eo() {
 }
 function pt({ promo: t }) {
   return /* @__PURE__ */ o("div", { className: "bg-[#0f1419] border border-gray-800 rounded-xl overflow-hidden hover:border-[#98E7D2] transition-colors cursor-pointer group", children: [
-    /* @__PURE__ */ e("div", { className: "bg-[#131b21] h-28 flex items-center justify-center text-5xl border-b border-gray-800", children: t.icon }),
+    /* @__PURE__ */ o("div", { className: "relative h-28 overflow-hidden", style: { background: "linear-gradient(135deg, #091d14 0%, #0d2a1e 50%, #0a1a12 100%)" }, children: [
+      /* @__PURE__ */ e("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "font-black select-none", style: { color: "#98E7D2", fontSize: "54px", letterSpacing: "0.12em", opacity: 0.07 }, children: "PROMO!" }) }),
+      /* @__PURE__ */ o("div", { className: "absolute top-2 right-3 flex flex-col items-end", style: { gap: "3px" }, children: [
+        /* @__PURE__ */ e("div", { style: { width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg,#CBE8E4,#98E7D2)", opacity: 0.85 } }),
+        /* @__PURE__ */ e("div", { style: { width: 16, height: 16, borderRadius: "50%", background: "linear-gradient(135deg,#98E7D2,#6dd5bd)", opacity: 0.6, marginRight: 10 } }),
+        /* @__PURE__ */ e("div", { style: { width: 20, height: 20, borderRadius: "50%", background: "linear-gradient(135deg,#CBE8E4,#98E7D2)", opacity: 0.45, marginRight: 2 } })
+      ] }),
+      /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0", style: { height: 2, background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" } }),
+      /* @__PURE__ */ o("div", { className: "absolute inset-0 flex flex-col justify-center px-4", children: [
+        /* @__PURE__ */ e("p", { className: "text-xs mb-1.5", style: { color: "#98E7D2", letterSpacing: "0.2em" }, children: "SPECIAL OFFER" }),
+        /* @__PURE__ */ e("p", { className: "text-2xl font-black", style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.06em" }, children: "PROMOTION" })
+      ] })
+    ] }),
     /* @__PURE__ */ o("div", { className: "p-4", children: [
       /* @__PURE__ */ e("h3", { className: "text-white text-sm mb-3 text-center", children: t.name }),
       /* @__PURE__ */ o("div", { className: "mb-4", children: [
@@ -3988,7 +4000,12 @@ function oo() {
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SPORTS BETTING" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
-      /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [/* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }), /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })] }),
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [
+        /* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("bti"), className: `pb-4 px-2 transition-colors relative ${t === "bti" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["BTI", t === "bti" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("saba"), className: `pb-4 px-2 transition-colors relative ${t === "saba" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["SABA", t === "saba" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
+      ] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Live Matches" }),
         /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -4047,8 +4064,8 @@ function oo() {
 function Lvo() {
   const [t, a] = w("vendor");
   return /* @__PURE__ */ o(P, { children: [
-    /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-fuchsia-600 via-violet-600 to-blue-600 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "LIVE CASINO GAMES" }) }) }),
-    /* @__PURE__ */ e("section", { className: "py-8 bg-gradient-to-b from-[#1a0d2e] via-[#120a1e] to-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
+    /* @__PURE__ */ e("div", { className: "py-20", style: { background: "linear-gradient(to right, #c026d3, #7c3aed, #2563eb)" }, children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "LIVE CASINO GAMES" }) }) }),
+    /* @__PURE__ */ e("section", { className: "py-8 min-h-[400px]", style: { background: "linear-gradient(to bottom, #1a0d2e, #120a1e, #0f1419)" }, children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
       /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [/* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }), /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Live Matches" }),
