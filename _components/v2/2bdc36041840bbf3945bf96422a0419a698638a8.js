@@ -4495,13 +4495,14 @@ function uo() {
             /* @__PURE__ */ e("div", { className: "space-y-4", children: c.map((m) => /* @__PURE__ */ e(
               "div",
               {
-                className: `border rounded-lg p-4 md:p-6 cursor-pointer transition-all ${l === m.id ? "bg-[#f4e185] bg-opacity-20 border-[#f4e185]" : "bg-[#0f1419] border-gray-700 hover:border-gray-600"}`,
+                className: `border rounded-lg p-4 md:p-6 cursor-pointer transition-all ${l === m.id ? "" : "bg-[#0f1419] border-gray-700 hover:border-gray-600"}`,
+                style: l === m.id ? { background: "#313E40", border: "1px solid #AAE5D3" } : {},
                 onClick: () => i(m.id),
                 children: /* @__PURE__ */ o("div", { className: "flex items-start gap-3", children: [
-                  /* @__PURE__ */ e("div", { className: `w-5 h-5 rounded-full border-2 flex items-center justify-center mt-1 flex-shrink-0 ${l === m.id ? "border-[#f4e185] bg-[#f4e185]" : "border-gray-600"}`, children: l === m.id && /* @__PURE__ */ e("div", { className: "w-2 h-2 rounded-full bg-gray-900" }) }),
+                  /* @__PURE__ */ e("div", { className: "w-5 h-5 rounded-full border-2 flex items-center justify-center mt-1 flex-shrink-0", style: l === m.id ? { borderColor: "#AAE5D3", background: "#AAE5D3" } : { borderColor: "#4b5563" }, children: l === m.id && /* @__PURE__ */ e("div", { className: "w-2 h-2 rounded-full", style: { background: "#313E40" } }) }),
                   /* @__PURE__ */ o("div", { className: "flex-1 min-w-0", children: [
-                    /* @__PURE__ */ e("h3", { className: `font-semibold mb-3 text-sm md:text-base ${l === m.id ? "text-gray-900" : "text-white"}`, children: m.title }),
-                    /* @__PURE__ */ e("ul", { className: "space-y-1", children: m.notes.map((u, h) => /* @__PURE__ */ o("li", { className: `text-xs md:text-sm break-words ${l === m.id ? "text-gray-800" : "text-gray-300"}`, children: [
+                    /* @__PURE__ */ e("h3", { className: "font-semibold mb-3 text-sm md:text-base", style: l === m.id ? { color: "#AAE5D3" } : { color: "white" }, children: m.title }),
+                    /* @__PURE__ */ e("ul", { className: "space-y-1", children: m.notes.map((u, h) => /* @__PURE__ */ o("li", { className: "text-xs md:text-sm break-words", style: l === m.id ? { color: "#AAE5D3" } : { color: "#d1d5db" }, children: [
                       "• ",
                       u
                     ] }, h)) })
