@@ -3894,7 +3894,7 @@ const gt = [
   { id: 8, name: "Game Name", provider: "Game Provider", image: "/cms_v2/_external/images.unsplash.com/photo-1604028296525-8304e1a4969f__w-400", category: "all" }
 ];
 function no() {
-  const [t, a] = w("all"), r = t === "all" ? gt : gt.filter((n) => n.category === "favorites");
+  const [t, a] = w("vendor"), r = t === "vendor" ? gt : gt.filter((n) => n.category === "favorites");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 py-16 md:py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ o("h1", { className: "text-4xl md:text-7xl text-white mb-4", children: [
       "100% ",
@@ -3905,11 +3905,11 @@ function no() {
         /* @__PURE__ */ o(
           "button",
           {
-            onClick: () => a("all"),
-            className: `pb-4 px-2 transition-colors relative ${t === "all" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`,
+            onClick: () => a("vendor"),
+            className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`,
             children: [
-              "All Games",
-              t === "all" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })
+              "Vendor",
+              t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })
             ]
           }
         ),
@@ -3973,9 +3973,11 @@ function no() {
   ] });
 }
 function oo() {
+  const [t, a] = w("vendor");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SPORTS BETTING" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [/* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }), /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Live Matches" }),
         /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -4002,9 +4004,11 @@ function oo() {
   ] });
 }
 function Co() {
+  const [t, a] = w("vendor");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-violet-700 via-purple-600 to-pink-600 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "LIVE CASINO GAMES" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [/* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }), /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Live Matches" }),
         /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -4024,9 +4028,14 @@ function Co() {
   ] });
 }
 function lo() {
+  const [t, a] = w("vendor");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "FISHING GAMES" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [
+        /* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
+      ] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Fish Games" }),
         /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -4053,9 +4062,14 @@ function lo() {
   ] });
 }
 function io() {
+  const [t, a] = w("vendor");
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-red-600 via-pink-500 to-purple-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SLOT MACHINES" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
+      /* @__PURE__ */ o("div", { className: "flex items-center gap-8 border-b border-gray-800 mb-8", children: [
+        /* @__PURE__ */ o("button", { onClick: () => a("vendor"), className: `pb-4 px-2 transition-colors relative ${t === "vendor" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Vendor", t === "vendor" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] }),
+        /* @__PURE__ */ o("button", { onClick: () => a("favorites"), className: `pb-4 px-2 transition-colors relative ${t === "favorites" ? "text-[#98E7D2]" : "text-gray-400 hover:text-gray-300"}`, children: ["Favorites", t === "favorites" && /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]" })] })
+      ] }),
       /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8", children: [
         /* @__PURE__ */ e("h2", { className: "text-white text-2xl md:text-3xl", children: "Slot Games" }),
         /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
