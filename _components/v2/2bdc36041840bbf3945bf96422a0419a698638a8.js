@@ -3493,7 +3493,7 @@ function Kn() {
         )
       ] }),
       /* @__PURE__ */ o("div", { className: "flex items-center justify-end gap-3", children: [
-        /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-sm px-4 py-2 border border-gray-700 rounded-lg transition-colors", children: "Show all" }),
+        /* @__PURE__ */ e(D, { to: t === "mini" ? "/mini-games" : t === "slot" ? "/slot" : "/live", className: "text-gray-400 hover:text-white text-sm px-4 py-2 border border-gray-700 rounded-lg transition-colors", children: "Show all" }),
         /* @__PURE__ */ e(
           "button",
           {
