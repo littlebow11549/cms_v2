@@ -2978,9 +2978,7 @@ function jn() {
           ] }),
           [
             { to: "/fish", icon: /* @__PURE__ */ e(mt, { className: "w-3.5 h-3.5" }), label: "Fish" },
-            { to: "/hot-games", icon: /* @__PURE__ */ e(Tn, { className: "w-3.5 h-3.5" }), label: "ESport" },
             { to: "/slot", icon: /* @__PURE__ */ e(Ge, { className: "w-3.5 h-3.5" }), label: "Slots" },
-            { to: "/promotion", icon: /* @__PURE__ */ e(Ln, { className: "w-3.5 h-3.5" }), label: "Lottery" },
             { to: "/promotion", icon: /* @__PURE__ */ e(Ce, { className: "w-3.5 h-3.5" }), label: "Promotion" }
           ].map(({ to: _, icon: O, label: $ }) => /* @__PURE__ */ o(D, { to: _, className: `px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap ${R.pathname === _ && $ !== "Lottery" ? "text-gray-900 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] shadow-md font-semibold" : "text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]"}`, children: [
             O,
