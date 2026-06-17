@@ -3438,9 +3438,9 @@ function Kn() {
     /* @__PURE__ */ e("div", { className: "mb-8", children: /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row md:items-center md:justify-between gap-4", children: [
       /* @__PURE__ */ o("div", { className: "grid grid-cols-3 md:flex md:items-center md:gap-8", children: [
         /* @__PURE__ */ o(
-          D,
+          "button",
           {
-            to: "/mini-games",
+            onClick: () => a("mini"),
             className: `pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${t === "mini" ? "text-white" : "text-gray-500 hover:text-gray-300"}`,
             children: [
               /* @__PURE__ */ e(He, { className: "w-5 h-5 md:w-4 md:h-4" }),
@@ -3456,9 +3456,9 @@ function Kn() {
           }
         ),
         /* @__PURE__ */ o(
-          D,
+          "button",
           {
-            to: "/slot",
+            onClick: () => a("slot"),
             className: `pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${t === "slot" ? "text-white" : "text-gray-500 hover:text-gray-300"}`,
             children: [
               /* @__PURE__ */ e(Ge, { className: "w-5 h-5 md:w-4 md:h-4" }),
@@ -3474,9 +3474,9 @@ function Kn() {
           }
         ),
         /* @__PURE__ */ o(
-          D,
+          "button",
           {
-            to: "/live",
+            onClick: () => a("live"),
             className: `pb-2 transition-colors relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-2 ${t === "live" ? "text-white" : "text-gray-500 hover:text-gray-300"}`,
             children: [
               /* @__PURE__ */ e(Fe, { className: "w-5 h-5 md:w-4 md:h-4" }),
