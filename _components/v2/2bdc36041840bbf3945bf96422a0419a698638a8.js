@@ -4474,7 +4474,7 @@ function uo() {
               {
                 onClick: () => d(m),
                 className: `py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all ${t === m && !r ? "text-gray-900" : "bg-[#0f1419] border border-gray-700 text-white hover:border-gray-600"}`,
-                style: t === m && !r ? { background: "linear-gradient(to right, #16a34a, #22c55e)" } : {},
+                style: t === m && !r ? { background: "linear-gradient(to right, #15803d, #16a34a)" } : {},
                 children: parseInt(m).toLocaleString()
               },
               m
