@@ -2909,6 +2909,7 @@ function jn() {
   }, W = () => {
     m(!1), h(!1), x(!0);
   };
+  le(function() { document.body.style.overflow = t ? "hidden" : ""; return function() { document.body.style.overflow = ""; }; }, [t]);
   return /* @__PURE__ */ o("header", { className: "bg-[#1a2128] border-b border-gray-800 sticky top-0 z-50", children: [
     /* @__PURE__ */ o("div", { className: "hidden md:flex items-stretch px-[50px]", children: [
       /* @__PURE__ */ e(D, { to: "/", className: "flex items-center pr-6 flex-shrink-0", children: /* @__PURE__ */ e("img", { src: oe, alt: "Casino Logo", className: "h-10 mix-blend-lighten" }) }),
@@ -3123,6 +3124,7 @@ const Fn = [
 ];
 function Wn() {
   const t = A(), a = t.pathname === "/" ? "home" : t.pathname.substring(1), [r, n] = w(!1), l = (i) => `flex flex-col items-center justify-center gap-1 transition-all ${a === i ? "text-[#98E7D2]" : "text-gray-400"}`;
+  le(function() { document.body.style.overflow = r ? "hidden" : ""; return function() { document.body.style.overflow = ""; }; }, [r]);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("nav", { className: "md:hidden fixed bottom-0 left-0 right-0 bg-[#0a0e1a] border-t border-gray-800 z-50", children: /* @__PURE__ */ o("div", { className: "grid grid-cols-5 h-16", children: [
       /* @__PURE__ */ o(
@@ -3501,22 +3503,22 @@ function Kn() {
           }
         )
       ] }),
-      /* @__PURE__ */ o("div", { className: "flex items-center justify-end gap-3", children: [
-        /* @__PURE__ */ e(D, { to: t === "mini" ? "/mini-games" : t === "slot" ? "/slot" : "/live", className: "text-gray-400 hover:text-white text-sm px-4 py-2 border border-gray-700 rounded-lg transition-colors", children: "Show all" }),
+      /* @__PURE__ */ o("div", { className: "flex items-center justify-end gap-2", children: [
+        /* @__PURE__ */ e(D, { to: t === "mini" ? "/mini-games" : t === "slot" ? "/slot" : "/live", className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
         /* @__PURE__ */ e(
           "button",
           {
             onClick: () => i("left"),
-            className: "text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors",
-            children: /* @__PURE__ */ e(pe, { className: "w-5 h-5" })
+            className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors",
+            children: /* @__PURE__ */ e(pe, { className: "w-4 h-4" })
           }
         ),
         /* @__PURE__ */ e(
           "button",
           {
             onClick: () => i("right"),
-            className: "text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors",
-            children: /* @__PURE__ */ e(ge, { className: "w-5 h-5" })
+            className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors",
+            children: /* @__PURE__ */ e(ge, { className: "w-4 h-4" })
           }
         )
       ] })
@@ -4201,10 +4203,10 @@ function mo() {
             }
           )
         ] }),
-        /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
-          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white px-4 py-2 border border-gray-700 rounded-lg transition-colors text-sm", children: "Show all" }),
-          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-5 h-5" }) }),
-          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-2 border border-gray-700 rounded-lg transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-5 h-5" }) })
+        /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white text-xs px-3 py-1.5 border border-gray-700 rounded transition-colors", children: "Show all" }),
+          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(pe, { className: "w-4 h-4" }) }),
+          /* @__PURE__ */ e("button", { className: "text-gray-400 hover:text-white p-1.5 border border-gray-700 rounded transition-colors", children: /* @__PURE__ */ e(ge, { className: "w-4 h-4" }) })
         ] })
       ] }),
       /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6", children: (t === "event" ? so : co).map((n, l) => /* @__PURE__ */ o(
@@ -4244,7 +4246,9 @@ function mo() {
   ] });
 }
 function j() {
-  const t = A(), [a, r] = w(!1), [cs, setCs] = w(!1), n = [
+  const t = A(), [a, r] = w(!1), [cs, setCs] = w(!1);
+  le(function() { document.body.style.overflow = (a || cs) ? "hidden" : ""; return function() { document.body.style.overflow = ""; }; }, [a, cs]);
+  const n = [
     { path: "/account", icon: Ht, label: "Account Overview" },
     { path: "/deposit", icon: Xe, label: "Deposit" },
     { path: "/withdrawal", icon: Gt, label: "Withdrawal" },
