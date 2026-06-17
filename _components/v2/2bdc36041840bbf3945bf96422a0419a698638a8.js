@@ -2960,9 +2960,9 @@ function jn() {
               /* @__PURE__ */ e("span", { children: "Sports" }),
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
-            r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg min-w-[180px] z-50 overflow-hidden", children: [
-              /* @__PURE__ */ e(D, { to: "/sport#bti", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap border-b border-gray-700/50 whitespace-nowrap", children: "BTI" }),
-              /* @__PURE__ */ e(D, { to: "/sport#saba", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap", children: "SABA" })
+            r && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden", style: { minWidth: "220px" }, children: [
+              /* @__PURE__ */ e(D, { to: "/sport#bti", className: "block w-full text-left px-6 py-6 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap border-b border-gray-700/50", children: "BTI" }),
+              /* @__PURE__ */ e(D, { to: "/sport#saba", className: "block w-full text-left px-6 py-6 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap", children: "SABA" })
             ] })
           ] }),
           /* @__PURE__ */ o("div", { className: "relative pb-2", onMouseEnter: () => i(!0), onMouseLeave: () => i(!1), children: [
@@ -2971,10 +2971,10 @@ function jn() {
               /* @__PURE__ */ e("span", { children: "Live" }),
               /* @__PURE__ */ e(dt, { className: "w-3 h-3" })
             ] }),
-            l && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg min-w-[180px] z-50 overflow-hidden", children: [
-              /* @__PURE__ */ e(D, { to: "/live#sexy", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap border-b border-gray-700/50 whitespace-nowrap", children: "Sexy" }),
-              /* @__PURE__ */ e(D, { to: "/live#pragmatic", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap border-b border-gray-700/50 whitespace-nowrap", children: "Pragmatic Play" }),
-              /* @__PURE__ */ e(D, { to: "/live#yeebet", className: "block w-full text-left px-5 py-5 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap", children: "Yeebet" })
+            l && /* @__PURE__ */ o("div", { className: "absolute top-full left-0 mt-0 bg-[#1a2128] border border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden", style: { minWidth: "220px" }, children: [
+              /* @__PURE__ */ e(D, { to: "/live#sexy", className: "block w-full text-left px-6 py-6 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap border-b border-gray-700/50", children: "Sexy" }),
+              /* @__PURE__ */ e(D, { to: "/live#pragmatic", className: "block w-full text-left px-6 py-6 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap border-b border-gray-700/50", children: "Pragmatic Play" }),
+              /* @__PURE__ */ e(D, { to: "/live#yeebet", className: "block w-full text-left px-6 py-6 text-gray-300 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2] hover:text-gray-900 transition-all font-medium whitespace-nowrap", children: "Yeebet" })
             ] })
           ] }),
           [
@@ -4269,8 +4269,8 @@ function j() {
         /* @__PURE__ */ e("span", { className: "text-white text-lg font-bold flex-1", children: "Customer Service" }),
         /* @__PURE__ */ e("button", { onClick: () => setCs(!1), className: "text-gray-400 hover:text-white w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center transition-colors", children: /* @__PURE__ */ e(se, { className: "w-4 h-4" }) })
       ] }),
-      /* @__PURE__ */ o("div", { className: "p-6", children: [
-        /* @__PURE__ */ e("p", { className: "text-white font-semibold mb-5", children: "Select a channel" }),
+      /* @__PURE__ */ o("div", { className: "p-8", children: [
+        /* @__PURE__ */ e("p", { className: "text-white font-semibold mb-6", children: "Select a channel" }),
         /* @__PURE__ */ o("div", { className: "flex flex-col gap-4", children: [
           /* @__PURE__ */ o("button", { className: "flex items-center gap-4 bg-[#1a2128] border border-gray-700 hover:border-[#98E7D2] rounded-xl p-4 transition-colors text-left group", children: [
             /* @__PURE__ */ e("div", { className: "w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0", style: { background: "rgba(152,231,210,0.15)" }, children: /* @__PURE__ */ e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "w-5 h-5", style: { color: "#98E7D2" }, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ e("path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" }) }) }),
@@ -4822,7 +4822,7 @@ function fo() {
                 /* @__PURE__ */ e("td", { className: "px-4 py-4 text-gray-300 whitespace-nowrap", children: "Name mis" })
               ] })
             ] }),
-            /* @__PURE__ */ e("tfoot", { children: /* @__PURE__ */ e("tr", { style: { background: "#0d1b2a" }, children: /* @__PURE__ */ o("td", { colSpan: 12, className: "px-4 py-4", children: /* @__PURE__ */ o("div", { className: "flex justify-between items-center", children: [/* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "Total Deposit Amount" }), /* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "0.00" })] }) }) }) })
+            /* @__PURE__ */ e("tfoot", { children: /* @__PURE__ */ e("tr", { style: { background: "#0d1b2a" }, children: /* @__PURE__ */ o("td", { colSpan: 12, className: "px-4 py-4", children: /* @__PURE__ */ o("div", { className: "flex justify-between items-center", children: [/* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "Total Deposit Amount" }), /* @__PURE__ */ e("span", { style: { color: "#f59e0b" }, className: "font-semibold", children: "350,000" })] }) }) }) })
           ] }) }) })
       ] })
     ] }),
@@ -5076,7 +5076,7 @@ function vo() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen overflow-x-hidden", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 pb-20 md:p-8 flex flex-col", children: [
+      /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 pb-20 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Personal Info" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-xl p-6 w-full max-w-md", children: [
           /* @__PURE__ */ e("h2", { className: "text-white text-center font-semibold text-lg mb-5", children: "Username : PLAYER" }),
@@ -5123,7 +5123,7 @@ function No() {
     /* @__PURE__ */ e(F, {}),
     /* @__PURE__ */ o("div", { className: "flex bg-[#0f1419] min-h-screen overflow-x-hidden", children: [
       /* @__PURE__ */ e(j, {}),
-      /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 pb-20 md:p-8 flex flex-col", children: [
+      /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 pb-20 md:p-8 flex flex-col items-center", children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-3xl mb-8 w-full", children: "Security Center" }),
         /* @__PURE__ */ o("div", { className: "w-full max-w-4xl", children: [
           /* @__PURE__ */ e("h2", { className: "text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2", children: "Last login" }),
@@ -5212,7 +5212,7 @@ function wo() {
 }
 function Eo() {
   const t = A(), a = ["/account", "/deposit", "/withdrawal", "/betting-record", "/deposit-record", "/profit-loss", "/withdrawal-record", "/account-record", "/personal-info", "/security", "/support"].includes(t.pathname);
-  return /* @__PURE__ */ o("div", { className: "min-h-screen bg-[#0f1419]", children: [
+  return /* @__PURE__ */ o("div", { className: "min-h-screen bg-[#0f1419] overflow-x-hidden", children: [
     !a && /* @__PURE__ */ e(jn, {}),
     /* @__PURE__ */ o(Ja, { children: [
       /* @__PURE__ */ e(B, { path: "/", element: /* @__PURE__ */ e(to, {}) }),
