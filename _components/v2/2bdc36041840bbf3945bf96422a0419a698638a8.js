@@ -3991,13 +3991,12 @@ function no() {
     /* @__PURE__ */ e(M, {})
   ] });
 }
-function SportMatchCard({ match: n }) {
-  const [s, c] = w(false);
+function SportMatchCard({ match: n, isFav: s, onToggle: c }) {
   return /* @__PURE__ */ e("div", { className: "cursor-pointer bg-[#1a2128] border border-gray-800 rounded-xl hover:border-[#98E7D2] transition-colors", children: /* @__PURE__ */ o("div", { className: "p-4", children: [
     /* @__PURE__ */ o("div", { className: "flex items-center justify-between mb-3", children: [
       /* @__PURE__ */ e("span", { className: "text-gray-500 text-[10px] truncate max-w-[120px]", children: n.league }),
       /* @__PURE__ */ o("div", { className: "flex items-center gap-2", children: [
-        /* @__PURE__ */ e("button", { onClick: (ev) => { ev.stopPropagation(); c(!s); }, className: "focus:outline-none transition-colors", children: /* @__PURE__ */ e(Dn, { className: "w-3.5 h-3.5", style: { color: s ? "#f59e0b" : "#4b5563" }, fill: s ? "#f59e0b" : "none" }) }),
+        /* @__PURE__ */ e("button", { onClick: (ev) => { ev.stopPropagation(); c(); }, className: "focus:outline-none transition-colors", children: /* @__PURE__ */ e(Dn, { className: "w-3.5 h-3.5", style: { color: s ? "#f59e0b" : "#4b5563" }, fill: s ? "#f59e0b" : "none" }) }),
         /* @__PURE__ */ o("span", { className: "flex items-center gap-1 text-[10px] bg-red-600/20 text-red-400 border border-red-600/30 px-1.5 py-0.5 rounded", children: [
           /* @__PURE__ */ e(ht, { className: "w-2.5 h-2.5 animate-pulse" }),
           "LIVE"
@@ -4022,8 +4021,9 @@ function SportMatchCard({ match: n }) {
   ] }) });
 }
 function oo() {
-  const loc = A(), [t, a] = w(loc.hash ? loc.hash.slice(1) : "bti");
+  const loc = A(), [t, a] = w(loc.hash ? loc.hash.slice(1) : "bti"), [favs, setFavs] = w([]);
   le(function() { if (loc.hash) a(loc.hash.slice(1)); }, [loc.hash]);
+  const toggleFav = (idx) => setFavs((p) => p.includes(idx) ? p.filter((i) => i !== idx) : [...p, idx]);
   return /* @__PURE__ */ o(P, { children: [
     /* @__PURE__ */ e("div", { className: "bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 py-20", children: /* @__PURE__ */ e("div", { className: "container mx-auto px-4 text-center", children: /* @__PURE__ */ e("h1", { className: "text-5xl md:text-7xl text-white mb-4", children: "SPORTS BETTING" }) }) }),
     /* @__PURE__ */ e("section", { className: "py-8 bg-[#0f1419] min-h-[400px]", children: /* @__PURE__ */ o("div", { className: "container mx-auto px-4", children: [
@@ -4052,7 +4052,7 @@ function oo() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", children: Jn.map((n, l) => /* @__PURE__ */ e(SportMatchCard, { match: n }, l)) })
+      t === "favorites" && favs.length === 0 ? /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "No favorites yet. Click ★ on a match to add it here." }) }) : /* @__PURE__ */ e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", children: (t === "favorites" ? Jn.filter((_, i) => favs.includes(i)) : Jn).map((n) => { const origIdx = Jn.indexOf(n); return /* @__PURE__ */ e(SportMatchCard, { match: n, isFav: favs.includes(origIdx), onToggle: () => toggleFav(origIdx) }, origIdx); }) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
   ] });
