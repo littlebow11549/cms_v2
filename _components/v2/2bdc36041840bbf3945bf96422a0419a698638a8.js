@@ -4190,7 +4190,19 @@ function mo() {
         {
           className: "bg-[#1a2128] border border-gray-800 rounded-lg overflow-hidden hover:border-[#98E7D2] transition-colors",
           children: [
-            /* @__PURE__ */ e("div", { className: "bg-black h-32 flex items-center justify-center text-5xl", children: n.logo }),
+            /* @__PURE__ */ o("div", { className: "relative h-32 overflow-hidden", style: { background: "linear-gradient(135deg, #091d14 0%, #0d2a1e 50%, #0a1a12 100%)" }, children: [
+              /* @__PURE__ */ e("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ e("span", { className: "font-black select-none", style: { color: "#98E7D2", fontSize: "54px", letterSpacing: "0.12em", opacity: 0.07 }, children: "PROMO!" }) }),
+              /* @__PURE__ */ o("div", { className: "absolute top-2 right-3 flex flex-col items-end", style: { gap: "3px" }, children: [
+                /* @__PURE__ */ e("div", { style: { width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg,#CBE8E4,#98E7D2)", opacity: 0.85 } }),
+                /* @__PURE__ */ e("div", { style: { width: 16, height: 16, borderRadius: "50%", background: "linear-gradient(135deg,#98E7D2,#6dd5bd)", opacity: 0.6, marginRight: 10 } }),
+                /* @__PURE__ */ e("div", { style: { width: 20, height: 20, borderRadius: "50%", background: "linear-gradient(135deg,#CBE8E4,#98E7D2)", opacity: 0.45, marginRight: 2 } })
+              ] }),
+              /* @__PURE__ */ e("div", { className: "absolute bottom-0 left-0 right-0", style: { height: 2, background: "linear-gradient(90deg,#CBE8E4,#98E7D2)" } }),
+              /* @__PURE__ */ o("div", { className: "absolute inset-0 flex flex-col justify-center px-4", children: [
+                /* @__PURE__ */ e("p", { className: "text-xs mb-1.5", style: { color: "#98E7D2", letterSpacing: "0.2em" }, children: "SPECIAL OFFER" }),
+                /* @__PURE__ */ e("p", { className: "text-2xl font-black", style: { background: "linear-gradient(90deg,#CBE8E4,#98E7D2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.06em" }, children: "PROMOTION" })
+              ] })
+            ] }),
             /* @__PURE__ */ o("div", { className: "p-6", children: [
               /* @__PURE__ */ e("h3", { className: "text-white text-xl mb-4 text-center", children: n.name }),
               /* @__PURE__ */ o("div", { className: "mb-6", children: [
