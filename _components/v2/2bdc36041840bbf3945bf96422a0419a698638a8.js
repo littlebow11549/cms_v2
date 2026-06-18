@@ -3268,24 +3268,26 @@ function Un() {
             }
           )
         ] }) }),
-        /* @__PURE__ */ e("div", { className: "absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20", children: Ae.map((n, l) => /* @__PURE__ */ e(
-          "button",
-          {
-            onClick: () => a(l),
-            className: "rounded-full transition-all cursor-pointer",
-            style: {
-              width: l === t ? 20 : 6,
-              height: 6,
-              background: l === t ? r.decorColor : "rgba(255,255,255,0.3)",
-              padding: "4px",
-              boxSizing: "content-box"
-            }
-          },
-          l
-        )) }),
-        /* @__PURE__ */ o("div", { style: { position: "absolute", bottom: 12, right: 16, display: "flex", gap: 8, zIndex: 20 }, children: [
-          /* @__PURE__ */ e("button", { onClick: () => a((p) => (p - 1 + Ae.length) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "‹" }),
-          /* @__PURE__ */ e("button", { onClick: () => a((p) => (p + 1) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "›" })
+        /* @__PURE__ */ o("div", { className: "absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20", children: [
+          /* @__PURE__ */ e("div", { className: "flex items-center gap-2", children: Ae.map((n, l) => /* @__PURE__ */ e(
+            "button",
+            {
+              onClick: () => a(l),
+              className: "rounded-full transition-all cursor-pointer",
+              style: {
+                width: l === t ? 20 : 6,
+                height: 6,
+                background: l === t ? r.decorColor : "rgba(255,255,255,0.3)",
+                padding: "4px",
+                boxSizing: "content-box"
+              }
+            },
+            l
+          )) }),
+          /* @__PURE__ */ o("div", { style: { display: "flex", gap: 8 }, children: [
+            /* @__PURE__ */ e("button", { onClick: () => a((p) => (p - 1 + Ae.length) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "‹" }),
+            /* @__PURE__ */ e("button", { onClick: () => a((p) => (p + 1) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "›" })
+          ] })
         ] })
       ]
     }
@@ -3887,7 +3889,7 @@ function ro() {
         ] })
       ] }),
       /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: ao.map((t) => /* @__PURE__ */ e(GameCard, { game: t }, t.id)) }),
-      /* @__PURE__ */ e("div", { className: "flex justify-center mt-8", children: /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-8 py-3 rounded-lg hover:opacity-90 transition-opacity", children: "Load more" }) })
+      /* @__PURE__ */ e("div", { className: "flex justify-center mt-8", children: /* @__PURE__ */ e("button", { className: "px-8 py-3 rounded-lg transition-colors", onMouseEnter: (s) => { s.currentTarget.style.background = "#313E40"; s.currentTarget.style.color = "#AAE5D3"; s.currentTarget.style.borderColor = "#AAE5D3"; }, onMouseLeave: (s) => { s.currentTarget.style.background = "rgba(255,255,255,0.05)"; s.currentTarget.style.color = "#D1D5DB"; s.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }, style: { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.2)", color: "#D1D5DB", fontWeight: 500, cursor: "pointer" }, children: "Load more" }) })
     ] }) }),
     /* @__PURE__ */ e(M, {})
   ] });
@@ -3957,7 +3959,7 @@ function no() {
         ] })
       ] }),
       t === "favorites" && r.length === 0 ? /* @__PURE__ */ e("div", { className: "text-center py-20", children: /* @__PURE__ */ e("p", { className: "text-gray-400 text-lg", children: "No favorites yet. Click ★ on a game to add it here." }) }) : /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4", children: r.map((n) => /* @__PURE__ */ e(GameCard, { game: n, isFav: favIds.includes(n.id), onToggle: () => toggleFav(n.id) }, n.id)) }),
-      /* @__PURE__ */ e("div", { className: "flex justify-center mt-4", children: /* @__PURE__ */ e("button", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-8 py-3 rounded-lg hover:opacity-90 transition-opacity", children: "Load more" }) })
+      /* @__PURE__ */ e("div", { className: "flex justify-center mt-4", children: /* @__PURE__ */ e("button", { className: "px-8 py-3 rounded-lg transition-colors", onMouseEnter: (s) => { s.currentTarget.style.background = "#313E40"; s.currentTarget.style.color = "#AAE5D3"; s.currentTarget.style.borderColor = "#AAE5D3"; }, onMouseLeave: (s) => { s.currentTarget.style.background = "rgba(255,255,255,0.05)"; s.currentTarget.style.color = "#D1D5DB"; s.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }, style: { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.2)", color: "#D1D5DB", fontWeight: 500, cursor: "pointer" }, children: "Load more" }) })
     ] }) }) }),
     /* @__PURE__ */ e(M, {})
   ] });
@@ -4210,7 +4212,7 @@ function mo() {
         },
         l
       )) }),
-      /* @__PURE__ */ e("div", { className: "flex justify-center pt-6 pb-2", children: /* @__PURE__ */ e("button", { className: "text-gray-300 hover:text-white hover:border-gray-400 transition-colors", style: { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "8px", padding: "12px 60px", fontSize: "15px", fontWeight: 500 }, children: "Load more" }) })
+      /* @__PURE__ */ e("div", { className: "flex justify-center pt-6 pb-2", children: /* @__PURE__ */ e("button", { className: "transition-colors", onMouseEnter: (s) => { s.currentTarget.style.background = "#313E40"; s.currentTarget.style.color = "#AAE5D3"; s.currentTarget.style.borderColor = "#AAE5D3"; }, onMouseLeave: (s) => { s.currentTarget.style.background = "rgba(255,255,255,0.05)"; s.currentTarget.style.color = "#D1D5DB"; s.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }, style: { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "8px", padding: "12px 60px", fontSize: "15px", fontWeight: 500, color: "#D1D5DB", cursor: "pointer" }, children: "Load more" }) })
     ] }) }) }),
     /* @__PURE__ */ e(M, {})
   ] });
