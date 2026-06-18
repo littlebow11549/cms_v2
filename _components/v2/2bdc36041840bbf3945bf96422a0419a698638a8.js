@@ -3199,9 +3199,9 @@ const Ae = [
     highlight: "VIP",
     sub: "CASHBACK · REBATE · PRIORITY SUPPORT",
     cta: "Join VIP",
-    accent: "#F59E0B",
-    bg: "from-[#1a1000] via-[#221800] to-[#0f1419]",
-    decorColor: "#F59E0B"
+    accent: "#A78BFA",
+    bg: "from-[#160a2a] via-[#1d0f3a] to-[#0f1419]",
+    decorColor: "#A78BFA"
   }
 ];
 function Un() {
@@ -3269,6 +3269,7 @@ function Un() {
           )
         ] }) }),
         /* @__PURE__ */ o("div", { className: "absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20", children: [
+          /* @__PURE__ */ e("button", { onClick: () => a((p) => (p - 1 + Ae.length) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "‹" }),
           /* @__PURE__ */ e("div", { className: "flex items-center gap-2", children: Ae.map((n, l) => /* @__PURE__ */ e(
             "button",
             {
@@ -3284,10 +3285,7 @@ function Un() {
             },
             l
           )) }),
-          /* @__PURE__ */ o("div", { style: { display: "flex", gap: 8 }, children: [
-            /* @__PURE__ */ e("button", { onClick: () => a((p) => (p - 1 + Ae.length) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "‹" }),
-            /* @__PURE__ */ e("button", { onClick: () => a((p) => (p + 1) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "›" })
-          ] })
+          /* @__PURE__ */ e("button", { onClick: () => a((p) => (p + 1) % Ae.length), style: { width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white", fontSize: 18, lineHeight: 1 }, children: "›" })
         ] })
       ]
     }
