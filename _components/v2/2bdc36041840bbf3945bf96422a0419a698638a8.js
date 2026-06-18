@@ -5195,7 +5195,7 @@ function No() {
                   /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Complete your personal profile" })
                 ] })
               ] }),
-              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm whitespace-nowrap flex-shrink-0", children: "Not set ›" })
             ] }),
             /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
               /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -5205,7 +5205,7 @@ function No() {
                   /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Recommended letter and number combination" })
                 ] })
               ] }),
-              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm whitespace-nowrap flex-shrink-0", children: "Not set ›" })
             ] }),
             /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
               /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -5215,7 +5215,7 @@ function No() {
                   /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Set a password to improve the security of fund operations" })
                 ] })
               ] }),
-              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm whitespace-nowrap flex-shrink-0", children: "Not set ›" })
             ] }),
             /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 border-b border-gray-800 hover:bg-[#0f1419] cursor-pointer", children: [
               /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -5225,7 +5225,7 @@ function No() {
                   /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Recommended letter and number combination" })
                 ] })
               ] }),
-              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm whitespace-nowrap flex-shrink-0", children: "Not set ›" })
             ] }),
             /* @__PURE__ */ o("div", { className: "flex items-center justify-between p-4 hover:bg-[#0f1419] cursor-pointer", children: [
               /* @__PURE__ */ o("div", { className: "flex items-center gap-3", children: [
@@ -5235,7 +5235,7 @@ function No() {
                   /* @__PURE__ */ e("div", { className: "text-gray-500 text-xs mt-0.5", children: "Logout safely" })
                 ] })
               ] }),
-              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm", children: "Not set ›" })
+              /* @__PURE__ */ e("span", { className: "text-gray-500 text-sm whitespace-nowrap flex-shrink-0", children: "Not set ›" })
             ] })
           ] })
         ] })
