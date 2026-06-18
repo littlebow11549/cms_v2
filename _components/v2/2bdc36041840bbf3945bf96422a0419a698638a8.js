@@ -3206,12 +3206,13 @@ const Ae = [
 ];
 function Un() {
   const [t, a] = w(0);
+  const [g] = w({ x: 0 });
   le(() => {
     const n = setInterval(() => a((l) => (l + 1) % Ae.length), 5e3);
     return () => clearInterval(n);
   }, []);
   const r = Ae[t];
-  return /* @__PURE__ */ e("section", { className: "relative w-full overflow-hidden", style: { minHeight: "280px" }, children: /* @__PURE__ */ o(
+  return /* @__PURE__ */ e("section", { className: "relative w-full overflow-hidden", style: { minHeight: "280px", touchAction: "pan-y" }, onTouchStart: (n) => { g.x = n.touches[0].clientX; }, onTouchEnd: (n) => { const u = n.changedTouches[0].clientX - g.x; u < -40 ? a((l) => (l + 1) % Ae.length) : u > 40 && a((l) => (l - 1 + Ae.length) % Ae.length); }, children: /* @__PURE__ */ o(
     "div",
     {
       className: `bg-gradient-to-r ${r.bg} transition-all duration-700 relative`,
