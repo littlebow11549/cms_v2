@@ -4325,20 +4325,28 @@ function ho() {
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Account Overview" }),
         /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 w-full", children: [
-          /* @__PURE__ */ o("div", { className: "lg:col-span-2 relative overflow-hidden rounded-2xl p-4 md:p-6", style: { background: "linear-gradient(120deg, #10302a 0%, #0c1c1a 55%, #0a0e12 100%)" }, children: [ /* @__PURE__ */ o("svg", { className: "absolute inset-0 w-full h-full pointer-events-none", viewBox: "0 0 1200 320", preserveAspectRatio: "none", fill: "none", children: [ /* @__PURE__ */ e("path", { d: "M0,250 C320,170 720,300 1200,110 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.06)" }), /* @__PURE__ */ e("path", { d: "M0,300 C360,235 760,330 1200,160 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.05)" }), /* @__PURE__ */ e("path", { d: "M0,240 C400,160 800,285 1200,80", stroke: "rgba(152,231,210,0.22)", strokeWidth: "1.5" }) ] }),/* @__PURE__ */ o("div", { className: "relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
+          /* @__PURE__ */ o("div", { className: "lg:col-span-2 relative overflow-hidden rounded-2xl p-4 md:p-6", style: { background: "linear-gradient(105deg, #163f34 0%, #0f2a23 28%, #0b1815 55%, #0a0e12 100%)" }, children: [ /* @__PURE__ */ o("svg", { className: "absolute inset-0 w-full h-full pointer-events-none", viewBox: "0 0 1200 320", preserveAspectRatio: "none", fill: "none", children: [ /* @__PURE__ */ e("path", { d: "M0,305 C300,255 620,365 1200,150 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.045)" }), /* @__PURE__ */ e("path", { d: "M0,255 C340,185 740,325 1200,120 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.06)" }), /* @__PURE__ */ e("path", { d: "M0,232 C380,162 780,300 1200,92 L1200,150 C780,332 380,205 0,278 Z", fill: "rgba(152,231,210,0.07)" }), /* @__PURE__ */ e("path", { d: "M0,232 C380,162 780,300 1200,92", stroke: "rgba(190,245,225,0.32)", strokeWidth: "1.2" }) ] }),/* @__PURE__ */ o("div", { className: "relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
             /* @__PURE__ */ e("div", { className: "w-20 h-20 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ e(X, { className: "w-10 h-10 text-gray-900" }) }),
             /* @__PURE__ */ o("div", { className: "flex-1 text-center md:text-left w-full", children: [
               /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-3 mb-2", children: [
                 /* @__PURE__ */ e("h2", { className: "text-white text-xl md:text-2xl font-semibold", children: t.id }),
-                /* @__PURE__ */ e("span", { className: "px-3 py-1 rounded-full text-xs font-semibold", style: { background: "linear-gradient(90deg, #CBE8E4, #98E7D2)", color: "#111827" }, children: "신규(New)" })
+                /* @__PURE__ */ o("span", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-3 py-1 rounded-full text-xs font-semibold", children: [
+                  "VIP",
+                  t.vipLevel
+                ] })
               ] }),
-              /* @__PURE__ */ o("div", { className: "flex items-center justify-center md:justify-start gap-2 mb-3", children: [
-                /* @__PURE__ */ o("span", { className: "text-gray-400 text-sm", children: [ "Nickname：", "Meow" ] }),
-                /* @__PURE__ */ e("svg", { className: "w-4 h-4 cursor-pointer", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#9ca3af" }, children: /* @__PURE__ */ e("path", { d: "M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" }) })
-              ] }),
-              /* @__PURE__ */ o("div", { className: "flex items-center justify-center md:justify-start gap-2", children: [
-                /* @__PURE__ */ o("p", { className: "text-2xl md:text-3xl font-bold", style: { color: "#98E7D2" }, children: [ "₩", t.balance.toLocaleString() ] }),
-                /* @__PURE__ */ o("svg", { className: "w-5 h-5 cursor-pointer", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#98E7D2" }, children: [ /* @__PURE__ */ e("path", { d: "M21 12a9 9 0 1 1-2.64-6.36" }), /* @__PURE__ */ e("path", { d: "M21 3v6h-6" }) ] })
+              /* @__PURE__ */ o("div", { className: "grid grid-cols-1 gap-4 mt-4", children: [
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-1", children: "Current Balance" }),
+                  /* @__PURE__ */ o("p", { className: "text-[#98E7D2] text-xl md:text-2xl font-bold", children: [
+                    "₩",
+                    t.balance.toLocaleString()
+                  ] })
+                ] }),
+                /* @__PURE__ */ o("div", { children: [
+                  /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-1", children: "Member Since" }),
+                  /* @__PURE__ */ e("p", { className: "text-white text-base md:text-lg", children: "August 2025" })
+                ] })
               ] })
             ] })
           ] }) ] }),
@@ -4530,11 +4538,12 @@ function po() {
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
             /* @__PURE__ */ e("h2", { className: "text-lg md:text-xl font-semibold mb-4 pl-3", style: { color: "#AAE5D3", borderLeft: "4px solid #AAE5D3" }, children: "My Bank Accounts" }),
-            /* @__PURE__ */ o("div", { className: "relative overflow-hidden rounded-2xl p-6 md:p-12 text-center", style: { background: "linear-gradient(120deg, #10302a 0%, #0c1c1a 50%, #0a0e12 100%)" }, children: [
+            /* @__PURE__ */ o("div", { className: "relative overflow-hidden rounded-2xl p-6 md:p-12 text-center", style: { background: "linear-gradient(105deg, #163f34 0%, #0f2a23 28%, #0b1815 55%, #0a0e12 100%)" }, children: [
               /* @__PURE__ */ o("svg", { className: "absolute inset-0 w-full h-full pointer-events-none", viewBox: "0 0 1200 320", preserveAspectRatio: "none", fill: "none", children: [
-                /* @__PURE__ */ e("path", { d: "M0,250 C320,170 720,300 1200,110 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.06)" }),
-                /* @__PURE__ */ e("path", { d: "M0,300 C360,235 760,330 1200,160 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.05)" }),
-                /* @__PURE__ */ e("path", { d: "M0,240 C400,160 800,285 1200,80", stroke: "rgba(152,231,210,0.22)", strokeWidth: "1.5" })
+                /* @__PURE__ */ e("path", { d: "M0,305 C300,255 620,365 1200,150 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.045)" }),
+                /* @__PURE__ */ e("path", { d: "M0,255 C340,185 740,325 1200,120 L1200,320 L0,320 Z", fill: "rgba(152,231,210,0.06)" }),
+                /* @__PURE__ */ e("path", { d: "M0,232 C380,162 780,300 1200,92 L1200,150 C780,332 380,205 0,278 Z", fill: "rgba(152,231,210,0.07)" }),
+                /* @__PURE__ */ e("path", { d: "M0,232 C380,162 780,300 1200,92", stroke: "rgba(190,245,225,0.32)", strokeWidth: "1.2" })
               ] }),
               /* @__PURE__ */ o("div", { className: "relative", children: [
                 /* @__PURE__ */ e("div", { className: "flex justify-center mb-4", children: /* @__PURE__ */ e("div", { className: "w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-dashed border-gray-600 flex items-center justify-center", style: { background: "rgba(26,33,40,0.6)" }, children: /* @__PURE__ */ e(Ot, { className: "w-10 h-10 md:w-12 md:h-12 text-gray-400" }) }) }),
