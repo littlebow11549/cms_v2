@@ -4325,7 +4325,7 @@ function ho() {
       /* @__PURE__ */ o("main", { className: "flex-1 min-w-0 p-4 md:p-8 flex flex-col", style: { paddingBottom: "80px" }, children: [
         /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Account Overview" }),
         /* @__PURE__ */ o("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 w-full", children: [
-          /* @__PURE__ */ e("div", { className: "lg:col-span-2 bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
+          /* @__PURE__ */ o("div", { className: "lg:col-span-2 relative overflow-hidden rounded-2xl p-4 md:p-6", style: { background: "linear-gradient(120deg, #10302a 0%, #0c1c1a 55%, #0a0e12 100%)" }, children: [ /* @__PURE__ */ e("div", { className: "absolute inset-0 pointer-events-none", style: { background: "radial-gradient(110% 130% at 82% 0%, rgba(152,231,210,0.12) 0%, rgba(152,231,210,0) 45%), radial-gradient(90% 120% at 105% 110%, rgba(152,231,210,0.10) 0%, rgba(152,231,210,0) 55%)" } }), /* @__PURE__ */ o("div", { className: "relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6", children: [
             /* @__PURE__ */ e("div", { className: "w-20 h-20 rounded-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ e(X, { className: "w-10 h-10 text-gray-900" }) }),
             /* @__PURE__ */ o("div", { className: "flex-1 text-center md:text-left w-full", children: [
               /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-3 mb-2", children: [
@@ -4349,7 +4349,7 @@ function ho() {
                 ] })
               ] })
             ] })
-          ] }) }),
+          ] }) ] }),
           /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-6", children: [
             /* @__PURE__ */ e("h3", { className: "text-white text-lg font-semibold mb-4", children: "Quick Actions" }),
             /* @__PURE__ */ o("div", { className: "space-y-3", children: [
@@ -4537,11 +4537,14 @@ function po() {
         /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Withdrawl" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
-            /* @__PURE__ */ e("h2", { className: "text-white text-lg md:text-xl font-semibold mb-4", children: "My Bank Accounts" }),
-            /* @__PURE__ */ o("div", { className: "bg-[#0f1419] border border-gray-800 rounded-lg p-6 md:p-12 text-center", children: [
-              /* @__PURE__ */ e("div", { className: "flex justify-center mb-4", children: /* @__PURE__ */ e("div", { className: "w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#1a2128] border-2 border-dashed border-gray-700 flex items-center justify-center", children: /* @__PURE__ */ e(Ot, { className: "w-10 h-10 md:w-12 md:h-12 text-gray-600" }) }) }),
-              /* @__PURE__ */ e("h3", { className: "text-white text-base md:text-lg font-semibold mb-4", children: "Empty Bank Account" }),
-              /* @__PURE__ */ e("button", { className: "px-6 py-2 rounded-lg hover:opacity-90 transition-opacity font-semibold text-sm md:text-base", style: { background: "#313E40", color: "#AAE5D3" }, children: "Add Account" })
+            /* @__PURE__ */ e("h2", { className: "text-[#AAE5D3] text-lg md:text-xl font-semibold mb-4 border-l-4 border-[#AAE5D3] pl-3", children: "My Bank Accounts" }),
+            /* @__PURE__ */ o("div", { className: "relative overflow-hidden rounded-2xl p-6 md:p-12 text-center", style: { background: "linear-gradient(120deg, #10302a 0%, #0c1c1a 50%, #0a0e12 100%)" }, children: [
+              /* @__PURE__ */ e("div", { className: "absolute inset-0 pointer-events-none", style: { background: "radial-gradient(120% 130% at 78% 6%, rgba(152,231,210,0.12) 0%, rgba(152,231,210,0) 42%), radial-gradient(100% 120% at 108% 112%, rgba(152,231,210,0.10) 0%, rgba(152,231,210,0) 52%)" } }),
+              /* @__PURE__ */ o("div", { className: "relative", children: [
+                /* @__PURE__ */ e("div", { className: "flex justify-center mb-4", children: /* @__PURE__ */ e("div", { className: "w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#1a2128]/60 border-2 border-dashed border-gray-600 flex items-center justify-center", children: /* @__PURE__ */ e(Ot, { className: "w-10 h-10 md:w-12 md:h-12 text-gray-400" }) }) }),
+                /* @__PURE__ */ e("h3", { className: "text-white text-base md:text-lg font-semibold mb-4", children: "Empty Bank Account" }),
+                /* @__PURE__ */ e("button", { className: "px-6 py-2 rounded-lg hover:opacity-90 transition-opacity font-semibold text-sm md:text-base", style: { background: "linear-gradient(180deg, #F7E07F 0%, #EFCB5E 100%)", color: "#1f2937" }, children: "Add Account" })
+              ] })
             ] }),
             /* @__PURE__ */ o("button", { className: "flex items-center gap-2 text-gray-400 hover:text-white mt-4 transition-colors", children: [
               /* @__PURE__ */ e(kn, { className: "w-4 h-4" }),
