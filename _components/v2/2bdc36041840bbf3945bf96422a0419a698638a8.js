@@ -4330,23 +4330,15 @@ function ho() {
             /* @__PURE__ */ o("div", { className: "flex-1 text-center md:text-left w-full", children: [
               /* @__PURE__ */ o("div", { className: "flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-3 mb-2", children: [
                 /* @__PURE__ */ e("h2", { className: "text-white text-xl md:text-2xl font-semibold", children: t.id }),
-                /* @__PURE__ */ o("span", { className: "bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-3 py-1 rounded-full text-xs font-semibold", children: [
-                  "VIP",
-                  t.vipLevel
-                ] })
+                /* @__PURE__ */ e("span", { className: "px-3 py-1 rounded-full text-xs font-semibold", style: { background: "linear-gradient(90deg, #CBE8E4, #98E7D2)", color: "#111827" }, children: "신규(New)" })
               ] }),
-              /* @__PURE__ */ o("div", { className: "grid grid-cols-1 gap-4 mt-4", children: [
-                /* @__PURE__ */ o("div", { children: [
-                  /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-1", children: "Current Balance" }),
-                  /* @__PURE__ */ o("p", { className: "text-[#98E7D2] text-xl md:text-2xl font-bold", children: [
-                    "₩",
-                    t.balance.toLocaleString()
-                  ] })
-                ] }),
-                /* @__PURE__ */ o("div", { children: [
-                  /* @__PURE__ */ e("p", { className: "text-gray-400 text-sm mb-1", children: "Member Since" }),
-                  /* @__PURE__ */ e("p", { className: "text-white text-base md:text-lg", children: "August 2025" })
-                ] })
+              /* @__PURE__ */ o("div", { className: "flex items-center justify-center md:justify-start gap-2 mb-3", children: [
+                /* @__PURE__ */ o("span", { className: "text-gray-400 text-sm", children: [ "Nickname：", "Meow" ] }),
+                /* @__PURE__ */ e("svg", { className: "w-4 h-4 cursor-pointer", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#9ca3af" }, children: /* @__PURE__ */ e("path", { d: "M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" }) })
+              ] }),
+              /* @__PURE__ */ o("div", { className: "flex items-center justify-center md:justify-start gap-2", children: [
+                /* @__PURE__ */ o("p", { className: "text-2xl md:text-3xl font-bold", style: { color: "#98E7D2" }, children: [ "₩", t.balance.toLocaleString() ] }),
+                /* @__PURE__ */ o("svg", { className: "w-5 h-5 cursor-pointer", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#98E7D2" }, children: [ /* @__PURE__ */ e("path", { d: "M21 12a9 9 0 1 1-2.64-6.36" }), /* @__PURE__ */ e("path", { d: "M21 3v6h-6" }) ] })
               ] })
             ] })
           ] }) ] }),
@@ -4469,7 +4461,7 @@ function uo() {
         /* @__PURE__ */ e("h1", { className: "text-white text-2xl md:text-3xl mb-6 md:mb-8 w-full", children: "Deposit" }),
         /* @__PURE__ */ o("div", { className: "bg-[#1a2128] border border-gray-800 rounded-lg p-4 md:p-8 max-w-4xl mx-auto w-full", children: [
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
-            /* @__PURE__ */ e("div", { className: "mb-4", children: /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm md:text-base font-semibold", children: "Deposit Amount" }) }),
+            /* @__PURE__ */ e("div", { className: "mb-4", children: /* @__PURE__ */ e("h2", { className: "text-lg md:text-xl font-semibold pl-3", style: { color: "#AAE5D3", borderLeft: "4px solid #AAE5D3" }, children: "Deposit Amount" }) }),
             /* @__PURE__ */ e("div", { className: "grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-6", children: s.map((m) => /* @__PURE__ */ e(
               "button",
               {
@@ -4496,7 +4488,7 @@ function uo() {
             /* @__PURE__ */ e("p", { className: "text-red-400 text-sm mt-2", children: "* Minimum Amount: ₩ 10,000;  Maximum Amount: ₩ 9,000,000 *" })
           ] }),
           /* @__PURE__ */ o("div", { className: "mb-6 md:mb-8", children: [
-            /* @__PURE__ */ e("button", { className: "w-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-6 md:px-8 py-3 rounded-lg hover:opacity-90 transition-opacity mb-6 text-sm md:text-base font-semibold", children: "Choose promotion" }),
+            /* @__PURE__ */ e("h2", { className: "text-lg md:text-xl font-semibold pl-3 mb-6", style: { color: "#AAE5D3", borderLeft: "4px solid #AAE5D3" }, children: "Choose promotion" }),
             /* @__PURE__ */ e("div", { className: "space-y-4", children: c.map((m) => /* @__PURE__ */ e(
               "div",
               {
