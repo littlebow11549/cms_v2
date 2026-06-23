@@ -36,6 +36,7 @@ function slideInner(b) {
 }
 
 function initCarousel() {
+  clearInterval(window._carouselTimer);
   const section = document.querySelector('#container section');
   if (!section) return;
   let idx = 0, timer = null, startX = 0;
@@ -66,7 +67,7 @@ function initCarousel() {
     inner.querySelector('[data-nav="next"]').addEventListener('click', () => { idx = (idx + 1) % BANNERS.length; render(); restart(); });
   }
   function next() { idx = (idx + 1) % BANNERS.length; render(); }
-  function restart() { clearInterval(timer); timer = setInterval(next, 5000); }
+  function restart() { clearInterval(timer); timer = setInterval(next, 5000); window._carouselTimer = timer; }
 
   // 手機滑動
   section.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
@@ -80,4 +81,4 @@ function initCarousel() {
   restart();
 }
 
-document.addEventListener('DOMContentLoaded', initCarousel);
+window.initCarousel = initCarousel;
