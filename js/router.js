@@ -31,6 +31,7 @@ async function render() {
   window.scrollTo(0, 0);
   // 頁面專屬初始化
   if (slug === 'home' && window.initCarousel) window.initCarousel();
+  document.dispatchEvent(new CustomEvent('page:rendered', { detail: { slug } }));
 }
 
 function navigate(slug) {
