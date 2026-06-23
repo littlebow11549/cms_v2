@@ -52,6 +52,7 @@ function applyLoginState() {
   if (regBtn) regBtn.remove();
 }
 
+window.openAuthModal = openAuthModal;
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAuthModal(); });
 document.addEventListener('page:rendered', applyLoginState);
 document.addEventListener('click', (e) => {
