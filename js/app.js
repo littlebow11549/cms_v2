@@ -28,7 +28,7 @@ function slideInner(b) {
         <button class="px-8 py-3 rounded-lg text-sm md:text-base" style="color:#111827;background:linear-gradient(135deg, ${b.decorColor}, ${b.accent})">${b.cta}</button>
       </div>
     </div>
-    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20" style="left:50%;transform:translateX(-50%)">
+    <div class="absolute z-20" style="bottom:12px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:12px">
       <button data-nav="prev" style="width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:18px;line-height:1">‹</button>
       <div class="flex items-center gap-2" data-dots></div>
       <button data-nav="next" style="width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:18px;line-height:1">›</button>
