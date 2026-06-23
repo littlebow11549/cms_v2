@@ -45,7 +45,8 @@ document.addEventListener('click', (e) => {
   const a = e.target.closest('a');
   if (!a) return;
   const href = a.getAttribute('href') || '';
-  if (/^(\.\.?\/|\/cms_v2|#)/.test(href) || href === '') {
+  if (/^#\/?/.test(href)) return;          // hash 連結交給原生 hashchange
+  if (/^(\.\.?\/|\/cms_v2)/.test(href) || href === '') {
     const slug = slugFromHref(href);
     if (ROUTES.includes(slug)) { e.preventDefault(); navigate(slug); }
   }
