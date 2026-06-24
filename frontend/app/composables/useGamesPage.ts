@@ -64,14 +64,33 @@ export function useGamesPage(rootRef: Ref<HTMLElement | null>) {
     if (e.key === 'Escape') modal.value = null;
   }
 
-  // --- Load more (clone up to 12 cards into each grid) ---
-  function setupLoadMore(root: HTMLElement) {
-    const grids = new Set<HTMLElement>();
+  // --- Load more (ports games.js: create button if missing, clone up to 12) ---
+  function findGrids(root: HTMLElement) {
+    const set = new Set<HTMLElement>();
     root.querySelectorAll<HTMLElement>('[class*="grid-cols"]').forEach((g) => {
-      if (g.children.length >= 4) grids.add(g);
+      if (g.children.length >= 4) set.add(g);
     });
+    const cards = [...root.querySelectorAll<HTMLElement>('.group')].filter((c) => c.querySelector('img[alt]'));
+    const m = new Map<HTMLElement, number>();
+    cards.forEach((c) => {
+      const p = c.parentElement as HTMLElement;
+      m.set(p, (m.get(p) || 0) + 1);
+    });
+    [...m.entries()].filter(([, n]) => n >= 4).forEach(([p]) => set.add(p));
+    return [...set];
+  }
 
-    grids.forEach((grid) => {
+  function lmAppend(grid: HTMLElement) {
+    const cards = [...grid.children].filter((c) => !(c as HTMLElement).dataset.clone);
+    cards.slice(0, Math.min(cards.length, 12)).forEach((c) => {
+      const n = c.cloneNode(true) as HTMLElement;
+      n.dataset.clone = '1';
+      grid.appendChild(n);
+    });
+  }
+
+  function setupLoadMore(root: HTMLElement) {
+    findGrids(root).forEach((grid) => {
       // locate the existing "Load more" button after this grid
       let btn: HTMLButtonElement | null = null;
       let probe = grid.nextElementSibling;
@@ -82,8 +101,19 @@ export function useGamesPage(rootRef: Ref<HTMLElement | null>) {
           break;
         }
       }
-      if (!btn) return;
+      // create one if the page has no static Load more (slot/sport/fish/…)
+      if (!btn) {
+        const wrap = document.createElement('div');
+        wrap.style.cssText = 'display:flex;justify-content:center;margin-top:24px;margin-bottom:8px';
+        btn = document.createElement('button');
+        btn.textContent = 'Load more';
+        wrap.appendChild(btn);
+        grid.parentElement!.insertBefore(wrap, grid.nextSibling);
+      }
       const button = btn;
+      // lmStyle
+      button.style.cssText =
+        'background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px 60px;color:#D1D5DB;font-weight:500;cursor:pointer;transition:all .2s';
       button.addEventListener('mouseenter', () => {
         button.style.background = '#313E40';
         button.style.color = '#AAE5D3';
@@ -94,14 +124,7 @@ export function useGamesPage(rootRef: Ref<HTMLElement | null>) {
         button.style.color = '#D1D5DB';
         button.style.borderColor = 'rgba(255,255,255,0.2)';
       });
-      button.addEventListener('click', () => {
-        const originals = [...grid.children].filter((c) => !(c as HTMLElement).dataset.clone);
-        originals.slice(0, Math.min(originals.length, 12)).forEach((c) => {
-          const n = c.cloneNode(true) as HTMLElement;
-          n.dataset.clone = '1';
-          grid.appendChild(n);
-        });
-      });
+      button.addEventListener('click', () => lmAppend(grid));
     });
   }
 
