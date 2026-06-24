@@ -17,7 +17,7 @@ function doLogin() {
     <div class="container mx-auto px-4 h-16 flex items-center justify-between">
       <span class="text-xl font-extrabold text-white">WIN<span class="text-[#98E7D2]">100%</span></span>
       <div class="flex items-center gap-3">
-        <NuxtLink to="/member" class="text-gray-300 hover:text-white text-sm font-medium">Member Center</NuxtLink>
+        <NuxtLink to="/member" class="hidden sm:inline text-gray-300 hover:text-white text-sm font-medium whitespace-nowrap">Member Center</NuxtLink>
         <Button label="Login" severity="secondary" size="small" @click="showLogin = true" />
         <Button label="Register" size="small" @click="showLogin = true" />
       </div>
