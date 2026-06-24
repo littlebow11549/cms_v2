@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { useToast } from 'primevue/usetoast';
 
+const toast = useToast();
 const presets = [10000, 50000, 100000, 500000, 1000000];
 const amount = ref<number | null>(null);
 const touched = ref(false);
-const done = ref(false);
 
 const error = computed(() => {
   if (amount.value == null) return 'Please enter an amount';
@@ -16,8 +17,9 @@ const error = computed(() => {
 function submit() {
   touched.value = true;
   if (!error.value) {
-    done.value = true;
-    setTimeout(() => (done.value = false), 2500);
+    toast.add({ severity: 'success', summary: 'Deposit submitted', detail: `₩${amount.value!.toLocaleString()} request received`, life: 3000 });
+    amount.value = null;
+    touched.value = false;
   }
 }
 </script>
@@ -50,6 +52,5 @@ function submit() {
     <small v-if="touched && error" class="text-red-400 block mt-1">{{ error }}</small>
 
     <Button label="Submit Deposit" class="mt-5" @click="submit" />
-    <p v-if="done" class="text-[#98E7D2] text-sm mt-3">✓ Deposit request submitted.</p>
   </div>
 </template>
