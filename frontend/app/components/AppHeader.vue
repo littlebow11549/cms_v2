@@ -79,7 +79,7 @@ const mobileOpen = ref(false);
         </div>
         <nav class="flex items-center justify-end gap-1 py-1.5 border-t border-gray-800 text-sm relative">
           <template v-for="item in nav" :key="item.to">
-            <div v-if="item.dropdown" class="relative pb-2" @mouseenter="showDd(item.label)" @mouseleave="hideDd">
+            <div v-if="item.dropdown" class="relative" @mouseenter="showDd(item.label)" @mouseleave="hideDd">
               <NuxtLink :to="item.to" :class="[base, isActive(item.to) ? activeCls : inactiveCls]">
                 <AppIcon :name="item.icon" class="w-3.5 h-3.5" />
                 <span>{{ item.label }}</span>
@@ -88,7 +88,7 @@ const mobileOpen = ref(false);
               <div
                 v-show="openDd === item.label"
                 class="absolute left-0 top-full z-[1000]"
-                style="background:#1a2128;border:1px solid #2a3441;border-radius:10px;padding:6px;min-width:160px;box-shadow:0 12px 30px rgba(0,0,0,.45)"
+                style="margin-top:6px;background:#1a2128;border:1px solid #2a3441;border-radius:10px;padding:6px;min-width:160px;box-shadow:0 12px 30px rgba(0,0,0,.45)"
                 @mouseenter="showDd(item.label)" @mouseleave="hideDd"
               >
                 <div
