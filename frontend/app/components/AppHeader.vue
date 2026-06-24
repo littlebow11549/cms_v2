@@ -34,6 +34,8 @@ const mobileLinks = [
 const route = useRoute();
 const isActive = (to: string) => (to === '/' ? route.path === '/' : route.path.startsWith(to));
 
+const { loggedIn, open: openAuth } = useAuth();
+
 const base = 'px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap';
 const activeCls = 'text-gray-900 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] shadow-md font-semibold';
 const inactiveCls = 'text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]';
@@ -62,8 +64,18 @@ const mobileOpen = ref(false);
               <AppIcon name="globe" class="w-4 h-4" /><span>EN</span>
             </button>
           </div>
-          <button class="bg-[#2a3138] text-white px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity">Login</button>
-          <button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity font-semibold">Register</button>
+          <template v-if="loggedIn">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:nowrap">
+              <span style="color:#fff;font-size:13px;white-space:nowrap">ID:meqomcao</span>
+              <span style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;font-size:11px;font-weight:700;padding:2px 8px;border-radius:9999px">VIP1</span>
+              <span style="color:#98E7D2;font-weight:700;font-size:14px;white-space:nowrap">₩1,000,000,000</span>
+              <NuxtLink to="/deposit" style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;padding:6px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap">Deposit</NuxtLink>
+            </div>
+          </template>
+          <template v-else>
+            <button class="bg-[#2a3138] text-white px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity" @click="openAuth('login')">Login</button>
+            <button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity font-semibold" @click="openAuth('register')">Register</button>
+          </template>
         </div>
         <nav class="flex items-center justify-end gap-1 py-1.5 border-t border-gray-800 text-sm relative">
           <template v-for="item in nav" :key="item.to">
@@ -124,12 +136,14 @@ const mobileOpen = ref(false);
             style="padding:12px 8px;color:#d1d5db;text-decoration:none;font-size:15px"
             @click="mobileOpen = false"
           >{{ m.label }}</NuxtLink>
-          <div class="flex gap-2.5 mt-4">
-            <button style="flex:1;padding:10px;border-radius:8px;border:1px solid #2a3138;background:#2a3138;color:#fff;cursor:pointer;font-weight:600">Login</button>
-            <button style="flex:1;padding:10px;border-radius:8px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;cursor:pointer;font-weight:700">Register</button>
+          <div v-if="!loggedIn" class="flex gap-2.5 mt-4">
+            <button style="flex:1;padding:10px;border-radius:8px;border:1px solid #2a3138;background:#2a3138;color:#fff;cursor:pointer;font-weight:600" @click="mobileOpen = false; openAuth('login')">Login</button>
+            <button style="flex:1;padding:10px;border-radius:8px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;cursor:pointer;font-weight:700" @click="mobileOpen = false; openAuth('register')">Register</button>
           </div>
         </div>
       </div>
     </Teleport>
+
+    <AuthModal />
   </header>
 </template>
