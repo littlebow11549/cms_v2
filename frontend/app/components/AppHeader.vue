@@ -1,5 +1,135 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+interface NavItem {
+  label: string;
+  to: string;
+  icon: string;
+  dropdown?: string[];
+}
+
+const nav: NavItem[] = [
+  { label: 'Home', to: '/', icon: 'house' },
+  { label: 'Hot Games', to: '/hot-games', icon: 'flame' },
+  { label: 'Mini Games', to: '/mini-games', icon: 'gamepad2' },
+  { label: 'Sports', to: '/sport', icon: 'trophy', dropdown: ['BTI', 'SABA'] },
+  { label: 'Live', to: '/live', icon: 'video', dropdown: ['Sexy', 'Pragmatic Play', 'Yeebet'] },
+  { label: 'Fish', to: '/fish', icon: 'fish' },
+  { label: 'Slots', to: '/slot', icon: 'cherry' },
+  { label: 'Promotion', to: '/promotion', icon: 'gift' },
+];
+
+const mobileLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'Hot Games', to: '/hot-games' },
+  { label: 'Mini Games', to: '/mini-games' },
+  { label: 'Slots', to: '/slot' },
+  { label: 'Sports', to: '/sport' },
+  { label: 'Live', to: '/live' },
+  { label: 'Fish', to: '/fish' },
+  { label: 'Promotion', to: '/promotion' },
+];
+
+const route = useRoute();
+const isActive = (to: string) => (to === '/' ? route.path === '/' : route.path.startsWith(to));
+
+const base = 'px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap';
+const activeCls = 'text-gray-900 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] shadow-md font-semibold';
+const inactiveCls = 'text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]';
+
+// hover dropdowns
+const openDd = ref<string | null>(null);
+let ddTimer: ReturnType<typeof setTimeout> | null = null;
+const showDd = (label: string) => { if (ddTimer) clearTimeout(ddTimer); openDd.value = label; };
+const hideDd = () => { ddTimer = setTimeout(() => { openDd.value = null; }, 160); };
+
+// mobile slide-in menu
+const mobileOpen = ref(false);
+</script>
 
 <template>
-  <header class="bg-[#1a2128] border-b border-gray-800 sticky top-0 z-50"><div class="hidden md:flex items-stretch px-[50px]"><NuxtLink class="flex items-center pr-6 flex-shrink-0" to="/"><img src="/logo.png" alt="Casino Logo" class="h-10 mix-blend-lighten"></NuxtLink><div class="flex flex-col flex-1"><div class="flex items-center justify-end gap-3 py-2 text-sm"><div class="relative"><button class="text-gray-300 hover:text-white flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-4 h-4"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>EN</span></button></div><button class="bg-[#2a3138] text-white px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity">Login</button><button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity font-semibold">Register</button></div><nav class="flex items-center justify-end gap-1 py-1.5 border-t border-gray-800 text-sm relative"><NuxtLink class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-900 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] shadow-md font-semibold" to="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-3.5 h-3.5"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Home</span></NuxtLink><a class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame w-3.5 h-3.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg><span>Hot Games</span></a><a class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad2 w-3.5 h-3.5"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg><span>Mini Games</span></a><div class="relative pb-2"><a class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trophy w-3.5 h-3.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg><span>Sports</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3 h-3"><path d="m6 9 6 6 6-6"></path></svg></a></div><div class="relative pb-2"><a class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video w-3.5 h-3.5"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg><span>Live</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3 h-3"><path d="m6 9 6 6 6-6"></path></svg></a></div><a class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fish w-3.5 h-3.5"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"></path><path d="M18 12v.5"></path><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"></path><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"></path><path d="M10.46 7.26C10.2 5.88 9.17 4.24 8 3h5.8a2 2 0 0 1 1.98 1.67l.23 1.4"></path><path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98"></path></svg><span>Fish</span></a><a class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cherry w-3.5 h-3.5"><path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path><path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path><path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12"></path><path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z"></path></svg><span>Slots</span></a><NuxtLink class="px-2 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap text-gray-300 hover:text-gray-900 hover:bg-gradient-to-r hover:from-[#CBE8E4] hover:to-[#98E7D2]" to="/member"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gift w-3.5 h-3.5"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg><span>Member</span></NuxtLink></nav></div></div><div class="flex md:hidden items-center justify-between h-14 px-4"><NuxtLink class="whitespace-nowrap flex-shrink-0" to="/"><img src="/logo.png" alt="Casino Logo" class="h-10 mix-blend-lighten"></NuxtLink><button class="text-gray-300 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-5 h-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button></div></header>
+  <header class="bg-[#1a2128] border-b border-gray-800 sticky top-0 z-50">
+    <!-- desktop -->
+    <div class="hidden md:flex items-stretch px-[50px]">
+      <NuxtLink class="flex items-center pr-6 flex-shrink-0" to="/">
+        <img src="/logo.png" alt="Casino Logo" class="h-10 mix-blend-lighten">
+      </NuxtLink>
+      <div class="flex flex-col flex-1">
+        <div class="flex items-center justify-end gap-3 py-2 text-sm">
+          <div class="relative">
+            <button class="text-gray-300 hover:text-white flex items-center gap-1">
+              <AppIcon name="globe" class="w-4 h-4" /><span>EN</span>
+            </button>
+          </div>
+          <button class="bg-[#2a3138] text-white px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity">Login</button>
+          <button class="bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] text-gray-900 px-5 py-1.5 rounded-lg hover:opacity-90 transition-opacity font-semibold">Register</button>
+        </div>
+        <nav class="flex items-center justify-end gap-1 py-1.5 border-t border-gray-800 text-sm relative">
+          <template v-for="item in nav" :key="item.to">
+            <div v-if="item.dropdown" class="relative pb-2" @mouseenter="showDd(item.label)" @mouseleave="hideDd">
+              <NuxtLink :to="item.to" :class="[base, isActive(item.to) ? activeCls : inactiveCls]">
+                <AppIcon :name="item.icon" class="w-3.5 h-3.5" />
+                <span>{{ item.label }}</span>
+                <AppIcon name="chevron-down" class="w-3 h-3" />
+              </NuxtLink>
+              <div
+                v-show="openDd === item.label"
+                class="absolute left-0 top-full z-[1000]"
+                style="background:#1a2128;border:1px solid #2a3441;border-radius:10px;padding:6px;min-width:160px;box-shadow:0 12px 30px rgba(0,0,0,.45)"
+                @mouseenter="showDd(item.label)" @mouseleave="hideDd"
+              >
+                <div
+                  v-for="d in item.dropdown" :key="d"
+                  class="rounded-md cursor-pointer"
+                  style="padding:9px 14px;color:#d1d5db;font-size:14px"
+                  @mouseover="(e) => ((e.currentTarget as HTMLElement).style.background = '#0f1419')"
+                  @mouseout="(e) => ((e.currentTarget as HTMLElement).style.background = '')"
+                >{{ d }}</div>
+              </div>
+            </div>
+            <NuxtLink v-else :to="item.to" :class="[base, isActive(item.to) ? activeCls : inactiveCls]">
+              <AppIcon :name="item.icon" class="w-3.5 h-3.5" />
+              <span>{{ item.label }}</span>
+            </NuxtLink>
+          </template>
+        </nav>
+      </div>
+    </div>
+
+    <!-- mobile -->
+    <div class="flex md:hidden items-center justify-between h-14 px-4">
+      <NuxtLink class="whitespace-nowrap flex-shrink-0" to="/">
+        <img src="/logo.png" alt="Casino Logo" class="h-10 mix-blend-lighten">
+      </NuxtLink>
+      <button class="text-gray-300 hover:text-white" aria-label="Menu" @click="mobileOpen = true">
+        <AppIcon name="menu" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <!-- mobile slide-in menu -->
+    <Teleport to="body">
+      <div v-if="mobileOpen" class="fixed inset-0 z-[10001]" style="background:rgba(0,0,0,.6)" @click.self="mobileOpen = false">
+        <div
+          class="absolute top-0 left-0 bottom-0 overflow-y-auto"
+          style="width:80%;max-width:300px;background:#0a0e1a;border-right:1px solid #1f2937;padding:18px;box-shadow:4px 0 24px rgba(0,0,0,.5)"
+        >
+          <div class="flex justify-between items-center mb-3.5">
+            <span style="color:#98E7D2;font-weight:800;font-size:18px">WIN100%</span>
+            <button style="background:none;border:0;color:#fff;font-size:22px;cursor:pointer" @click="mobileOpen = false">×</button>
+          </div>
+          <NuxtLink
+            v-for="m in mobileLinks" :key="m.to" :to="m.to"
+            class="block border-b border-[#1a2128]"
+            style="padding:12px 8px;color:#d1d5db;text-decoration:none;font-size:15px"
+            @click="mobileOpen = false"
+          >{{ m.label }}</NuxtLink>
+          <div class="flex gap-2.5 mt-4">
+            <button style="flex:1;padding:10px;border-radius:8px;border:1px solid #2a3138;background:#2a3138;color:#fff;cursor:pointer;font-weight:600">Login</button>
+            <button style="flex:1;padding:10px;border-radius:8px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;cursor:pointer;font-weight:700">Register</button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
+  </header>
 </template>
