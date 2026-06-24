@@ -3,15 +3,21 @@ import { computed } from 'vue';
 import { useMemberStore } from '~/stores/member';
 import MemberOverview from '~/components/member/Overview.vue';
 import MemberDeposit from '~/components/member/Deposit.vue';
+import MemberRecords from '~/components/member/Records.vue';
+import MemberPersonalInfo from '~/components/member/PersonalInfo.vue';
+import MemberSecurity from '~/components/member/Security.vue';
 import MemberPlaceholder from '~/components/member/Placeholder.vue';
 
 const member = useMemberStore();
 
-const panel = computed(() => {
-  if (member.active === 'overview') return MemberOverview;
-  if (member.active === 'deposit') return MemberDeposit;
-  return MemberPlaceholder;
-});
+const panels: Record<string, unknown> = {
+  overview: MemberOverview,
+  deposit: MemberDeposit,
+  records: MemberRecords,
+  profile: MemberPersonalInfo,
+  security: MemberSecurity,
+};
+const panel = computed(() => panels[member.active] ?? MemberPlaceholder);
 </script>
 
 <template>
