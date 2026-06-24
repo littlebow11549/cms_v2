@@ -6,7 +6,7 @@ useMemberPage(root);
 
 <template>
   <div ref="root" class="min-h-screen bg-[#0f1419]" style="overflow-x: hidden;">
-    <AppHeader />
+    <MemberHeader />
     <div class="flex bg-[#0f1419] min-h-screen" style="overflow-x: hidden;">
     <aside class="hidden md:block w-64 flex-shrink-0 bg-[#1a2128] border-r border-gray-800 sticky top-0 h-screen overflow-y-auto">
     <nav class="p-4 space-y-2">
