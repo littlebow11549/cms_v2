@@ -37,8 +37,9 @@ const arrow = 'width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.4
   <section class="relative w-full overflow-hidden" style="min-height:280px;touch-action:pan-y" @touchstart="onStart" @touchend="onEnd">
     <div class="relative" :style="{ minHeight: '280px', background: b.bg, transition: 'all .7s' }">
       <div class="absolute inset-0" style="opacity:.1;background-image:linear-gradient(rgba(155,231,210,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(155,231,210,.3) 1px,transparent 1px);background-size:40px 40px" />
+      <div class="absolute left-0 top-0 w-64 h-full" :style="{ opacity: .2, background: `radial-gradient(at left center, ${b.accent} 0%, transparent 70%)` }" />
       <div class="relative container mx-auto px-4 flex items-center" style="min-height:280px">
-        <div class="w-full max-w-lg py-8 md:py-10">
+        <div class="w-full max-w-lg py-8 md:py-10 z-10">
           <div class="inline-block px-3 py-1 rounded mb-3" :style="{ background: b.accent + '22', border: `1px solid ${b.accent}44` }">
             <span class="text-xs tracking-widest" :style="{ color: b.accent }">{{ b.badge }}</span>
           </div>
@@ -47,7 +48,10 @@ const arrow = 'width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.4
             <span class="text-5xl md:text-8xl block leading-none" :style="{ color: b.accent, textShadow: `0 0 40px ${b.accent}88`, fontWeight: 900 }">{{ b.highlight }}</span>
           </div>
           <p class="text-gray-400 text-sm md:text-base mb-6 tracking-widest">{{ b.sub }}</p>
-          <Button :label="b.cta" />
+          <button
+            class="px-8 py-3 rounded-lg text-gray-900 text-sm md:text-base transition-opacity hover:opacity-90"
+            :style="{ background: `linear-gradient(135deg, ${b.accent}, ${b.accent})` }"
+          >{{ b.cta }}</button>
         </div>
       </div>
       <div class="absolute z-20" style="bottom:12px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:12px">

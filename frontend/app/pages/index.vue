@@ -1,10 +1,13 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="min-h-screen bg-[#0f1419]">
+  <div class="min-h-screen bg-[#0f1419]" style="overflow-x: hidden;">
     <AppHeader />
-    <NavBar />
     <AppBanner />
-    <ProductGrid />
+    <HomeTicker />
+    <HomeHotGamesRail />
+    <HomeMiniGamesGrid />
+    <HomeSportsPromo />
+    <HomePromotion />
+    <AppFooter />
+    <MobileBottomNav />
   </div>
 </template>
