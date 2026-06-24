@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 const root = ref<HTMLElement | null>(null);
 const { modal } = useGamesPage(root);
+const provider = ref('BTI');
+const tabCls = (p: string) => (p === provider.value ? 'text-[#98E7D2]' : 'text-gray-400 hover:text-gray-300');
 </script>
 
 <template>
@@ -15,11 +17,7 @@ const { modal } = useGamesPage(root);
     <section class="py-8 bg-[#0f1419] min-h-[400px]">
     <div class="container mx-auto px-4">
     <div class="flex items-center gap-8 border-b border-gray-800 mb-8">
-    <button class="pb-4 px-2 transition-colors relative text-[#98E7D2]">BTI<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]">
-    </div>
-    </button>
-    <button class="pb-4 px-2 transition-colors relative text-gray-400 hover:text-gray-300">SABA</button>
-    <button class="pb-4 px-2 transition-colors relative text-gray-400 hover:text-gray-300">Favorites</button>
+    <button v-for="p in ['BTI','SABA','Favorites']" :key="p" class="pb-4 px-2 transition-colors relative" :class="tabCls(p)" @click="provider = p">{{ p }}<div v-if="provider === p" class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]"></div></button>
     </div>
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
     <h2 class="text-white text-2xl md:text-3xl">Live Matches</h2>
