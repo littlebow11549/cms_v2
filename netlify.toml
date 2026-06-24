@@ -1,0 +1,9 @@
+# Netlify deploy config for the Nuxt 4 rebuild (frontend/).
+# Statically generates all 19 routes and publishes the prerendered site.
+[build]
+  base = "frontend"
+  command = "npm run generate"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22"
