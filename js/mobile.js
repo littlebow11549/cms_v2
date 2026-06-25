@@ -12,6 +12,7 @@ const ICONS = {
   cherry: '<path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"/><path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"/><path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12"/><path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z"/>',
   ticket: '<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>',
   gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
+  flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
   search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
   user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
@@ -27,9 +28,9 @@ const ICONS = {
 function ic(name, size) { return `<svg xmlns="http://www.w3.org/2000/svg" width="${size || 20}" height="${size || 20}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ''}</svg>`; }
 
 const MAIN_LINKS = [
-  ['Home', 'home', 'house'], ['Mini Games', 'mini-games', 'gamepad'], ['Poker', '', 'spade'],
-  ['Sports', 'sport', 'trophy'], ['Live', 'live', 'video'], ['Fish', 'fish', 'fish'],
-  ['ESport', '', 'zap'], ['Slots', 'slot', 'cherry'], ['Lottery', '', 'ticket'], ['Promotion', 'promotion', 'gift'],
+  ['Home', 'home', 'house'], ['Hot Games', 'hot-games', 'flame'], ['Mini Games', 'mini-games', 'gamepad'],
+  ['Slots', 'slot', 'cherry'], ['Sports', 'sport', 'trophy'], ['Live', 'live', 'video'],
+  ['Fish', 'fish', 'fish'], ['Promotion', 'promotion', 'gift'],
 ];
 const MEMBER_LINKS = [
   ['Account Overview', 'account', 'grid'], ['Deposit', 'deposit', 'download'], ['Withdrawal', 'withdrawal', 'upload'],
@@ -44,28 +45,38 @@ function curSlug() { const s = location.hash.replace(/^#\/?/, ''); return s || '
 function closeMobileMenu() {
   const m = document.getElementById('mobile-menu');
   if (!m) return;
+  const bn = document.querySelector('nav[class*="bottom-0"]');
+  if (bn && bn.dataset.prevZ !== undefined) { bn.style.zIndex = bn.dataset.prevZ; delete bn.dataset.prevZ; }
   const panel = m.querySelector('[data-panel]');
   if (panel) panel.style.transform = panel.dataset.side === 'right' ? 'translateX(100%)' : 'translateX(-100%)';
   m.style.background = 'rgba(0,0,0,0)';
   setTimeout(() => m.remove(), 220);
 }
+window.closeMobileMenu = closeMobileMenu;
 
 function navRow(label, slug, icon, active) {
   const base = 'display:flex;align-items:center;gap:14px;padding:13px 14px;border-radius:10px;text-decoration:none;font-size:15px;cursor:pointer;margin-bottom:2px';
   const style = active
     ? base + ';background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700'
     : base + ';color:#d1d5db';
-  return `<a data-mslug="${slug}" style="${style}">${ic(icon)}<span>${label}</span></a>`;
+  return `<a data-mslug="${slug}" href="#/${slug}" style="${style}">${ic(icon)}<span>${label}</span></a>`;
 }
 
-function openDrawer(side, inner) {
+function openDrawer(side, inner, full) {
   if (document.getElementById('mobile-menu')) return;
   const o = document.createElement('div');
   o.id = 'mobile-menu';
   o.style.cssText = 'position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,0);transition:background .2s';
   const off = side === 'right' ? 'translateX(100%)' : 'translateX(-100%)';
   const pos = side === 'right' ? 'top:0;right:0;bottom:0' : 'top:0;left:0;bottom:0';
-  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};width:86%;max-width:340px;background:#0d121d;border-${side === 'right' ? 'left' : 'right'}:1px solid #1f2937;overflow-y:auto;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
+  const sizeCss = full
+    ? 'width:100%;max-width:none'
+    : `width:86%;max-width:340px;border-${side === 'right' ? 'left' : 'right'}:1px solid #1f2937`;
+  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#0d121d;overflow-y:auto;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
+  if (full) {                       // 全屏選單:讓底部導覽列浮在選單之上(對齊設計)
+    const bn = document.querySelector('nav[class*="bottom-0"]');
+    if (bn) { bn.dataset.prevZ = bn.style.zIndex; bn.style.zIndex = '10002'; }
+  }
   o.addEventListener('click', (ev) => {
     if (ev.target === o || ev.target.closest('[data-close]')) return closeMobileMenu();
     const auth = ev.target.closest('[data-auth]');
@@ -93,22 +104,21 @@ function openMainMenu() {
           <div style="color:#98E7D2;font-weight:700;font-size:14px">₩1,000,000,000</div>
         </div>
       </div>
-      <a data-mslug="account" style="display:block;text-align:center;padding:12px;border-radius:10px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700;text-decoration:none">View Account</a>`
-    : `<div style="display:flex;flex-direction:column;gap:10px">
-        <button data-auth="login" style="padding:12px;border-radius:10px;border:1px solid #2a3441;background:#1a2330;color:#fff;cursor:pointer;font-weight:600;font-size:15px">Login</button>
-        <button data-auth="register" style="padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:15px">Register</button>
-      </div>`;
-  const inner = `<div style="padding:16px 14px">
-      <div style="display:flex;align-items:center;justify-content:flex-end;gap:18px;color:#cbd5e1;margin-bottom:10px">
-        <button style="background:none;border:0;color:inherit;cursor:pointer;padding:0">${ic('search', 22)}</button>
-        <button style="background:none;border:0;color:inherit;cursor:pointer;padding:0">${ic('globe', 22)}</button>
-        <button data-close style="background:none;border:0;color:inherit;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:13px;border-radius:10px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700;text-decoration:none">View Account</a>`
+    : `<button data-auth="login" style="display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;color:#fff;cursor:pointer;font-weight:600;font-size:16px">Login</button>
+       <button data-auth="register" style="width:100%;padding:14px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:16px;margin-top:4px">Register</button>`;
+  const inner = `<div style="min-height:100%;padding-bottom:24px">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #1a2330">
+        <img src="assets/logo.png" alt="WIN100%" style="height:32px;mix-blend-mode:lighten">
+        <button data-close style="background:none;border:0;color:#cbd5e1;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
       </div>
-      ${MAIN_LINKS.map(([t, s, i]) => navRow(t, s, i, !!s && s === slug)).join('')}
-      <div style="border-top:1px solid #1f2937;margin:14px 0"></div>
-      ${account}
+      <div style="padding:16px 16px 0">
+        ${MAIN_LINKS.map(([t, s, i]) => navRow(t, s, i, !!s && s === slug)).join('')}
+        <div style="border-top:1px solid #1f2937;margin:14px 0"></div>
+        ${account}
+      </div>
     </div>`;
-  openDrawer('right', inner);
+  openDrawer('right', inner, true);
 }
 
 // --- 圖4:底部 Browse → 會員選單 ---

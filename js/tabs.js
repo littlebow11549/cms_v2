@@ -95,10 +95,69 @@ function initHomeTabs() {
 window.initHomeTabs = initHomeTabs;
 document.addEventListener('page:rendered', (e) => {
   if (!e.detail || e.detail.slug === 'home') initHomeTabs();
+  if (e.detail && (e.detail.slug === 'sport' || e.detail.slug === 'live')) applyProviderFilter();
 });
 
-// --- sport / live 供應商頁籤 ---
+// --- sport / live 供應商頁籤 + 比賽收藏 ---
 const PROVIDERS = /^(BTI|SABA|Sexy|Pragmatic Play|Yeebet|Favorites)$/;
+
+// 所有比賽卡(含星號的 .rounded-xl 卡片)
+function matchCards() {
+  return [...document.querySelectorAll('#container svg.lucide-star')]
+    .map((s) => s.closest('[class*="rounded-xl"]'))
+    .filter(Boolean);
+}
+// 目前作用中的供應商頁籤文字
+function activeProviderLabel() {
+  for (const r of document.querySelectorAll('#container .border-b')) {
+    const btns = [...r.querySelectorAll('button')].filter((b) => PROVIDERS.test((b.textContent || '').trim()));
+    if (!btns.length) continue;
+    const act = btns.find((b) => b.classList.contains('text-[#98E7D2]'));
+    return ((act || btns[0]).textContent || '').trim();
+  }
+  return '';
+}
+// Favorites 只顯示已收藏;其它供應商顯示全部
+function applyProviderFilter() {
+  const cards = matchCards();
+  if (!cards.length) return;
+  const favOnly = activeProviderLabel() === 'Favorites';
+  let shown = 0;
+  cards.forEach((c) => {
+    const show = !favOnly || c.dataset.fav === '1';
+    c.style.display = show ? '' : 'none';
+    if (show) shown++;
+  });
+  const grid = cards[0].parentElement;
+  let empty = grid && grid.querySelector(':scope > .fav-empty');
+  if (favOnly && shown === 0) {
+    if (!empty && grid) {
+      empty = document.createElement('div');
+      empty.className = 'fav-empty';
+      empty.style.cssText = 'grid-column:1/-1;text-align:center;color:#9ca3af;padding:48px 16px';
+      empty.textContent = 'No favorite matches yet — tap the ☆ on a match to add it.';
+      grid.appendChild(empty);
+    }
+  } else if (empty) {
+    empty.remove();
+  }
+}
+
+// 點比賽卡的星號 → 切換收藏
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  const star = btn && btn.querySelector('svg.lucide-star');
+  if (!star) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const card = btn.closest('[class*="rounded-xl"]');
+  const on = (card ? card.dataset.fav : btn.dataset.fav) !== '1';
+  if (card) card.dataset.fav = on ? '1' : '';
+  btn.dataset.fav = on ? '1' : '';
+  star.style.color = on ? '#98E7D2' : 'rgb(75, 85, 99)';
+  star.setAttribute('fill', on ? '#98E7D2' : 'none');
+  applyProviderFilter();
+});
 
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('button');
@@ -128,5 +187,6 @@ document.addEventListener('click', (e) => {
         u.remove();
       }
     });
+    applyProviderFilter();   // 切換供應商後套用 Favorites 過濾
   }
 });
