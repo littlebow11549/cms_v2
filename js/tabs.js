@@ -1,4 +1,4 @@
-// === 頁籤切換 (首頁 Mini/Slot/Live + sport/live 供應商) ===
+// === 頁籤切換 (首頁 Mini/Slot/Live 自動輪播+進度條 + sport/live 供應商) ===
 const IMG = '_external/images.unsplash.com/';
 const PICS = [
   'photo-1534620780923-1ce0db377c3f__w-200',
@@ -15,6 +15,8 @@ const HOME_TABS = {
   'Slot Game': ['Gates of Olympus', 'Sweet Bonanza', 'Book of Dead', 'Starburst', 'Wolf Gold', 'Mega Moolah', 'Gonzo Quest', 'Dead or Alive', 'Sugar Rush', 'Big Bass', 'Money Train', 'Wild West Gold'],
   'Live Game': ['Lightning Roulette', 'Crazy Time', 'Mega Wheel', 'Baccarat', 'Dragon Tiger', 'Monopoly Live', 'Blackjack VIP', 'Sic Bo', 'Dream Catcher', 'Speed Roulette', 'Football Studio', 'Andar Bahar'],
 };
+const HOME_ORDER = ['Mini Game', 'Slot Game', 'Live Game'];
+const CYCLE_MS = 6000, STEP_MS = 50;
 
 function homeCard(name, i) {
   return `<div class="flex-shrink-0 w-28 md:w-32 snap-start cursor-pointer group">`
@@ -23,13 +25,79 @@ function homeCard(name, i) {
     + `<h3 class="text-white text-xs md:text-sm text-center mt-2 truncate">${name}</h3></div>`;
 }
 
-function homeIndicator() {
-  const d = document.createElement('div');
-  d.className = 'absolute bottom-0 left-0 right-0 h-0.5 bg-gray-700';
-  d.innerHTML = '<div class="h-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]"></div>';
-  return d;
+// --- 首頁頁籤自動輪播 + 進度條 ---
+let homeCtx = null, homeTimer = null, homeIdx = 0, homeProgress = 0, homePaused = false;
+
+function findHomeTabGroup() {
+  const span = [...document.querySelectorAll('#container button > span')]
+    .find((s) => HOME_TABS[s.textContent.trim()]);
+  if (!span) return null;
+  const btn = span.closest('button');
+  return { group: btn.parentElement, sect: btn.closest('section') };
 }
 
+function applyHomeTab(ctx, idx) {
+  const label = HOME_ORDER[idx];
+  [...ctx.group.querySelectorAll('button')].forEach((b) => {
+    const l = (b.querySelector('span')?.textContent || '').trim();
+    const active = l === label;
+    b.classList.toggle('text-white', active);
+    b.classList.toggle('text-gray-500', !active);
+    // 移除任何既有指示器(含 Figma 匯出的靜態 46% 進度條),避免重複
+    b.querySelectorAll(':scope > div.absolute').forEach((d) => d.remove());
+    if (active) {
+      const track = document.createElement('div');
+      track.className = 'tab-prog absolute bottom-0 left-0 right-0 h-0.5 bg-gray-700';
+      track.innerHTML = '<div class="tab-fill h-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] transition-all duration-100" style="width:0%"></div>';
+      b.appendChild(track);
+    }
+  });
+  const rail = ctx.sect && ctx.sect.querySelector('.animate-slideIn');
+  if (rail && HOME_TABS[label]) rail.innerHTML = HOME_TABS[label].map((n, i) => homeCard(n, i)).join('');
+}
+
+function setHomeFill(ctx, pct) {
+  const fill = ctx.group.querySelector('.tab-prog .tab-fill');
+  if (fill) fill.style.width = pct + '%';
+}
+
+function gotoHomeTab(idx, resetGames) {
+  if (!homeCtx) return;
+  homeIdx = ((idx % HOME_ORDER.length) + HOME_ORDER.length) % HOME_ORDER.length;
+  homeProgress = 0;
+  applyHomeTab(homeCtx, homeIdx);
+  setHomeFill(homeCtx, 0);
+}
+
+function initHomeTabs() {
+  clearInterval(homeTimer);
+  homeCtx = findHomeTabGroup();
+  if (!homeCtx) return;
+  homeIdx = 0; homeProgress = 0; homePaused = false;
+  applyHomeTab(homeCtx, homeIdx);
+  setHomeFill(homeCtx, 0);
+  if (homeCtx.sect) {
+    homeCtx.sect.addEventListener('mouseenter', () => { homePaused = true; });
+    homeCtx.sect.addEventListener('mouseleave', () => { homePaused = false; });
+  }
+  homeTimer = setInterval(() => {
+    if (homePaused || !homeCtx) return;
+    homeProgress += (STEP_MS / CYCLE_MS) * 100;
+    if (homeProgress >= 100) {
+      homeProgress = 0;
+      homeIdx = (homeIdx + 1) % HOME_ORDER.length;
+      applyHomeTab(homeCtx, homeIdx);
+    }
+    setHomeFill(homeCtx, homeProgress);
+  }, STEP_MS);
+  window._homeTabTimer = homeTimer;
+}
+window.initHomeTabs = initHomeTabs;
+document.addEventListener('page:rendered', (e) => {
+  if (!e.detail || e.detail.slug === 'home') initHomeTabs();
+});
+
+// --- sport / live 供應商頁籤 ---
 const PROVIDERS = /^(BTI|SABA|Sexy|Pragmatic Play|Yeebet|Favorites)$/;
 
 document.addEventListener('click', (e) => {
@@ -37,22 +105,10 @@ document.addEventListener('click', (e) => {
   if (!btn) return;
   const label = (btn.querySelector('span')?.textContent || btn.textContent || '').trim();
 
-  // --- 首頁 Mini/Slot/Live 頁籤 ---
+  // --- 首頁 Mini/Slot/Live 頁籤(手動切換,重置進度條)---
   if (HOME_TABS[label]) {
-    const group = btn.parentElement;
-    const sect = btn.closest('section');
-    if (!group || !sect) return;
-    [...group.querySelectorAll('button')].forEach((b) => {
-      const l = (b.querySelector('span')?.textContent || '').trim();
-      const active = l === label;
-      b.classList.toggle('text-white', active);
-      b.classList.toggle('text-gray-500', !active);
-      let ind = b.querySelector(':scope > div.absolute');
-      if (active && !ind) b.appendChild(homeIndicator());
-      else if (!active && ind) ind.remove();
-    });
-    const rail = sect.querySelector('.animate-slideIn');
-    if (rail) rail.innerHTML = HOME_TABS[label].map((n, i) => homeCard(n, i)).join('');
+    if (!homeCtx) homeCtx = findHomeTabGroup();
+    gotoHomeTab(HOME_ORDER.indexOf(label));
     return;
   }
 
