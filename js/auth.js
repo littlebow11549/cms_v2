@@ -100,11 +100,18 @@ function applyLoginState() {
   if (!loginBtn) return;
   const regBtn = [...document.querySelectorAll('#container button')].find((b) => b.textContent.trim() === 'Register');
   const w = document.createElement('div');
-  w.style.cssText = 'display:flex;align-items:center;gap:10px;flex-wrap:nowrap';
-  w.innerHTML = `<span style="color:#fff;font-size:13px;white-space:nowrap">ID:meqomcao</span>
-    <span style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;font-size:11px;font-weight:700;padding:2px 8px;border-radius:9999px">VIP1</span>
-    <span style="color:#98E7D2;font-weight:700;font-size:14px;white-space:nowrap">₩1,000,000,000</span>
-    <a href="../deposit" style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;padding:6px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap">Deposit</a>`;
+  w.style.cssText = 'display:flex;align-items:center;gap:12px;flex-wrap:nowrap';
+  w.innerHTML = `<a href="#/account" style="display:flex;align-items:center;gap:10px;color:#d1d5db;text-decoration:none;white-space:nowrap">
+      <span style="font-weight:700">ID:</span>
+      <span style="color:#fff;font-weight:700">meqomcao</span>
+      <span style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;font-size:13px;font-weight:800;padding:4px 10px;border-radius:9999px;line-height:1">VIP1</span>
+    </a>
+    <span style="height:20px;width:1px;background:#374151;display:inline-block"></span>
+    <a href="#/account" style="display:flex;align-items:center;gap:6px;color:#d1d5db;text-decoration:none;white-space:nowrap">
+      <span style="color:#9ca3af;font-weight:700">Balance:</span>
+      <span style="color:#fff;font-weight:800">₩1,000,000,000</span>
+    </a>
+    <a href="#/account" aria-label="Account" style="display:flex;color:#d1d5db;text-decoration:none">${window.ic ? window.ic('user', 20) : ''}</a>`;
   loginBtn.parentElement.insertBefore(w, loginBtn);
   loginBtn.remove();
   if (regBtn) regBtn.remove();

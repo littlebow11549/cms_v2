@@ -55,11 +55,11 @@ function closeMobileMenu() {
 window.closeMobileMenu = closeMobileMenu;
 
 function navRow(label, slug, icon, active) {
-  const base = 'display:flex;align-items:center;gap:14px;padding:13px 14px;border-radius:10px;text-decoration:none;font-size:15px;cursor:pointer;margin-bottom:2px';
+  const base = 'display:flex;align-items:center;gap:20px;padding:17px 24px;border-radius:16px;text-decoration:none;font-size:25px;font-weight:700;cursor:pointer;margin:0 24px 16px';
   const style = active
     ? base + ';background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700'
     : base + ';color:#d1d5db';
-  return `<a data-mslug="${slug}" href="#/${slug}" style="${style}">${ic(icon)}<span>${label}</span></a>`;
+  return `<a data-mslug="${slug}" href="#/${slug}" style="${style}">${ic(icon, 26)}<span>${label}</span></a>`;
 }
 
 function openDrawer(side, inner, full) {
@@ -72,7 +72,7 @@ function openDrawer(side, inner, full) {
   const sizeCss = full
     ? 'width:100%;max-width:none'
     : `width:86%;max-width:340px;border-${side === 'right' ? 'left' : 'right'}:1px solid #1f2937`;
-  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#0d121d;overflow-y:auto;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
+  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#1a2128;overflow-y:auto;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
   if (full) {                       // 全屏選單:讓底部導覽列浮在選單之上(對齊設計)
     const bn = document.querySelector('nav[class*="bottom-0"]');
     if (bn) { bn.dataset.prevZ = bn.style.zIndex; bn.style.zIndex = '10002'; }
@@ -85,7 +85,7 @@ function openDrawer(side, inner, full) {
     if (a) {
       const slug = a.dataset.mslug;
       closeMobileMenu();
-      if (slug) location.hash = '#/' + slug;   // 沒有對應頁面的項目(Poker/ESport/Lottery)僅關閉
+      if (slug) location.hash = '#/' + slug;
     }
   });
   document.body.appendChild(o);
@@ -97,24 +97,24 @@ function openMainMenu() {
   const slug = curSlug();
   const loggedIn = !!window._loggedIn;
   const account = loggedIn
-    ? `<div style="display:flex;align-items:center;gap:12px;padding:4px 6px 14px">
-        <div style="width:40px;height:40px;border-radius:50%;background:#1f6f5c;display:flex;align-items:center;justify-content:center;color:#bdf3e4;flex-shrink:0">${ic('user', 22)}</div>
+    ? `<div style="display:flex;align-items:center;gap:16px;padding:4px 24px 0">
+        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(90deg,#CBE8E4,#98E7D2);display:flex;align-items:center;justify-content:center;color:#0f1622;flex-shrink:0">${ic('user', 32)}</div>
         <div style="min-width:0">
-          <div style="display:flex;align-items:center;gap:8px"><span style="color:#fff;font-weight:700;font-size:15px">beaucat</span><span style="background:#1c3a33;color:#7fe0c6;font-size:11px;font-weight:700;padding:2px 8px;border-radius:9999px;white-space:nowrap">신규(New)</span></div>
-          <div style="color:#98E7D2;font-weight:700;font-size:14px">₩1,000,000,000</div>
+          <div style="display:flex;align-items:center;gap:12px"><span style="color:#fff;font-weight:800;font-size:24px;white-space:nowrap">meqomcao</span><span style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;font-size:16px;font-weight:800;padding:4px 10px;border-radius:9999px;white-space:nowrap;line-height:1">VIP1</span></div>
+          <div style="font-size:20px;font-weight:700;margin-top:6px"><span style="color:#9ca3af">Balance: </span><span style="color:#98E7D2">₩1,000,000,000</span></div>
         </div>
       </div>
-      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:13px;border-radius:10px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700;text-decoration:none">View Account</a>`
+      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:18px 24px;border-radius:14px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:24px;text-decoration:none;margin:24px 24px 0">View Account</a>`
     : `<button data-auth="login" style="display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;color:#fff;cursor:pointer;font-weight:600;font-size:16px">Login</button>
        <button data-auth="register" style="width:100%;padding:14px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:16px;margin-top:4px">Register</button>`;
   const inner = `<div style="min-height:100%;padding-bottom:24px">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #1a2330">
-        <img src="assets/logo.png" alt="WIN100%" style="height:32px;mix-blend-mode:lighten">
-        <button data-close style="background:none;border:0;color:#cbd5e1;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      <div style="display:flex;align-items:center;justify-content:space-between;height:92px;padding:0 24px;border-bottom:1px solid #263241">
+        <img src="assets/logo.png" alt="WIN100%" style="height:50px;mix-blend-mode:lighten">
+        <button data-close style="background:none;border:0;color:#cbd5e1;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
       </div>
-      <div style="padding:16px 16px 0">
+      <div style="padding:18px 0 0">
         ${MAIN_LINKS.map(([t, s, i]) => navRow(t, s, i, !!s && s === slug)).join('')}
-        <div style="border-top:1px solid #1f2937;margin:14px 0"></div>
+        <div style="border-top:1px solid #374151;margin:28px 24px"></div>
         ${account}
       </div>
     </div>`;
