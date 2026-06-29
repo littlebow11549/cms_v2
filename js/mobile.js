@@ -62,15 +62,19 @@ function closeMobileMenu() {
 }
 window.closeMobileMenu = closeMobileMenu;
 
-function navRow(label, slug, icon, active) {
-  const base = 'display:flex;align-items:center;gap:clamp(14px,3.2dvh,20px);padding:clamp(11px,1.7dvh,17px) 24px;border-radius:16px;text-decoration:none;font-size:clamp(19px,3.1dvh,25px);font-weight:700;cursor:pointer;margin:0 24px clamp(8px,1.5dvh,16px)';
+function navRow(label, slug, icon, active, fillHeight) {
+  const base = fillHeight === 'main'
+    ? 'display:flex;align-items:center;gap:clamp(14px,3.2dvh,20px);min-height:0;padding:0 24px;border-radius:16px;text-decoration:none;font-size:clamp(19px,3.1dvh,25px);font-weight:700;cursor:pointer;margin:2px 24px'
+    : fillHeight === 'member'
+      ? 'display:flex;align-items:center;gap:clamp(12px,2.4dvh,18px);min-height:0;padding:0 18px;border-radius:12px;text-decoration:none;font-size:clamp(16px,2.6dvh,22px);line-height:1.15;font-weight:700;cursor:pointer;margin:1px 14px'
+      : 'display:flex;align-items:center;gap:clamp(14px,3.2dvh,20px);padding:clamp(11px,1.7dvh,17px) 24px;border-radius:16px;text-decoration:none;font-size:clamp(19px,3.1dvh,25px);font-weight:700;cursor:pointer;margin:0 24px clamp(8px,1.5dvh,16px)';
   const style = active
     ? base + ';background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700'
     : base + ';color:#d1d5db';
   return `<a data-mslug="${slug}" href="#/${slug}" style="${style}">${ic(icon, 26)}<span>${label}</span></a>`;
 }
 
-function openDrawer(side, inner, full) {
+function openDrawer(side, inner, full, fitHeight) {
   if (document.getElementById('mobile-menu')) return;
   ensureMobileDrawerStyles();
   const o = document.createElement('div');
@@ -82,7 +86,8 @@ function openDrawer(side, inner, full) {
   const sizeCss = full
     ? 'width:100%;max-width:none'
     : `width:86%;max-width:340px;border-${side === 'right' ? 'left' : 'right'}:1px solid #1f2937`;
-  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#1a2128;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
+  const overflow = full || fitHeight ? 'hidden' : 'auto';
+  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#1a2128;overflow-y:${overflow};scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
   if (full) {                       // 全屏選單:讓底部導覽列浮在選單之上(對齊設計)
     const bn = document.querySelector('nav[class*="bottom-0"]');
     if (bn) { bn.dataset.prevZ = bn.style.zIndex; bn.style.zIndex = '10002'; }
@@ -108,23 +113,25 @@ function openMainMenu() {
   const loggedIn = !!window._loggedIn;
   const account = loggedIn
     ? `<div style="display:flex;align-items:center;gap:16px;padding:4px 24px 0">
-        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(90deg,#CBE8E4,#98E7D2);display:flex;align-items:center;justify-content:center;color:#0f1622;flex-shrink:0">${ic('user', 32)}</div>
+        <div style="width:clamp(52px,7.6dvh,64px);height:clamp(52px,7.6dvh,64px);border-radius:50%;background:linear-gradient(90deg,#CBE8E4,#98E7D2);display:flex;align-items:center;justify-content:center;color:#0f1622;flex-shrink:0">${ic('user', 32)}</div>
         <div style="min-width:0">
-          <div style="display:flex;align-items:center;gap:12px"><span style="color:#fff;font-weight:800;font-size:24px;white-space:nowrap">meqomcao</span><span style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;font-size:16px;font-weight:800;padding:4px 10px;border-radius:9999px;white-space:nowrap;line-height:1">VIP1</span></div>
-          <div style="font-size:20px;font-weight:700;margin-top:6px"><span style="color:#9ca3af">Balance: </span><span style="color:#98E7D2">₩1,000,000,000</span></div>
+          <div style="display:flex;align-items:center;gap:12px"><span style="color:#fff;font-weight:800;font-size:clamp(20px,2.8dvh,24px);white-space:nowrap">meqomcao</span><span style="background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#111827;font-size:clamp(14px,1.9dvh,16px);font-weight:800;padding:4px 10px;border-radius:9999px;white-space:nowrap;line-height:1">VIP1</span></div>
+          <div style="font-size:clamp(16px,2.4dvh,20px);font-weight:700;margin-top:6px"><span style="color:#9ca3af">Balance: </span><span style="color:#98E7D2">₩1,000,000,000</span></div>
         </div>
       </div>
-      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:18px 24px;border-radius:14px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:24px;text-decoration:none;margin:24px 24px 0">View Account</a>`
+      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:clamp(12px,2dvh,18px) 24px;border-radius:14px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:clamp(20px,2.8dvh,24px);text-decoration:none;margin:clamp(12px,2.4dvh,24px) 24px 0">View Account</a>`
     : `<button data-auth="login" style="display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;color:#fff;cursor:pointer;font-weight:600;font-size:16px">Login</button>
        <button data-auth="register" style="width:100%;padding:14px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:16px;margin-top:4px">Register</button>`;
-  const inner = `<div style="min-height:100%;display:flex;flex-direction:column;padding-bottom:24px">
-      <div style="display:flex;align-items:center;justify-content:space-between;height:92px;padding:0 24px;border-bottom:1px solid #263241">
+  const inner = `<div style="height:100%;min-height:0;display:flex;flex-direction:column;padding-bottom:clamp(10px,2dvh,24px)">
+      <div style="display:flex;align-items:center;justify-content:space-between;height:clamp(76px,10.9dvh,92px);padding:0 24px;border-bottom:1px solid #263241;flex-shrink:0">
         <img src="assets/logo.png" alt="WIN100%" style="height:50px;mix-blend-mode:lighten">
         <button data-close style="background:none;border:0;color:#cbd5e1;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
       </div>
-      <div style="padding:clamp(12px,2dvh,18px) 0 0;min-height:0">
-        ${MAIN_LINKS.map(([t, s, i]) => navRow(t, s, i, !!s && s === slug)).join('')}
-        <div style="border-top:1px solid #374151;margin:28px 24px"></div>
+      <div data-main-links style="display:grid;grid-template-rows:repeat(${MAIN_LINKS.length},minmax(0,1fr));flex:1;min-height:0;padding:clamp(8px,1.5dvh,14px) 0">
+        ${MAIN_LINKS.map(([t, s, i]) => navRow(t, s, i, !!s && s === slug, 'main')).join('')}
+      </div>
+      <div style="flex-shrink:0">
+        <div style="border-top:1px solid #374151;margin:clamp(12px,2.4dvh,28px) 24px"></div>
         ${account}
       </div>
     </div>`;
@@ -134,14 +141,16 @@ function openMainMenu() {
 // --- 圖4:底部 Browse → 會員選單 ---
 function openMemberMenu() {
   const slug = curSlug();
-  const inner = `<div style="padding:16px 14px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+  const inner = `<div style="height:100%;min-height:0;display:flex;flex-direction:column;padding:clamp(10px,1.8dvh,16px) 14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;height:clamp(42px,6dvh,54px);flex-shrink:0">
         <span style="color:#fff;font-weight:800;font-size:20px">Menu</span>
         <button data-close style="background:none;border:0;color:#cbd5e1;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
       </div>
-      ${MEMBER_LINKS.map(([t, s, i]) => navRow(t, s, i, s === slug)).join('')}
+      <div data-member-links style="display:grid;grid-template-rows:repeat(${MEMBER_LINKS.length},minmax(0,1fr));flex:1;min-height:0">
+        ${MEMBER_LINKS.map(([t, s, i]) => navRow(t, s, i, s === slug, 'member')).join('')}
+      </div>
     </div>`;
-  openDrawer('left', inner);
+  openDrawer('left', inner, false, true);
 }
 
 window.openMobileMenu = openMainMenu;
