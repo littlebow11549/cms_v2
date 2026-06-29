@@ -16,6 +16,11 @@ const HOME_TABS = {
   'Live Game': ['Lightning Roulette', 'Crazy Time', 'Mega Wheel', 'Baccarat', 'Dragon Tiger', 'Monopoly Live', 'Blackjack VIP', 'Sic Bo', 'Dream Catcher', 'Speed Roulette', 'Football Studio', 'Andar Bahar'],
 };
 const HOME_ORDER = ['Mini Game', 'Slot Game', 'Live Game'];
+const HOME_TAB_ROUTES = {
+  'Mini Game': 'mini-games',
+  'Slot Game': 'slot',
+  'Live Game': 'live',
+};
 const CYCLE_MS = 6000, STEP_MS = 50;
 
 function homeCard(name, i) {
@@ -36,8 +41,35 @@ function findHomeTabGroup() {
   return { group: btn.parentElement, sect: btn.closest('section') };
 }
 
+function homeTabRoute(label) {
+  return HOME_TAB_ROUTES[label] || HOME_TAB_ROUTES[HOME_ORDER[0]];
+}
+
+function activeHomeTabLabel(ctx) {
+  if (!ctx) return HOME_ORDER[homeIdx] || HOME_ORDER[0];
+  const activeBtn = [...ctx.group.querySelectorAll('button')]
+    .find((b) => b.classList.contains('text-white'));
+  const label = (activeBtn?.querySelector('span')?.textContent || '').trim();
+  return HOME_TABS[label] ? label : (HOME_ORDER[homeIdx] || HOME_ORDER[0]);
+}
+
+function homeShowAllLink(ctx) {
+  if (!ctx?.sect) return null;
+  return [...ctx.sect.querySelectorAll('a')]
+    .find((a) => /show all/i.test((a.textContent || '').trim()));
+}
+
+function updateHomeShowAll(ctx, label) {
+  const link = homeShowAllLink(ctx);
+  if (!link) return;
+  const route = homeTabRoute(label);
+  link.href = '#/' + route;
+  link.dataset.homeShowAll = route;
+}
+
 function applyHomeTab(ctx, idx) {
   const label = HOME_ORDER[idx];
+  updateHomeShowAll(ctx, label);
   [...ctx.group.querySelectorAll('button')].forEach((b) => {
     const l = (b.querySelector('span')?.textContent || '').trim();
     const active = l === label;
@@ -93,6 +125,16 @@ function initHomeTabs() {
   window._homeTabTimer = homeTimer;
 }
 window.initHomeTabs = initHomeTabs;
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[data-home-show-all]');
+  if (!link) return;
+  if (!homeCtx) homeCtx = findHomeTabGroup();
+  const label = activeHomeTabLabel(homeCtx);
+  location.hash = '#/' + homeTabRoute(label);
+  e.preventDefault();
+});
+
 document.addEventListener('page:rendered', (e) => {
   if (!e.detail || e.detail.slug === 'home') initHomeTabs();
   if (e.detail && (e.detail.slug === 'sport' || e.detail.slug === 'live')) applyProviderFilter();
