@@ -42,6 +42,14 @@ const MEMBER_LINKS = [
 
 function curSlug() { const s = location.hash.replace(/^#\/?/, ''); return s || 'home'; }
 
+function ensureMobileDrawerStyles() {
+  if (document.getElementById('mobile-drawer-style')) return;
+  const style = document.createElement('style');
+  style.id = 'mobile-drawer-style';
+  style.textContent = '#mobile-menu [data-panel]::-webkit-scrollbar{display:none}';
+  document.head.appendChild(style);
+}
+
 function closeMobileMenu() {
   const m = document.getElementById('mobile-menu');
   if (!m) return;
@@ -55,7 +63,7 @@ function closeMobileMenu() {
 window.closeMobileMenu = closeMobileMenu;
 
 function navRow(label, slug, icon, active) {
-  const base = 'display:flex;align-items:center;gap:20px;padding:17px 24px;border-radius:16px;text-decoration:none;font-size:25px;font-weight:700;cursor:pointer;margin:0 24px 16px';
+  const base = 'display:flex;align-items:center;gap:clamp(14px,3.2dvh,20px);padding:clamp(11px,1.7dvh,17px) 24px;border-radius:16px;text-decoration:none;font-size:clamp(19px,3.1dvh,25px);font-weight:700;cursor:pointer;margin:0 24px clamp(8px,1.5dvh,16px)';
   const style = active
     ? base + ';background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700'
     : base + ';color:#d1d5db';
@@ -64,15 +72,17 @@ function navRow(label, slug, icon, active) {
 
 function openDrawer(side, inner, full) {
   if (document.getElementById('mobile-menu')) return;
+  ensureMobileDrawerStyles();
   const o = document.createElement('div');
   o.id = 'mobile-menu';
   o.style.cssText = 'position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,0);transition:background .2s';
   const off = side === 'right' ? 'translateX(100%)' : 'translateX(-100%)';
-  const pos = side === 'right' ? 'top:0;right:0;bottom:0' : 'top:0;left:0;bottom:0';
+  const bottomInset = full ? '64px' : '0';
+  const pos = side === 'right' ? `top:0;right:0;bottom:${bottomInset}` : `top:0;left:0;bottom:${bottomInset}`;
   const sizeCss = full
     ? 'width:100%;max-width:none'
     : `width:86%;max-width:340px;border-${side === 'right' ? 'left' : 'right'}:1px solid #1f2937`;
-  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#1a2128;overflow-y:auto;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
+  o.innerHTML = `<div data-panel data-side="${side}" style="position:absolute;${pos};${sizeCss};background:#1a2128;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain;box-shadow:0 0 24px rgba(0,0,0,.6);transform:${off};transition:transform .25s ease">${inner}</div>`;
   if (full) {                       // 全屏選單:讓底部導覽列浮在選單之上(對齊設計)
     const bn = document.querySelector('nav[class*="bottom-0"]');
     if (bn) { bn.dataset.prevZ = bn.style.zIndex; bn.style.zIndex = '10002'; }
@@ -107,12 +117,12 @@ function openMainMenu() {
       <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:18px 24px;border-radius:14px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:24px;text-decoration:none;margin:24px 24px 0">View Account</a>`
     : `<button data-auth="login" style="display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;color:#fff;cursor:pointer;font-weight:600;font-size:16px">Login</button>
        <button data-auth="register" style="width:100%;padding:14px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:16px;margin-top:4px">Register</button>`;
-  const inner = `<div style="min-height:100%;padding-bottom:24px">
+  const inner = `<div style="min-height:100%;display:flex;flex-direction:column;padding-bottom:24px">
       <div style="display:flex;align-items:center;justify-content:space-between;height:92px;padding:0 24px;border-bottom:1px solid #263241">
         <img src="assets/logo.png" alt="WIN100%" style="height:50px;mix-blend-mode:lighten">
         <button data-close style="background:none;border:0;color:#cbd5e1;cursor:pointer;padding:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
       </div>
-      <div style="padding:18px 0 0">
+      <div style="padding:clamp(12px,2dvh,18px) 0 0;min-height:0">
         ${MAIN_LINKS.map(([t, s, i]) => navRow(t, s, i, !!s && s === slug)).join('')}
         <div style="border-top:1px solid #374151;margin:28px 24px"></div>
         ${account}
