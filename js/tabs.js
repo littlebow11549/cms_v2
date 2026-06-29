@@ -32,6 +32,7 @@ function homeCard(name, i) {
 
 // --- 首頁頁籤自動輪播 + 進度條 ---
 let homeCtx = null, homeTimer = null, homeIdx = 0, homeProgress = 0, homePaused = false;
+let homeTransitionId = 0;
 
 function findHomeTabGroup() {
   const span = [...document.querySelectorAll('#container button > span')]
@@ -67,7 +68,56 @@ function updateHomeShowAll(ctx, label) {
   link.dataset.homeShowAll = route;
 }
 
-function applyHomeTab(ctx, idx) {
+function homeTabDirection(from, to) {
+  if (from === to) return 0;
+  if (from === HOME_ORDER.length - 1 && to === 0) return 1;
+  if (from === 0 && to === HOME_ORDER.length - 1) return -1;
+  return to > from ? 1 : -1;
+}
+
+function updateHomeRail(ctx, label, direction, animate) {
+  const rail = ctx.sect && ctx.sect.querySelector('.animate-slideIn');
+  if (!rail || !HOME_TABS[label]) return;
+  const cards = HOME_TABS[label].map((n, i) => homeCard(n, i)).join('');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const transitionId = ++homeTransitionId;
+
+  rail.getAnimations().forEach((animation) => animation.cancel());
+  if (!animate || !direction || reduceMotion) {
+    rail.innerHTML = cards;
+    rail.style.pointerEvents = '';
+    return;
+  }
+
+  rail.style.pointerEvents = 'none';
+  const offset = direction * 18;
+  const outgoing = rail.animate([
+    { opacity: 1, transform: 'translateX(0)' },
+    { opacity: 0, transform: `translateX(${-offset}px)` },
+  ], {
+    duration: 120,
+    easing: 'cubic-bezier(0.4, 0, 1, 1)',
+    fill: 'forwards',
+  });
+
+  outgoing.finished.then(() => {
+    if (transitionId !== homeTransitionId) return;
+    rail.innerHTML = cards;
+    const incoming = rail.animate([
+      { opacity: 0, transform: `translateX(${offset}px)` },
+      { opacity: 1, transform: 'translateX(0)' },
+    ], {
+      duration: 220,
+      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      fill: 'forwards',
+    });
+    incoming.finished.then(() => {
+      if (transitionId === homeTransitionId) rail.style.pointerEvents = '';
+    }).catch(() => {});
+  }).catch(() => {});
+}
+
+function applyHomeTab(ctx, idx, animate = false, direction = 0) {
   const label = HOME_ORDER[idx];
   updateHomeShowAll(ctx, label);
   [...ctx.group.querySelectorAll('button')].forEach((b) => {
@@ -78,14 +128,31 @@ function applyHomeTab(ctx, idx) {
     // 移除任何既有指示器(含 Figma 匯出的靜態 46% 進度條),避免重複
     b.querySelectorAll(':scope > div.absolute').forEach((d) => d.remove());
     if (active) {
+      if (animate) {
+        b.animate([
+          { transform: 'translateY(2px)', opacity: 0.65 },
+          { transform: 'translateY(0)', opacity: 1 },
+        ], {
+          duration: 220,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        });
+      }
       const track = document.createElement('div');
       track.className = 'tab-prog absolute bottom-0 left-0 right-0 h-0.5 bg-gray-700';
       track.innerHTML = '<div class="tab-fill h-full bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2] transition-all duration-100" style="width:0%"></div>';
       b.appendChild(track);
+      if (animate) {
+        track.animate([
+          { opacity: 0, transform: 'scaleX(0.45)' },
+          { opacity: 1, transform: 'scaleX(1)' },
+        ], {
+          duration: 220,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        });
+      }
     }
   });
-  const rail = ctx.sect && ctx.sect.querySelector('.animate-slideIn');
-  if (rail && HOME_TABS[label]) rail.innerHTML = HOME_TABS[label].map((n, i) => homeCard(n, i)).join('');
+  updateHomeRail(ctx, label, direction, animate);
 }
 
 function setHomeFill(ctx, pct) {
@@ -95,9 +162,12 @@ function setHomeFill(ctx, pct) {
 
 function gotoHomeTab(idx, resetGames) {
   if (!homeCtx) return;
-  homeIdx = ((idx % HOME_ORDER.length) + HOME_ORDER.length) % HOME_ORDER.length;
+  const previousIdx = homeIdx;
+  const nextIdx = ((idx % HOME_ORDER.length) + HOME_ORDER.length) % HOME_ORDER.length;
+  const direction = homeTabDirection(previousIdx, nextIdx);
+  homeIdx = nextIdx;
   homeProgress = 0;
-  applyHomeTab(homeCtx, homeIdx);
+  applyHomeTab(homeCtx, homeIdx, direction !== 0, direction);
   setHomeFill(homeCtx, 0);
 }
 
@@ -117,8 +187,7 @@ function initHomeTabs() {
     homeProgress += (STEP_MS / CYCLE_MS) * 100;
     if (homeProgress >= 100) {
       homeProgress = 0;
-      homeIdx = (homeIdx + 1) % HOME_ORDER.length;
-      applyHomeTab(homeCtx, homeIdx);
+      gotoHomeTab(homeIdx + 1);
     }
     setHomeFill(homeCtx, homeProgress);
   }, STEP_MS);
