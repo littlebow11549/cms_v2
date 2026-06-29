@@ -57,17 +57,42 @@ document.addEventListener('page:rendered', (e) => {
   if (GAME_PAGES.includes(e.detail.slug)) setupGamePage();
 });
 
-// === 輪播 ‹ › 箭頭:捲動同一個 section 內的橫向 rail ===
+// === 輪播 ‹ › 箭頭:捲動同一列下方最近的橫向 rail ===
+function findRailForArrow(btn) {
+  const section = btn.closest('section');
+  if (!section) return null;
+
+  const header = btn.closest('.flex.items-center.justify-between') || btn.parentElement;
+  let node = header;
+  while (node && node !== section) {
+    let sib = node.nextElementSibling;
+    while (sib) {
+      const rail = sib.matches?.('.overflow-x-auto') ? sib : sib.querySelector?.('.overflow-x-auto');
+      if (rail) return rail;
+      sib = sib.nextElementSibling;
+    }
+    node = node.parentElement;
+  }
+
+  const rails = [...section.querySelectorAll('.overflow-x-auto')];
+  return rails.find((rail) => rail.scrollWidth > rail.clientWidth + 4) || rails[0] || null;
+}
+
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('button');
   if (!btn) return;
   const isLeft = !!btn.querySelector('svg.lucide-chevron-left');
   const isRight = !!btn.querySelector('svg.lucide-chevron-right');
   if (!isLeft && !isRight) return;
-  const sect = btn.closest('section');
-  const rail = sect && sect.querySelector('.overflow-x-auto');
+  const rail = findRailForArrow(btn);
   if (!rail) return;
   e.preventDefault();
-  const amount = Math.max(rail.clientWidth * 0.8, 200);
-  rail.scrollBy({ left: isLeft ? -amount : amount, behavior: 'smooth' });
+  e.stopPropagation();
+  const amount = Math.max(rail.clientWidth * 0.75, 180);
+  const nextLeft = rail.scrollLeft + (isLeft ? -amount : amount);
+  if (typeof rail.scrollTo === 'function') {
+    rail.scrollTo({ left: nextLeft, behavior: 'smooth' });
+  } else {
+    rail.scrollLeft = nextLeft;
+  }
 });
