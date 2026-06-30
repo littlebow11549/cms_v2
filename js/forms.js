@@ -32,6 +32,7 @@ function ensurePaymentMethodStyles() {
     .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:700}
     .pm-promo-amount{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#98E7D2;font-weight:800;white-space:nowrap}
     .pm-action{display:inline-flex;align-items:center;justify-content:center;min-width:150px;height:48px;margin-top:22px;padding:0 28px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:15px;line-height:1;cursor:pointer}
+    .pm-submit{display:flex;width:100%;height:56px;border-radius:10px;background:#4b5563;color:#fff;font-size:16px}
     .pm-wallet-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
     .pm-wallet-empty{min-height:210px;border:1px dashed #374151;border-radius:14px;background:linear-gradient(135deg,#101820,#172128);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#9ca3af;padding:26px}
     .pm-empty-coin{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#222c35;color:#6b7280;font-size:34px;font-weight:900;margin-bottom:10px}
@@ -144,7 +145,7 @@ function withdrawalCryptoPanel() {
           <label>Withdrawal Amount:</label><input class="pm-input" placeholder="100,000 ~ 20,000,000">
           <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please fill in the transaction password">
         </div>
-        <button class="pm-action" type="button">Submit</button>
+        <button class="pm-action pm-submit" type="button">Submit</button>
       </div>
     </div>`;
 }
@@ -185,7 +186,7 @@ function accountManagementPanel() {
               <label>Account Number:</label><input class="pm-input" placeholder="Please Enter Account/Card/Phone number">
               <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please Fill in the Transaction Password">
             </div>
-            <button class="pm-action" type="button">Submit</button>
+            <button class="pm-action pm-submit" type="button">Submit</button>
           </div>
         </div>
       </div>
@@ -205,7 +206,7 @@ function accountManagementPanel() {
               <label>Wallet address:</label><input class="pm-input" placeholder="Please fill in wallet address">
               <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please Fill in the Transaction Password">
             </div>
-            <button class="pm-action" type="button">Submit</button>
+            <button class="pm-action pm-submit" type="button">Submit</button>
           </div>
         </div>
       </div>
