@@ -4,83 +4,103 @@ function ensurePaymentMethodStyles() {
   const style = document.createElement('style');
   style.id = 'payment-method-style';
   style.textContent = `
-    .pm-tabs{display:flex;gap:12px;margin:0 auto 18px;width:100%;max-width:56rem}
-    .pm-tab{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:700;font-size:15px;cursor:pointer;transition:border-color .18s,background .18s,color .18s}
+    .pm-tabs{display:flex;gap:12px;margin:0 auto 24px;width:100%;max-width:56rem}
+    .pm-tab{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:600;font-size:16px;cursor:pointer;transition:border-color .18s,background .18s,color .18s}
     .pm-tab svg{width:22px;height:22px;flex:0 0 auto}
     .pm-tab.active{border-color:#98E7D2;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622}
     .pm-shell{width:100%;max-width:56rem;margin:0 auto}
     .pm-panel[hidden]{display:none!important}
-    .pm-crypto-card{background:#1a2128;border:1px solid #1f2937;border-radius:10px;padding:24px}
-    .pm-title{display:flex;align-items:center;gap:10px;color:#aae5d3;font-size:18px;font-weight:700;margin:0 0 20px}
-    .pm-title:before{content:'';width:4px;height:22px;border-radius:99px;background:#98E7D2;box-shadow:0 0 12px rgba(152,231,210,.45)}
-    .pm-method-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-    .pm-method{display:flex;align-items:center;gap:10px;min-width:170px;padding:13px 16px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:700}
-    .pm-method.active{border-color:#98E7D2;color:#fff;background:#14251f}
-    .pm-coin{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#12a97b;color:#fff;font-weight:900}
+    .pm-crypto-card{background:#1a2128;border:1px solid #1f2937;border-radius:10px;padding:32px}
+    .pm-title{display:flex;align-items:center;gap:12px;color:#aae5d3;font-size:20px;font-weight:600;margin:0 0 24px}
+    .pm-title:before{content:'';width:4px;height:28px;background:#aae5d3}
+    .pm-method-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+    .pm-method{display:flex;align-items:center;gap:10px;min-width:170px;padding:12px 16px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:600}
+    .pm-method.active{border-color:transparent;color:#aae5d3;background:#313e40}
+    .pm-coin{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#12a97b;color:#fff;font-weight:700}
     .pm-bitcoin{background:#f59e0b;color:#fff}
-    .pm-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:14px 18px;align-items:center;margin-bottom:18px}
+    .pm-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px 20px;align-items:center;margin-bottom:16px}
     .pm-label{color:#d1d5db;font-weight:600}
-    .pm-input{width:100%;max-width:420px;background:#0f1419;border:1px solid #374151;border-radius:8px;padding:12px 14px;color:#fff;outline:none}
+    .pm-input{box-sizing:border-box;width:100%;min-height:50px;background:#0f1419;border:1px solid #374151;border-radius:10px;padding:12px 16px;color:#fff;font-size:16px;outline:none}
     .pm-input:focus{border-color:#98E7D2}
-    .pm-note{color:#fb7185;font-size:14px;font-weight:600;line-height:1.7;margin:0}
-    .pm-rate{color:#d1d5db;font-size:14px;margin:8px 0 24px}
-    .pm-promos{display:grid;gap:12px}
-    .pm-promo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;cursor:pointer;transition:border-color .18s,background .18s}
-    .pm-promo.active{border-color:#98E7D2;background:#14251f}
-    .pm-radio{width:18px;height:18px;border-radius:50%;border:2px solid #6b7280;flex:0 0 auto}
+    .pm-converted-row{display:flex;align-items:center;gap:12px}
+    .pm-converted-row .pm-input{flex:1;min-width:0}
+    .pm-note{color:#f87171;font-size:14px;font-weight:400;line-height:1.5;margin:8px 0 0}
+    .pm-rate{color:#d1d5db;font-size:14px;margin:8px 0 32px}
+    .pm-promos{display:grid;gap:16px}
+    .pm-promo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;cursor:pointer;transition:border-color .18s,background .18s}
+    .pm-promo.active{border-color:#98E7D2;background:#0f1419}
+    .pm-radio{width:20px;height:20px;border-radius:50%;border:2px solid #6b7280;flex:0 0 auto}
     .pm-promo.active .pm-radio{border-color:#98E7D2;box-shadow:inset 0 0 0 4px #0f1419;background:#98E7D2}
-    .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:700}
-    .pm-promo-amount{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#98E7D2;font-weight:800;white-space:nowrap}
-    .pm-action{display:inline-flex;align-items:center;justify-content:center;min-width:150px;height:48px;margin-top:22px;padding:0 28px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:15px;line-height:1;cursor:pointer}
-    .pm-submit{display:flex;width:100%;height:56px;border-radius:10px;background:#4b5563;color:#fff;font-size:16px;cursor:not-allowed}
+    .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:600}
+    .pm-promo-amount{color:#aae5d3;font-size:14px;font-weight:600;white-space:nowrap}
+    .pm-action{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-width:150px;height:56px;margin-top:24px;padding:0 16px;border:0;border-radius:10px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:600;font-size:16px;line-height:1;cursor:pointer}
+    .pm-submit{display:flex;width:100%;background:#4b5563;color:#fff;cursor:not-allowed}
     .pm-submit.ready{background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer}
-    .pm-back{display:flex;align-items:center;justify-content:center;width:100%;height:56px;margin-top:12px;border:1px solid #374151;border-radius:10px;background:#0f1419;color:#fff;font-weight:800;font-size:16px;cursor:pointer}
+    .pm-back{box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:100%;height:56px;margin-top:16px;border:1px solid #374151;border-radius:10px;background:#0f1419;color:#fff;font-weight:600;font-size:16px;cursor:pointer}
     .pm-wallet-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
-    .pm-wallet-empty{min-height:210px;border:1px dashed #374151;border-radius:14px;background:linear-gradient(135deg,#101820,#172128);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#9ca3af;padding:26px}
-    .pm-empty-coin{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#222c35;color:#6b7280;font-size:34px;font-weight:900;margin-bottom:10px}
-    .pm-add-wallet{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 20px;border-radius:999px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;cursor:pointer}
-    .pm-wallet-form{margin-top:18px;display:grid;grid-template-columns:160px minmax(0,1fr);gap:12px 16px;align-items:center}
-    .pm-wallet-form label{color:#d1d5db;font-weight:700}
-    .pm-select{appearance:none;background:#0f1419;border:1px solid #374151;border-radius:8px;padding:12px 36px 12px 14px;color:#d1d5db}
-    .pm-balance{display:grid;grid-template-columns:160px minmax(0,1fr);gap:8px 16px;margin-top:20px;color:#d1d5db}
-    .pm-balance strong{color:#98E7D2;font-size:22px}
-    .wm-mode-tabs{display:flex;gap:24px;width:100%;max-width:56rem;margin:0 auto 18px;border-bottom:1px solid #263241}
-    .wm-mode-tab{position:relative;padding:0 0 12px;background:none;border:0;color:#9ca3af;font-weight:800;font-size:16px;cursor:pointer}
+    .pm-wallet-empty{min-height:292px;border:0;border-radius:16px;background:linear-gradient(105deg,#163f34 0%,#0f2a23 28%,#0b1815 55%,#0a0e12 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#d1d5db;padding:48px}
+    .pm-empty-coin{box-sizing:border-box;width:96px;height:96px;border:2px dashed #4b5563;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(26,33,40,.6);color:#9ca3af;font-size:40px;font-weight:600;margin-bottom:16px}
+    .pm-add-wallet{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 24px;border-radius:10px;border:0;background:#313e40;color:#aae5d3;font-weight:600;font-size:16px;cursor:pointer}
+    .pm-wallet-form{margin-top:24px;display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px 20px;align-items:center}
+    .pm-wallet-form label{color:#d1d5db;font-weight:600}
+    .pm-select{box-sizing:border-box;width:100%;min-height:50px;appearance:none;background:#0f1419;border:1px solid #374151;border-radius:10px;padding:12px 36px 12px 16px;color:#d1d5db;font-size:16px}
+    .pm-balance{display:grid;grid-template-columns:190px minmax(0,1fr);gap:8px 20px;margin-top:24px;color:#d1d5db}
+    .pm-balance strong{color:#aae5d3;font-size:20px;font-weight:600}
+    .wm-mode-tabs{display:flex;gap:32px;width:100%;max-width:56rem;margin:0 auto 24px;border-bottom:1px solid #263241}
+    .wm-mode-tab{position:relative;padding:0 0 12px;background:none;border:0;color:#9ca3af;font-weight:600;font-size:16px;cursor:pointer}
     .wm-mode-tab.active{color:#98E7D2}
     .wm-mode-tab.active:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:99px;background:#98E7D2}
     .wm-management[hidden],.wm-method-panel[hidden]{display:none!important}
-    .wm-management{width:100%;max-width:56rem;margin:0 auto;background:#1a2128;border:1px solid #1f2937;border-radius:10px;padding:24px}
-    .wm-method-tabs{display:flex;gap:12px;margin-bottom:22px}
-    .wm-method-tab{display:flex;align-items:center;gap:10px;min-width:170px;padding:12px 18px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:700;font-size:15px;cursor:pointer}
+    .wm-management{box-sizing:border-box;width:100%;max-width:56rem;margin:0 auto;background:#1a2128;border:1px solid #1f2937;border-radius:10px;padding:32px}
+    .wm-method-tabs{display:flex;gap:12px;margin-bottom:24px}
+    .wm-method-tab{display:flex;align-items:center;gap:10px;min-width:170px;padding:12px 18px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:600;font-size:16px;cursor:pointer}
     .wm-method-tab svg{width:22px;height:22px;flex:0 0 auto}
     .wm-method-tab.active{border-color:#98E7D2;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622}
-    .wm-management-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
-    .wm-account-summary{margin-bottom:24px}
-    .wm-form-grid{display:grid;grid-template-columns:160px minmax(0,1fr);gap:14px 16px;align-items:center}
-    .wm-form-grid label{color:#d1d5db;font-weight:700}
-    .wm-section-title{display:flex;align-items:center;gap:10px;color:#aae5d3;font-weight:800;font-size:17px;margin:0 0 18px}
-    .wm-section-title:before{content:'';width:4px;height:20px;border-radius:99px;background:#98E7D2}
-    .wm-registered-card{display:flex;align-items:center;gap:16px;width:100%;height:140px;box-sizing:border-box;border-radius:12px;background:linear-gradient(135deg,#21342e,#263239);border:1px solid rgba(152,231,210,.22);padding:16px;color:#d1d5db}
-    .wm-bank-logo{display:flex;align-items:center;justify-content:center;width:80px;height:50px;border-radius:8px;background:#dbeafe;color:#0f172a;font-weight:900}
-    .wm-card-title{color:#fff;font-weight:800;margin-bottom:4px}
-    .wm-card-muted{color:#9ca3af;font-size:13px}
-    .wm-empty-list{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:140px;box-sizing:border-box;text-align:center;color:#9ca3af;border:1px dashed #374151;border-radius:12px;background:#101820}
-    .wm-empty-list .pm-empty-coin{margin-bottom:12px}
+    .wm-management-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+    .wm-account-summary{margin-bottom:32px}
+    .wm-form-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px 20px;align-items:center}
+    .wm-form-grid label{color:#d1d5db;font-weight:600}
+    .wm-section-title{display:flex;align-items:center;gap:12px;color:#aae5d3;font-weight:600;font-size:20px;margin:0 0 24px}
+    .wm-section-title:before{content:'';width:4px;height:28px;background:#aae5d3}
+    .wm-registered-card{box-sizing:border-box;display:flex;align-items:center;gap:16px;width:100%;height:140px;border-radius:10px;background:#0f1419;border:1px solid #374151;padding:24px;color:#d1d5db}
+    .wm-bank-logo{display:flex;align-items:center;justify-content:center;width:80px;height:56px;border-radius:10px;background:#dbeafe;color:#0f172a;font-weight:700}
+    .wm-card-title{color:#fff;font-weight:600;margin-bottom:4px}
+    .wm-card-muted{color:#9ca3af;font-size:14px}
+    .wm-empty-list{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:140px;text-align:center;color:#9ca3af;border:1px solid #374151;border-radius:10px;background:#0f1419}
+    .wm-empty-list .pm-empty-coin{width:72px;height:72px;margin-bottom:12px;font-size:32px}
     @media(max-width:700px){
-      .pm-tabs{gap:8px}
+      .pm-tabs{gap:8px;margin-bottom:16px}
       .pm-tab{flex:1;justify-content:center;padding:10px 12px;font-size:14px}
-      .pm-crypto-card{padding:18px}
+      .pm-crypto-card{padding:16px}
       .pm-title{font-size:16px;margin-bottom:16px}
-      .pm-grid,.pm-wallet-form,.pm-balance{grid-template-columns:1fr}
+      .pm-title:before{height:22px}
+      .pm-method-row{margin-bottom:16px}
+      .pm-method{min-width:0;font-size:14px}
+      .pm-grid,.pm-wallet-form,.pm-balance{grid-template-columns:1fr;gap:8px}
+      .pm-label,.pm-wallet-form label{font-size:14px}
+      .pm-input,.pm-select{min-height:48px;font-size:14px}
+      .pm-note{font-size:12px}
+      .pm-rate{font-size:13px;margin-bottom:24px}
       .pm-wallet-layout{grid-template-columns:1fr}
-      .pm-promos{gap:10px}
-      .pm-promo{align-items:stretch;flex-direction:column;gap:8px;padding:14px 16px}
-      .pm-promo-main{align-items:flex-start;gap:10px;font-size:13px;line-height:1.4}
-      .pm-promo-main .pm-radio{width:16px;height:16px;margin-top:1px}
-      .pm-promo-amount{padding-left:26px;font-size:13px;line-height:1.3}
-      .wm-management{padding:18px}
-      .wm-management-grid,.wm-form-grid{grid-template-columns:1fr}
+      .pm-promos{gap:12px}
+      .pm-promo{align-items:stretch;flex-direction:column;gap:8px;padding:16px}
+      .pm-promo-main{align-items:flex-start;gap:10px;font-size:14px;line-height:1.5}
+      .pm-promo-main .pm-radio{width:18px;height:18px;margin-top:1px}
+      .pm-promo-amount{padding-left:28px;font-size:14px;line-height:1.4}
+      .pm-action,.pm-back{height:48px;font-size:14px}
+      .pm-wallet-empty{min-height:220px;padding:24px}
+      .pm-empty-coin{width:80px;height:80px;font-size:34px}
+      .pm-add-wallet{font-size:14px}
+      .wm-mode-tabs{gap:24px;margin-bottom:16px}
+      .wm-mode-tab{font-size:14px}
+      .wm-management{padding:16px}
+      .wm-management-grid,.wm-form-grid{grid-template-columns:1fr;gap:8px}
       .wm-method-tab{flex:1;min-width:0;justify-content:center;padding:10px 12px;font-size:14px}
+      .wm-account-summary{margin-bottom:24px}
+      .wm-section-title{gap:10px;font-size:16px;margin-bottom:16px}
+      .wm-section-title:before{height:22px}
+      .wm-registered-card{padding:16px}
+      .wm-form-grid label:not(:first-child),.pm-wallet-form label:not(:first-child){margin-top:8px}
     }
   `;
   document.head.appendChild(style);
@@ -113,7 +133,7 @@ function depositCryptoPanel() {
           <div class="pm-label">Deposit Amounts:</div>
           <div><input class="pm-input" data-crypto-deposit-amount placeholder="Deposit Amounts" inputmode="numeric"><p class="pm-note">Deposit Limit: ₩ 50,000 (32.96 USDT) - ₩ 8,999,999 (5,932.83 USDT)</p></div>
           <div class="pm-label">Converted Crypto Amount:</div>
-          <div><input class="pm-input" data-crypto-converted-amount value="0.00" disabled> <span class="pm-label" style="margin-left:10px">USDT</span></div>
+          <div class="pm-converted-row"><input class="pm-input" data-crypto-converted-amount value="0.00" disabled><span class="pm-label">USDT</span></div>
         </div>
         <p class="pm-rate">Exchange rate: <strong>1 USDT = ₩ 1,516.98</strong></p>
         <h2 class="pm-title">Choose promotion</h2>
