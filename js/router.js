@@ -20,7 +20,10 @@ async function loadFragment(slug) {
 }
 
 async function render() {
-  let slug = location.hash.replace(/^#\/?/, '') || 'home';
+  const route = location.hash.replace(/^#\/?/, '') || 'home';
+  const [routeSlug, queryString = ''] = route.split('?');
+  let slug = routeSlug;
+  const query = Object.fromEntries(new URLSearchParams(queryString));
   if (!ROUTES.includes(slug)) slug = 'home';
   const container = document.getElementById('container');
   try {
@@ -31,7 +34,7 @@ async function render() {
   window.scrollTo(0, 0);
   // 頁面專屬初始化
   if (slug === 'home' && window.initCarousel) window.initCarousel();
-  document.dispatchEvent(new CustomEvent('page:rendered', { detail: { slug } }));
+  document.dispatchEvent(new CustomEvent('page:rendered', { detail: { slug, query } }));
 }
 
 function navigate(slug) {

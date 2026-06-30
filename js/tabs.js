@@ -1,4 +1,4 @@
-// === 頁籤切換 (首頁 Mini/Slot/Live 自動輪播+進度條 + sport/live 供應商) ===
+// === 頁籤切換 (首頁 Mini/Slot/Live 自動輪播+進度條 + 內頁供應商/收藏) ===
 const IMG = '_external/images.unsplash.com/';
 const PICS = [
   'photo-1534620780923-1ce0db377c3f__w-200',
@@ -206,16 +206,54 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('page:rendered', (e) => {
   if (!e.detail || e.detail.slug === 'home') initHomeTabs();
-  if (e.detail && (e.detail.slug === 'sport' || e.detail.slug === 'live')) applyProviderFilter();
+  if (e.detail && providerTabRow()) {
+    const provider = e.detail.query?.provider;
+    if (!provider || !selectProviderTab(provider)) applyProviderFilter();
+  }
 });
 
-// --- sport / live 供應商頁籤 + 比賽收藏 ---
-const PROVIDERS = /^(BTI|SABA|Sexy|Pragmatic Play|Yeebet|Favorites)$/;
+// --- 內頁供應商/收藏頁籤 ---
+const PROVIDERS = /^(Vendor|BTI|SABA|Sexy|Pragmatic Play|Yeebet|Favorites)$/;
 
-// 所有比賽卡(含星號的 .rounded-xl 卡片)
+function providerTabRow() {
+  return [...document.querySelectorAll('#container .border-b')].find((row) =>
+    [...row.querySelectorAll('button')].some((button) => PROVIDERS.test((button.textContent || '').trim()))
+  ) || null;
+}
+
+function selectProviderTab(label) {
+  if (!PROVIDERS.test(label)) return false;
+  const row = providerTabRow();
+  if (!row) return false;
+  const buttons = [...row.querySelectorAll('button')];
+  const target = buttons.find((button) => (button.textContent || '').trim() === label);
+  if (!target) return false;
+
+  buttons.forEach((button) => {
+    const active = button === target;
+    button.classList.toggle('text-[#98E7D2]', active);
+    button.classList.toggle('text-gray-400', !active);
+    let underline = button.querySelector(':scope > div.absolute');
+    if (active && !underline) {
+      underline = document.createElement('div');
+      underline.className = 'absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]';
+      button.appendChild(underline);
+    } else if (!active && underline) {
+      underline.remove();
+    }
+  });
+  applyProviderFilter();
+  return true;
+}
+
+function cardFromStar(star) {
+  return star.closest('div.group') || star.closest('[class*="rounded-xl"]');
+}
+
+// 所有遊戲卡/比賽卡(含收藏星號)
 function matchCards() {
   return [...document.querySelectorAll('#container svg.lucide-star')]
-    .map((s) => s.closest('[class*="rounded-xl"]'))
+    .map(cardFromStar)
     .filter(Boolean);
 }
 // 目前作用中的供應商頁籤文字
@@ -246,7 +284,7 @@ function applyProviderFilter() {
       empty = document.createElement('div');
       empty.className = 'fav-empty';
       empty.style.cssText = 'grid-column:1/-1;text-align:center;color:#9ca3af;padding:48px 16px';
-      empty.textContent = 'No favorite matches yet — tap the ☆ on a match to add it.';
+      empty.textContent = 'No favorites yet - tap the star to add one.';
       grid.appendChild(empty);
     }
   } else if (empty) {
@@ -261,7 +299,7 @@ document.addEventListener('click', (e) => {
   if (!star) return;
   e.preventDefault();
   e.stopPropagation();
-  const card = btn.closest('[class*="rounded-xl"]');
+  const card = cardFromStar(star);
   const on = (card ? card.dataset.fav : btn.dataset.fav) !== '1';
   if (card) card.dataset.fav = on ? '1' : '';
   btn.dataset.fav = on ? '1' : '';
@@ -282,22 +320,9 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  // --- sport / live 供應商頁籤 ---
+  // --- 內頁供應商/收藏頁籤 ---
   const tabRow = btn.closest('.border-b');
   if (tabRow && PROVIDERS.test(label)) {
-    [...tabRow.querySelectorAll('button')].forEach((b) => {
-      const active = b === btn;
-      b.classList.toggle('text-[#98E7D2]', active);
-      b.classList.toggle('text-gray-400', !active);
-      let u = b.querySelector(':scope > div.absolute');
-      if (active && !u) {
-        u = document.createElement('div');
-        u.className = 'absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]';
-        b.appendChild(u);
-      } else if (!active && u) {
-        u.remove();
-      }
-    });
-    applyProviderFilter();   // 切換供應商後套用 Favorites 過濾
+    selectProviderTab(label);
   }
 });
