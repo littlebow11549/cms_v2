@@ -338,13 +338,10 @@ function selectPromotionTab(value, updateUrl = false) {
     button.querySelectorAll(':scope > div.absolute').forEach((underline) => underline.remove());
     button.style.cssText = [
       'position:relative',
-      'min-width:86px',
-      'height:42px',
-      'padding:0 20px',
+      'padding:6px 16px',
       'border:0',
       'border-radius:0',
       'font-weight:700',
-      'font-size:16px',
       'transition:background .18s ease,color .18s ease',
       'cursor:pointer',
       `background:${active ? '#98E7D2' : 'transparent'}`,
