@@ -64,14 +64,15 @@ window.closeMobileMenu = closeMobileMenu;
 
 function navRow(label, slug, icon, active, fillHeight) {
   const base = fillHeight === 'main'
-    ? 'display:flex;align-items:center;gap:clamp(14px,3.2dvh,20px);min-height:0;padding:0 24px;border-radius:16px;text-decoration:none;font-size:clamp(19px,3.1dvh,25px);font-weight:700;cursor:pointer;margin:2px 24px'
+    ? 'display:flex;align-items:center;gap:clamp(12px,2.6dvh,18px);min-height:0;padding:0 24px;border-radius:14px;text-decoration:none;font-size:clamp(17px,2.5dvh,20px);font-weight:700;cursor:pointer;margin:2px 24px'
     : fillHeight === 'member'
-      ? 'display:flex;align-items:center;gap:clamp(12px,2.4dvh,18px);min-height:0;padding:0 18px;border-radius:12px;text-decoration:none;font-size:clamp(16px,2.6dvh,22px);line-height:1.15;font-weight:700;cursor:pointer;margin:1px 14px'
-      : 'display:flex;align-items:center;gap:clamp(14px,3.2dvh,20px);padding:clamp(11px,1.7dvh,17px) 24px;border-radius:16px;text-decoration:none;font-size:clamp(19px,3.1dvh,25px);font-weight:700;cursor:pointer;margin:0 24px clamp(8px,1.5dvh,16px)';
+      ? 'display:flex;align-items:center;gap:clamp(10px,2dvh,16px);min-height:0;padding:0 18px;border-radius:11px;text-decoration:none;font-size:clamp(15px,2.1dvh,18px);line-height:1.15;font-weight:700;cursor:pointer;margin:1px 14px'
+      : 'display:flex;align-items:center;gap:clamp(12px,2.6dvh,18px);padding:clamp(10px,1.5dvh,15px) 24px;border-radius:14px;text-decoration:none;font-size:clamp(17px,2.5dvh,20px);font-weight:700;cursor:pointer;margin:0 24px clamp(8px,1.5dvh,16px)';
   const style = active
     ? base + ';background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:700'
     : base + ';color:#d1d5db';
-  return `<a data-mslug="${slug}" href="#/${slug}" style="${style}">${ic(icon, 26)}<span>${label}</span></a>`;
+  const iconSize = fillHeight === 'member' ? 22 : 24;
+  return `<a data-mslug="${slug}" href="#/${slug}" style="${style}">${ic(icon, iconSize)}<span>${label}</span></a>`;
 }
 
 function openDrawer(side, inner, full, fitHeight) {
@@ -119,9 +120,9 @@ function openMainMenu() {
           <div style="font-size:clamp(16px,2.4dvh,20px);font-weight:700;margin-top:6px"><span style="color:#9ca3af">Balance: </span><span style="color:#98E7D2">₩1,000,000,000</span></div>
         </div>
       </div>
-      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:9px 18px;border-radius:10px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:16px;line-height:1.25;text-decoration:none;margin:12px 24px 0">View Account</a>`
-    : `<button data-auth="login" style="display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;color:#fff;cursor:pointer;font-weight:600;font-size:16px">Login</button>
-       <button data-auth="register" style="width:100%;padding:14px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:16px;margin-top:4px">Register</button>`;
+      <a data-mslug="account" href="#/account" style="display:block;text-align:center;padding:9px 18px;border-radius:10px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:15px;line-height:1.25;text-decoration:none;margin:12px 24px 0">View Account</a>`
+    : `<button data-auth="login" style="display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;color:#fff;cursor:pointer;font-weight:600;font-size:15px">Login</button>
+       <button data-auth="register" style="width:100%;padding:12px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer;font-weight:700;font-size:15px;margin-top:4px">Register</button>`;
   const inner = `<div style="height:100%;min-height:0;display:flex;flex-direction:column;padding-bottom:clamp(10px,2dvh,24px)">
       <div style="display:flex;align-items:center;justify-content:space-between;height:clamp(76px,10.9dvh,92px);padding:0 24px;border-bottom:1px solid #263241;flex-shrink:0">
         <img src="assets/logo.png" alt="WIN100%" style="height:50px;mix-blend-mode:lighten">
