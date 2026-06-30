@@ -70,9 +70,14 @@ function ensurePaymentMethodStyles() {
       .pm-tabs{gap:8px}
       .pm-tab{flex:1;justify-content:center;padding:10px 12px;font-size:14px}
       .pm-crypto-card{padding:18px}
+      .pm-title{font-size:16px;margin-bottom:16px}
       .pm-grid,.pm-wallet-form,.pm-balance{grid-template-columns:1fr}
       .pm-wallet-layout{grid-template-columns:1fr}
-      .pm-promo{align-items:flex-start;flex-direction:column}
+      .pm-promos{gap:10px}
+      .pm-promo{align-items:stretch;flex-direction:column;gap:8px;padding:14px 16px}
+      .pm-promo-main{align-items:flex-start;gap:10px;font-size:13px;line-height:1.4}
+      .pm-promo-main .pm-radio{width:16px;height:16px;margin-top:1px}
+      .pm-promo-amount{padding-left:26px;font-size:13px;line-height:1.3}
       .wm-management{padding:18px}
       .wm-management-grid,.wm-form-grid{grid-template-columns:1fr}
       .wm-method-tab{flex:1;min-width:0;justify-content:center;padding:10px 12px;font-size:14px}
