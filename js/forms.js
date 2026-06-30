@@ -119,7 +119,7 @@ function depositCryptoPanel() {
               <span class="pm-promo-amount">≥₩ 10,000.00</span>
             </label>`).join('')}
         </div>
-        <button class="pm-action" type="button">Apply for Deposit</button>
+        <button class="pm-action pm-submit" type="button" disabled>Apply for Deposit</button>
       </div>
     </div>`;
 }
@@ -263,7 +263,7 @@ function updatePaymentSubmitStates(main) {
     const controls = panel ? [...panel.querySelectorAll('input:not([disabled]), select')] : [];
     const ready = controls.some((control) => control.tagName === 'SELECT'
       ? control.selectedIndex > 0
-      : control.value.trim() !== '');
+      : control.value.trim() !== '') || Boolean(panel?.querySelector('.pm-promo.active'));
     button.disabled = !ready;
     button.classList.toggle('ready', ready);
   });
@@ -303,6 +303,7 @@ function initPaymentMethods(slug) {
     const promo = e.target.closest('.pm-promo');
     if (!promo || !main.contains(promo)) return;
     main.querySelectorAll('.pm-promo').forEach((item) => item.classList.toggle('active', item === promo));
+    updatePaymentSubmitStates(main);
   });
   main.addEventListener('input', (e) => {
     const input = e.target.closest('[data-crypto-deposit-amount]');
