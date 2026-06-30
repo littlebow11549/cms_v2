@@ -32,7 +32,9 @@ function ensurePaymentMethodStyles() {
     .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:700}
     .pm-promo-amount{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#98E7D2;font-weight:800;white-space:nowrap}
     .pm-action{display:inline-flex;align-items:center;justify-content:center;min-width:150px;height:48px;margin-top:22px;padding:0 28px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:15px;line-height:1;cursor:pointer}
-    .pm-submit{display:flex;width:100%;height:56px;border-radius:10px;background:#4b5563;color:#fff;font-size:16px}
+    .pm-submit{display:flex;width:100%;height:56px;border-radius:10px;background:#4b5563;color:#fff;font-size:16px;cursor:not-allowed}
+    .pm-submit.ready{background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;cursor:pointer}
+    .pm-back{display:flex;align-items:center;justify-content:center;width:100%;height:56px;margin-top:12px;border:1px solid #374151;border-radius:10px;background:#0f1419;color:#fff;font-weight:800;font-size:16px;cursor:pointer}
     .pm-wallet-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
     .pm-wallet-empty{min-height:210px;border:1px dashed #374151;border-radius:14px;background:linear-gradient(135deg,#101820,#172128);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#9ca3af;padding:26px}
     .pm-empty-coin{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#222c35;color:#6b7280;font-size:34px;font-weight:900;margin-bottom:10px}
@@ -145,7 +147,8 @@ function withdrawalCryptoPanel() {
           <label>Withdrawal Amount:</label><input class="pm-input" placeholder="100,000 ~ 20,000,000">
           <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please fill in the transaction password">
         </div>
-        <button class="pm-action pm-submit" type="button">Submit</button>
+        <button class="pm-action pm-submit" type="button" disabled>Submit</button>
+        <button class="pm-back" type="button" data-form-back="bank">Back</button>
       </div>
     </div>`;
 }
@@ -186,7 +189,8 @@ function accountManagementPanel() {
               <label>Account Number:</label><input class="pm-input" placeholder="Please Enter Account/Card/Phone number">
               <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please Fill in the Transaction Password">
             </div>
-            <button class="pm-action pm-submit" type="button">Submit</button>
+            <button class="pm-action pm-submit" type="button" disabled>Submit</button>
+            <button class="pm-back" type="button" data-form-back="withdraw">Back</button>
           </div>
         </div>
       </div>
@@ -206,7 +210,8 @@ function accountManagementPanel() {
               <label>Wallet address:</label><input class="pm-input" placeholder="Please fill in wallet address">
               <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please Fill in the Transaction Password">
             </div>
-            <button class="pm-action pm-submit" type="button">Submit</button>
+            <button class="pm-action pm-submit" type="button" disabled>Submit</button>
+            <button class="pm-back" type="button" data-form-back="withdraw">Back</button>
           </div>
         </div>
       </div>
@@ -252,6 +257,18 @@ function syncDepositCryptoAmount(input) {
   output.value = amount > 0 ? (amount / 1516.98).toFixed(2) : '0.00';
 }
 
+function updatePaymentSubmitStates(main) {
+  main.querySelectorAll('.pm-submit').forEach((button) => {
+    const panel = button.closest('.pm-panel, .wm-method-panel');
+    const controls = panel ? [...panel.querySelectorAll('input:not([disabled]), select')] : [];
+    const ready = controls.some((control) => control.tagName === 'SELECT'
+      ? control.selectedIndex > 0
+      : control.value.trim() !== '');
+    button.disabled = !ready;
+    button.classList.toggle('ready', ready);
+  });
+}
+
 function initPaymentMethods(slug) {
   if (slug !== 'deposit' && slug !== 'withdrawal') return;
   const main = document.querySelector('#container main');
@@ -277,6 +294,12 @@ function initPaymentMethods(slug) {
     switchPaymentPanel(main, button.dataset.payTab);
   });
   main.addEventListener('click', (e) => {
+    const back = e.target.closest('[data-form-back]');
+    if (back) {
+      if (back.dataset.formBack === 'bank') switchPaymentPanel(main, 'bank');
+      if (back.dataset.formBack === 'withdraw') switchWithdrawalMode(main, 'withdraw');
+      return;
+    }
     const promo = e.target.closest('.pm-promo');
     if (!promo || !main.contains(promo)) return;
     main.querySelectorAll('.pm-promo').forEach((item) => item.classList.toggle('active', item === promo));
@@ -284,7 +307,9 @@ function initPaymentMethods(slug) {
   main.addEventListener('input', (e) => {
     const input = e.target.closest('[data-crypto-deposit-amount]');
     if (input) syncDepositCryptoAmount(input);
+    updatePaymentSubmitStates(main);
   });
+  main.addEventListener('change', () => updatePaymentSubmitStates(main));
   if (slug === 'withdrawal') {
     main.querySelector('[data-withdrawal-mode-tabs]')?.addEventListener('click', (e) => {
       const button = e.target.closest('[data-withdrawal-mode]');
@@ -295,6 +320,7 @@ function initPaymentMethods(slug) {
       if (button) switchAccountMethod(main, button.dataset.accountMethod);
     });
   }
+  updatePaymentSubmitStates(main);
 }
 
 document.addEventListener('page:rendered', (e) => {
