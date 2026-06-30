@@ -316,10 +316,16 @@ function promotionTabLabel(value) {
   return String(value || '').toLowerCase() === 'news' ? 'News' : 'Event';
 }
 
+function stylePromotionTabs(row) {
+  row.classList.remove('gap-6', 'border-b', 'border-gray-800');
+  row.style.cssText = 'display:inline-flex;align-items:center;gap:0;border:1px solid #344155;border-radius:6px;overflow:hidden;background:#1a2128;width:max-content';
+}
+
 function selectPromotionTab(value, updateUrl = false) {
   const label = promotionTabLabel(value);
   const row = promotionTabRow();
   if (!row) return false;
+  stylePromotionTabs(row);
   const buttons = [...row.querySelectorAll('button')].filter((button) => PROMOTION_TABS.test((button.textContent || '').trim()));
   const target = buttons.find((button) => (button.textContent || '').trim() === label);
   if (!target) return false;
@@ -328,14 +334,22 @@ function selectPromotionTab(value, updateUrl = false) {
     const active = button === target;
     button.classList.toggle('text-[#98E7D2]', active);
     button.classList.toggle('text-gray-400', !active);
-    let underline = button.querySelector(':scope > div.absolute');
-    if (active && !underline) {
-      underline = document.createElement('div');
-      underline.className = 'absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]';
-      button.appendChild(underline);
-    } else if (!active && underline) {
-      underline.remove();
-    }
+    button.classList.remove('pb-4', 'px-2', 'hover:text-gray-300');
+    button.querySelectorAll(':scope > div.absolute').forEach((underline) => underline.remove());
+    button.style.cssText = [
+      'position:relative',
+      'min-width:86px',
+      'height:42px',
+      'padding:0 20px',
+      'border:0',
+      'border-radius:0',
+      'font-weight:700',
+      'font-size:16px',
+      'transition:background .18s ease,color .18s ease',
+      'cursor:pointer',
+      `background:${active ? '#98E7D2' : 'transparent'}`,
+      `color:${active ? '#0f172a' : '#9ca3af'}`,
+    ].join(';');
   });
 
   const cards = promotionCards();
