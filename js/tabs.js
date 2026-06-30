@@ -210,6 +210,9 @@ document.addEventListener('page:rendered', (e) => {
     const provider = e.detail.query?.provider;
     if (!provider || !selectProviderTab(provider)) applyProviderFilter();
   }
+  if (e.detail?.slug === 'promotion') {
+    selectPromotionTab(e.detail.query?.tab || 'event');
+  }
 });
 
 // --- 內頁供應商/收藏頁籤 ---
@@ -292,6 +295,72 @@ function applyProviderFilter() {
   }
 }
 
+// --- Promotion Event / News 頁籤 ---
+const PROMOTION_TABS = /^(Event|News)$/;
+
+function promotionTabRow() {
+  return [...document.querySelectorAll('#container button')]
+    .find((button) => PROMOTION_TABS.test((button.textContent || '').trim()))
+    ?.parentElement || null;
+}
+
+function promotionCards() {
+  const row = promotionTabRow();
+  if (!row) return [];
+  const grid = row.nextElementSibling;
+  if (!grid || !grid.classList.contains('grid')) return [];
+  return [...grid.children].filter((child) => !child.classList.contains('promo-empty'));
+}
+
+function promotionTabLabel(value) {
+  return String(value || '').toLowerCase() === 'news' ? 'News' : 'Event';
+}
+
+function selectPromotionTab(value, updateUrl = false) {
+  const label = promotionTabLabel(value);
+  const row = promotionTabRow();
+  if (!row) return false;
+  const buttons = [...row.querySelectorAll('button')].filter((button) => PROMOTION_TABS.test((button.textContent || '').trim()));
+  const target = buttons.find((button) => (button.textContent || '').trim() === label);
+  if (!target) return false;
+
+  buttons.forEach((button) => {
+    const active = button === target;
+    button.classList.toggle('text-[#98E7D2]', active);
+    button.classList.toggle('text-gray-400', !active);
+    let underline = button.querySelector(':scope > div.absolute');
+    if (active && !underline) {
+      underline = document.createElement('div');
+      underline.className = 'absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#CBE8E4] to-[#98E7D2]';
+      button.appendChild(underline);
+    } else if (!active && underline) {
+      underline.remove();
+    }
+  });
+
+  const cards = promotionCards();
+  const grid = cards[0]?.parentElement || row.nextElementSibling;
+  cards.forEach((card) => { card.style.display = label === 'Event' ? '' : 'none'; });
+  let empty = grid && grid.querySelector(':scope > .promo-empty');
+  if (label === 'News') {
+    if (!empty && grid) {
+      empty = document.createElement('div');
+      empty.className = 'promo-empty';
+      empty.style.cssText = 'grid-column:1/-1;text-align:center;color:#9ca3af;padding:56px 16px';
+      empty.textContent = 'No news yet.';
+      grid.appendChild(empty);
+    }
+  } else if (empty) {
+    empty.remove();
+  }
+
+  if (updateUrl) {
+    const next = label === 'News' ? '#/promotion?tab=news' : '#/promotion?tab=event';
+    if (location.hash !== next) history.replaceState(null, '', next);
+  }
+  return true;
+}
+
 // 點比賽卡的星號 → 切換收藏
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('button');
@@ -324,5 +393,11 @@ document.addEventListener('click', (e) => {
   const tabRow = btn.closest('.border-b');
   if (tabRow && PROVIDERS.test(label)) {
     selectProviderTab(label);
+    return;
+  }
+
+  // --- Promotion Event / News 頁籤 ---
+  if (PROMOTION_TABS.test(label) && promotionTabRow()?.contains(btn)) {
+    selectPromotionTab(label, true);
   }
 });
