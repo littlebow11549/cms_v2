@@ -60,11 +60,11 @@ function ensurePaymentMethodStyles() {
     .wm-form-grid label{color:#d1d5db;font-weight:700}
     .wm-section-title{display:flex;align-items:center;gap:10px;color:#aae5d3;font-weight:800;font-size:17px;margin:0 0 18px}
     .wm-section-title:before{content:'';width:4px;height:20px;border-radius:99px;background:#98E7D2}
-    .wm-registered-card{display:flex;align-items:center;gap:16px;border-radius:12px;background:linear-gradient(135deg,#21342e,#263239);border:1px solid rgba(152,231,210,.22);padding:16px;color:#d1d5db;max-width:520px}
+    .wm-registered-card{display:flex;align-items:center;gap:16px;width:100%;height:140px;box-sizing:border-box;border-radius:12px;background:linear-gradient(135deg,#21342e,#263239);border:1px solid rgba(152,231,210,.22);padding:16px;color:#d1d5db}
     .wm-bank-logo{display:flex;align-items:center;justify-content:center;width:80px;height:50px;border-radius:8px;background:#dbeafe;color:#0f172a;font-weight:900}
     .wm-card-title{color:#fff;font-weight:800;margin-bottom:4px}
     .wm-card-muted{color:#9ca3af;font-size:13px}
-    .wm-empty-list{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#9ca3af;border:1px dashed #374151;border-radius:12px;background:#101820}
+    .wm-empty-list{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:140px;box-sizing:border-box;text-align:center;color:#9ca3af;border:1px dashed #374151;border-radius:12px;background:#101820}
     .wm-empty-list .pm-empty-coin{margin-bottom:12px}
     @media(max-width:700px){
       .pm-tabs{gap:8px}
