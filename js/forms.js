@@ -25,8 +25,10 @@ function ensurePaymentMethodStyles() {
     .pm-note{color:#fb7185;font-size:14px;font-weight:600;line-height:1.7;margin:0}
     .pm-rate{color:#d1d5db;font-size:14px;margin:8px 0 24px}
     .pm-promos{display:grid;gap:12px}
-    .pm-promo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db}
+    .pm-promo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;cursor:pointer;transition:border-color .18s,background .18s}
+    .pm-promo.active{border-color:#98E7D2;background:#14251f}
     .pm-radio{width:18px;height:18px;border-radius:50%;border:2px solid #6b7280;flex:0 0 auto}
+    .pm-promo.active .pm-radio{border-color:#98E7D2;box-shadow:inset 0 0 0 4px #0f1419;background:#98E7D2}
     .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:700}
     .pm-promo-amount{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#98E7D2;font-weight:800;white-space:nowrap}
     .pm-action{margin-top:20px;padding:12px 24px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;cursor:pointer}
@@ -37,6 +39,7 @@ function ensurePaymentMethodStyles() {
     .pm-info-box{align-self:start;border:1px solid rgba(152,231,210,.28);border-radius:12px;background:rgba(152,231,210,.08);padding:18px;color:#d1d5db}
     .pm-info-box strong{color:#98E7D2}
     .pm-wallet-form{margin-top:18px;display:grid;grid-template-columns:160px minmax(0,1fr);gap:12px 16px;align-items:center}
+    .pm-wallet-form label{color:#d1d5db;font-weight:700}
     .pm-select{appearance:none;background:#0f1419;border:1px solid #374151;border-radius:8px;padding:12px 36px 12px 14px;color:#d1d5db}
     .pm-balance{display:grid;grid-template-columns:160px minmax(0,1fr);gap:8px 16px;margin-top:20px;color:#d1d5db}
     .pm-balance strong{color:#98E7D2;font-size:22px}
@@ -154,6 +157,11 @@ function initPaymentMethods(slug) {
     const button = e.target.closest('[data-pay-tab]');
     if (!button) return;
     switchPaymentPanel(main, button.dataset.payTab);
+  });
+  main.addEventListener('click', (e) => {
+    const promo = e.target.closest('.pm-promo');
+    if (!promo || !main.contains(promo)) return;
+    main.querySelectorAll('.pm-promo').forEach((item) => item.classList.toggle('active', item === promo));
   });
 }
 
