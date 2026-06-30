@@ -32,12 +32,10 @@ function ensurePaymentMethodStyles() {
     .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:700}
     .pm-promo-amount{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#98E7D2;font-weight:800;white-space:nowrap}
     .pm-action{margin-top:20px;padding:12px 24px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;cursor:pointer}
-    .pm-wallet-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.75fr);gap:20px}
+    .pm-wallet-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
     .pm-wallet-empty{min-height:210px;border:1px dashed #374151;border-radius:14px;background:linear-gradient(135deg,#101820,#172128);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#9ca3af;padding:26px}
     .pm-empty-coin{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#222c35;color:#6b7280;font-size:34px;font-weight:900;margin-bottom:10px}
     .pm-add-wallet{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 20px;border-radius:999px;border:0;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;cursor:pointer}
-    .pm-info-box{align-self:start;border:1px solid rgba(152,231,210,.28);border-radius:12px;background:rgba(152,231,210,.08);padding:18px;color:#d1d5db}
-    .pm-info-box strong{color:#98E7D2}
     .pm-wallet-form{margin-top:18px;display:grid;grid-template-columns:160px minmax(0,1fr);gap:12px 16px;align-items:center}
     .pm-wallet-form label{color:#d1d5db;font-weight:700}
     .pm-select{appearance:none;background:#0f1419;border:1px solid #374151;border-radius:8px;padding:12px 36px 12px 14px;color:#d1d5db}
@@ -109,7 +107,6 @@ function withdrawalCryptoPanel() {
             <div>Empty wallet list</div>
             <button class="pm-add-wallet" type="button"><span style="font-size:20px;line-height:1">+</span>Add wallet</button>
           </div>
-          <div class="pm-info-box"><strong>Withdrawal Time:</strong><br>24 hours</div>
         </div>
         <div class="pm-balance">
           <div>Central Wallet:</div><strong>0.00</strong>
