@@ -80,9 +80,9 @@ function depositCryptoPanel() {
         </div>
         <div class="pm-grid">
           <div class="pm-label">Deposit Amounts:</div>
-          <div><input class="pm-input" placeholder="Deposit Amounts"><p class="pm-note">Deposit Limit: ₩ 50,000 (32.96 USDT) - ₩ 8,999,999 (5,932.83 USDT)</p></div>
+          <div><input class="pm-input" data-crypto-deposit-amount placeholder="Deposit Amounts" inputmode="numeric"><p class="pm-note">Deposit Limit: ₩ 50,000 (32.96 USDT) - ₩ 8,999,999 (5,932.83 USDT)</p></div>
           <div class="pm-label">Converted Crypto Amount:</div>
-          <div><input class="pm-input" placeholder="0.00" disabled> <span class="pm-label" style="margin-left:10px">USDT</span></div>
+          <div><input class="pm-input" data-crypto-converted-amount value="0.00" disabled> <span class="pm-label" style="margin-left:10px">USDT</span></div>
         </div>
         <p class="pm-rate">Exchange rate: <strong>1 USDT = ₩ 1,516.98</strong></p>
         <h2 class="pm-title">Choose promotion</h2>
@@ -136,6 +136,14 @@ function switchPaymentPanel(root, target) {
   });
 }
 
+function syncDepositCryptoAmount(input) {
+  const panel = input.closest('[data-pay-panel="crypto"]');
+  const output = panel?.querySelector('[data-crypto-converted-amount]');
+  if (!output) return;
+  const amount = Number((input.value || '').replace(/[^\d]/g, ''));
+  output.value = amount > 0 ? (amount / 1516.98).toFixed(2) : '0.00';
+}
+
 function initPaymentMethods(slug) {
   if (slug !== 'deposit' && slug !== 'withdrawal') return;
   const main = document.querySelector('#container main');
@@ -162,6 +170,10 @@ function initPaymentMethods(slug) {
     const promo = e.target.closest('.pm-promo');
     if (!promo || !main.contains(promo)) return;
     main.querySelectorAll('.pm-promo').forEach((item) => item.classList.toggle('active', item === promo));
+  });
+  main.addEventListener('input', (e) => {
+    const input = e.target.closest('[data-crypto-deposit-amount]');
+    if (input) syncDepositCryptoAmount(input);
   });
 }
 
