@@ -31,7 +31,7 @@ function ensurePaymentMethodStyles() {
     .pm-promo.active .pm-radio{border-color:#98E7D2;box-shadow:inset 0 0 0 4px #0f1419;background:#98E7D2}
     .pm-promo-main{display:flex;align-items:center;gap:12px;font-weight:700}
     .pm-promo-amount{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#98E7D2;font-weight:800;white-space:nowrap}
-    .pm-action{margin-top:20px;padding:12px 24px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;cursor:pointer}
+    .pm-action{display:inline-flex;align-items:center;justify-content:center;min-width:150px;height:48px;margin-top:22px;padding:0 28px;border:0;border-radius:999px;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622;font-weight:800;font-size:15px;line-height:1;cursor:pointer}
     .pm-wallet-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
     .pm-wallet-empty{min-height:210px;border:1px dashed #374151;border-radius:14px;background:linear-gradient(135deg,#101820,#172128);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#9ca3af;padding:26px}
     .pm-empty-coin{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#222c35;color:#6b7280;font-size:34px;font-weight:900;margin-bottom:10px}
@@ -47,15 +47,16 @@ function ensurePaymentMethodStyles() {
     .wm-mode-tab.active:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:99px;background:#98E7D2}
     .wm-management[hidden],.wm-method-panel[hidden]{display:none!important}
     .wm-management{width:100%;max-width:56rem;margin:0 auto;background:#1a2128;border:1px solid #1f2937;border-radius:10px;padding:24px}
-    .wm-method-tabs{display:flex;gap:12px;margin-bottom:22px}
-    .wm-method-tab{display:flex;align-items:center;gap:10px;min-width:170px;padding:12px 16px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:800;cursor:pointer}
+    .wm-method-tabs{display:flex;gap:14px;margin-bottom:22px}
+    .wm-method-tab{display:flex;align-items:center;justify-content:center;gap:14px;width:300px;padding:18px 28px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:800;font-size:16px;cursor:pointer}
+    .wm-method-tab svg{width:28px;height:28px;flex:0 0 auto}
     .wm-method-tab.active{border-color:#98E7D2;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622}
-    .wm-management-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.9fr);gap:28px}
+    .wm-management-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
     .wm-form-grid{display:grid;grid-template-columns:160px minmax(0,1fr);gap:14px 16px;align-items:center}
     .wm-form-grid label{color:#d1d5db;font-weight:700}
     .wm-section-title{display:flex;align-items:center;gap:10px;color:#aae5d3;font-weight:800;font-size:17px;margin:0 0 18px}
     .wm-section-title:before{content:'';width:4px;height:20px;border-radius:99px;background:#98E7D2}
-    .wm-registered-card{display:flex;align-items:center;gap:16px;border-radius:12px;background:linear-gradient(135deg,#21342e,#263239);border:1px solid rgba(152,231,210,.22);padding:16px;color:#d1d5db}
+    .wm-registered-card{display:flex;align-items:center;gap:16px;border-radius:12px;background:linear-gradient(135deg,#21342e,#263239);border:1px solid rgba(152,231,210,.22);padding:16px;color:#d1d5db;max-width:520px}
     .wm-bank-logo{display:flex;align-items:center;justify-content:center;width:80px;height:50px;border-radius:8px;background:#dbeafe;color:#0f172a;font-weight:900}
     .wm-card-title{color:#fff;font-weight:800;margin-bottom:4px}
     .wm-card-muted{color:#9ca3af;font-size:13px}
@@ -70,7 +71,7 @@ function ensurePaymentMethodStyles() {
       .pm-promo{align-items:flex-start;flex-direction:column}
       .wm-management{padding:18px}
       .wm-management-grid,.wm-form-grid{grid-template-columns:1fr}
-      .wm-method-tab{flex:1;min-width:0;justify-content:center}
+      .wm-method-tab{flex:1;width:auto;min-width:0;justify-content:center;padding:14px 12px}
     }
   `;
   document.head.appendChild(style);
