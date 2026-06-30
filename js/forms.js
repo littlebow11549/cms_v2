@@ -47,11 +47,12 @@ function ensurePaymentMethodStyles() {
     .wm-mode-tab.active:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:99px;background:#98E7D2}
     .wm-management[hidden],.wm-method-panel[hidden]{display:none!important}
     .wm-management{width:100%;max-width:56rem;margin:0 auto;background:#1a2128;border:1px solid #1f2937;border-radius:10px;padding:24px}
-    .wm-method-tabs{display:flex;gap:14px;margin-bottom:22px}
-    .wm-method-tab{display:flex;align-items:center;justify-content:center;gap:14px;width:300px;padding:18px 28px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:800;font-size:16px;cursor:pointer}
-    .wm-method-tab svg{width:28px;height:28px;flex:0 0 auto}
+    .wm-method-tabs{display:flex;gap:12px;margin-bottom:22px}
+    .wm-method-tab{display:flex;align-items:center;gap:10px;min-width:170px;padding:12px 18px;border-radius:10px;border:1px solid #374151;background:#0f1419;color:#d1d5db;font-weight:700;font-size:15px;cursor:pointer}
+    .wm-method-tab svg{width:22px;height:22px;flex:0 0 auto}
     .wm-method-tab.active{border-color:#98E7D2;background:linear-gradient(90deg,#CBE8E4,#98E7D2);color:#0f1622}
     .wm-management-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+    .wm-account-summary{margin-bottom:24px}
     .wm-form-grid{display:grid;grid-template-columns:160px minmax(0,1fr);gap:14px 16px;align-items:center}
     .wm-form-grid label{color:#d1d5db;font-weight:700}
     .wm-section-title{display:flex;align-items:center;gap:10px;color:#aae5d3;font-weight:800;font-size:17px;margin:0 0 18px}
@@ -71,7 +72,7 @@ function ensurePaymentMethodStyles() {
       .pm-promo{align-items:flex-start;flex-direction:column}
       .wm-management{padding:18px}
       .wm-management-grid,.wm-form-grid{grid-template-columns:1fr}
-      .wm-method-tab{flex:1;width:auto;min-width:0;justify-content:center;padding:14px 12px}
+      .wm-method-tab{flex:1;min-width:0;justify-content:center;padding:10px 12px;font-size:14px}
     }
   `;
   document.head.appendChild(style);
@@ -167,6 +168,17 @@ function accountManagementPanel() {
       <div class="wm-method-panel" data-account-panel="bank">
         <div class="wm-management-grid">
           <div>
+            <div class="wm-account-summary">
+              <h2 class="wm-section-title">Registered Withdrawal Accounts <span style="color:#d1d5db;font-weight:700">(1/5)</span></h2>
+              <div class="wm-registered-card">
+                <div class="wm-bank-logo">신한은행</div>
+                <div>
+                  <div class="wm-card-title">Shinhan Bank</div>
+                  <div class="wm-card-muted">********5123</div>
+                  <div class="wm-card-muted">2025-01-08 21:22:25</div>
+                </div>
+              </div>
+            </div>
             <div class="wm-form-grid">
               <label>Select Bank:</label><select class="pm-select"><option>Please Select a Bank</option><option>Shinhan Bank</option><option>KB Bank</option></select>
               <label>Name on Card:</label><input class="pm-input" value="T***" disabled>
@@ -175,36 +187,25 @@ function accountManagementPanel() {
             </div>
             <button class="pm-action" type="button">Submit</button>
           </div>
-          <div>
-            <h2 class="wm-section-title">Registered Withdrawal Accounts <span style="color:#d1d5db;font-weight:700">(1/5)</span></h2>
-            <div class="wm-registered-card">
-              <div class="wm-bank-logo">신한은행</div>
-              <div>
-                <div class="wm-card-title">Shinhan Bank</div>
-                <div class="wm-card-muted">********5123</div>
-                <div class="wm-card-muted">2025-01-08 21:22:25</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="wm-method-panel" data-account-panel="crypto" hidden>
         <div class="wm-management-grid">
           <div>
+            <div class="wm-account-summary">
+              <h2 class="wm-section-title">Bound wallet <span style="color:#d1d5db;font-weight:700">(0/1)</span></h2>
+              <div class="wm-empty-list">
+                <div class="pm-empty-coin">₿</div>
+                <div>Empty wallet list</div>
+              </div>
+            </div>
             <div class="wm-form-grid">
               <label>Wallet type:</label><select class="pm-select"><option>Please select wallet type</option><option>USDT TRC20</option></select>
               <label>Wallet address:</label><input class="pm-input" placeholder="Please fill in wallet address">
               <label>Transaction Password:</label><input class="pm-input" type="password" placeholder="Please Fill in the Transaction Password">
             </div>
             <button class="pm-action" type="button">Submit</button>
-          </div>
-          <div>
-            <h2 class="wm-section-title">Bound wallet <span style="color:#d1d5db;font-weight:700">(0/1)</span></h2>
-            <div class="wm-empty-list">
-              <div class="pm-empty-coin">₿</div>
-              <div>Empty wallet list</div>
-            </div>
           </div>
         </div>
       </div>
