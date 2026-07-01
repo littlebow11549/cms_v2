@@ -4,9 +4,16 @@ Production is the GitHub Pages static site served from `main`:
 
 https://littlebow11549.github.io/cms_v2/#/home
 
-## Preserved Versions
+## Versions
 
-- GitHub Pages latest production: tag `keep/github-pages-latest-2026-06-29`
-- Figma React version: branch `backup/figma-react-version`, tag `keep/figma-react-version-2026-06-29`
+- Production: branch `main`
+- Production backup: branch `backup/github-pages-production`
+- Figma React version: branch `backup/figma-react-version`
 
-`frontend/` is a Nuxt rebuild/prototype and is not the current production target.
+The production site is the static application in `index.html`, `pages/`, `js/`,
+`css/`, `assets/`, and `_external/`.
+
+Safety tags:
+
+- `keep/github-pages-latest-2026-06-29`
+- `keep/figma-react-version-2026-06-29`
